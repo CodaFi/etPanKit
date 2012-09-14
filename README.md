@@ -5,6 +5,7 @@ EtPanKit is an Objective-C interface for the  libEtPan framework for Mac and iOS
 * Fast, efficient, and secure IMAP and SMTP connections and requests with some POP requests built in.
 * Many abstract classes for maximum subclass-ability.
 * Abstraction from the LibEtPan C-interface.
+* IDLE support.
 * NSOperation based classes which are submitted asynchronously to their queue.   
 * Block-based and delegate-based callbacks for operations.
 
@@ -19,7 +20,11 @@ EtPanKit revolves around the use of request classes, which are submitted to a qu
 ```Objective-C
 -(id)init {
     if (self = [super init]) {
-        //initialize an account with the proper credentials.  Invalid credentials return NULL objects, or crash certificate checks.  You can get around this with an account check request
+        /**
+        initialize an account with the proper credentials.  
+        Invalid credentials return NULL objects, or crash certificate checks.  
+        You can get around this with an account check request
+        */
 
         LEPIMAPAccount *sampleAccount = [[LEPIMAPAccount alloc]init];
         [sampleAccount setHost:@"imap.gmail.com"];
@@ -28,7 +33,10 @@ EtPanKit revolves around the use of request classes, which are submitted to a qu
         [sampleAccount setPassword:@"someSecurePassword"];
         [sampleAccount setAuthType:LEPAuthTypeTLS];
 
-        //initialize a fetch request with a delegate callback.  Make sure your class conforms to the LEPIMAPRequestDelegate protocol
+        /**
+        initialize a fetch request with a delegate callback.  
+        Make sure your class conforms to the LEPIMAPRequestDelegate protocol
+        */
 
         LEPIMAPFetchMessageRequest *fetchRequest = [[sampleAccount inboxFolder]fetchMessagesRequest];
         [fetchRequest setDelegate:self];
