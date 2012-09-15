@@ -106,7 +106,7 @@
 	
 	request = [[LEPIMAPRenameFolderRequest alloc] init];
     [request setOldPath:[self path]];
-    [request setNewPath:newPath];
+    [request setNewerPath:newPath];
     
     [self _setupRequest:request];
     

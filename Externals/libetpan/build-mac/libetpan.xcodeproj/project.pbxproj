@@ -3,10 +3,344 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 45;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8465FBD115EBA204002937E2 /* base64.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E850105335BC0059C3BA /* base64.h */; settings = {ATTRIBUTES = (); }; };
+		8465FBD215EBA204002937E2 /* carray.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E852105335BC0059C3BA /* carray.h */; settings = {ATTRIBUTES = (); }; };
+		8465FBD315EBA204002937E2 /* charconv.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E854105335BC0059C3BA /* charconv.h */; settings = {ATTRIBUTES = (); }; };
+		8465FBD415EBA204002937E2 /* chash.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E856105335BC0059C3BA /* chash.h */; settings = {ATTRIBUTES = (); }; };
+		8465FBD515EBA204002937E2 /* clist.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E858105335BC0059C3BA /* clist.h */; settings = {ATTRIBUTES = (); }; };
+		8465FBD615EBA204002937E2 /* connect.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E85A105335BC0059C3BA /* connect.h */; settings = {ATTRIBUTES = (); }; };
+		8465FBD715EBA204002937E2 /* hmac-md5.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E85B105335BC0059C3BA /* hmac-md5.h */; settings = {ATTRIBUTES = (); }; };
+		8465FBD815EBA204002937E2 /* mail.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E85C105335BC0059C3BA /* mail.h */; settings = {ATTRIBUTES = (); }; };
+		8465FBD915EBA204002937E2 /* mail_cache_db.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E85E105335BC0059C3BA /* mail_cache_db.h */; settings = {ATTRIBUTES = (); }; };
+		8465FBDA15EBA204002937E2 /* mail_cache_db_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E85F105335BC0059C3BA /* mail_cache_db_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FBDB15EBA204002937E2 /* maillock.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E861105335BC0059C3BA /* maillock.h */; settings = {ATTRIBUTES = (); }; };
+		8465FBDC15EBA204002937E2 /* mailsasl.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E863105335BC0059C3BA /* mailsasl.h */; settings = {ATTRIBUTES = (); }; };
+		8465FBDD15EBA204002937E2 /* mailsem.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E865105335BC0059C3BA /* mailsem.h */; settings = {ATTRIBUTES = (); }; };
+		8465FBDE15EBA204002937E2 /* mailstream.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E867105335BC0059C3BA /* mailstream.h */; settings = {ATTRIBUTES = (); }; };
+		8465FBDF15EBA204002937E2 /* mailstream_cancel.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E869105335BC0059C3BA /* mailstream_cancel.h */; settings = {ATTRIBUTES = (); }; };
+		8465FBE015EBA204002937E2 /* mailstream_cancel_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E86A105335BC0059C3BA /* mailstream_cancel_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FBE115EBA204002937E2 /* mailstream_helper.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E86C105335BC0059C3BA /* mailstream_helper.h */; settings = {ATTRIBUTES = (); }; };
+		8465FBE215EBA204002937E2 /* mailstream_low.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E86E105335BC0059C3BA /* mailstream_low.h */; settings = {ATTRIBUTES = (); }; };
+		8465FBE315EBA204002937E2 /* mailstream_socket.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E870105335BC0059C3BA /* mailstream_socket.h */; settings = {ATTRIBUTES = (); }; };
+		8465FBE415EBA204002937E2 /* mailstream_ssl.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E872105335BC0059C3BA /* mailstream_ssl.h */; settings = {ATTRIBUTES = (); }; };
+		8465FBE515EBA204002937E2 /* mailstream_ssl_private.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E873105335BC0059C3BA /* mailstream_ssl_private.h */; settings = {ATTRIBUTES = (); }; };
+		8465FBE615EBA204002937E2 /* mailstream_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E874105335BC0059C3BA /* mailstream_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FBE715EBA204002937E2 /* md5.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E879105335BC0059C3BA /* md5.h */; settings = {ATTRIBUTES = (); }; };
+		8465FBE815EBA204002937E2 /* md5global.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E87A105335BC0059C3BA /* md5global.h */; settings = {ATTRIBUTES = (); }; };
+		8465FBE915EBA204002937E2 /* mmapstring.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E87C105335BC0059C3BA /* mmapstring.h */; settings = {ATTRIBUTES = (); }; };
+		8465FBEA15EBA204002937E2 /* mmapstring_private.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E87D105335BC0059C3BA /* mmapstring_private.h */; settings = {ATTRIBUTES = (); }; };
+		8465FBEB15EBA204002937E2 /* timeutils.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E87F105335BC0059C3BA /* timeutils.h */; settings = {ATTRIBUTES = (); }; };
+		8465FBEC15EBA204002937E2 /* data_message_driver.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E889105335BC0059C3BA /* data_message_driver.h */; settings = {ATTRIBUTES = (); }; };
+		8465FBED15EBA204002937E2 /* dbdriver.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E894105335BC0059C3BA /* dbdriver.h */; settings = {ATTRIBUTES = (); }; };
+		8465FBEE15EBA204002937E2 /* dbdriver_message.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E896105335BC0059C3BA /* dbdriver_message.h */; settings = {ATTRIBUTES = (); }; };
+		8465FBEF15EBA204002937E2 /* dbdriver_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E897105335BC0059C3BA /* dbdriver_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FBF015EBA204002937E2 /* dbstorage.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E899105335BC0059C3BA /* dbstorage.h */; settings = {ATTRIBUTES = (); }; };
+		8465FBF115EBA204002937E2 /* feeddriver.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E8A3105335BC0059C3BA /* feeddriver.h */; settings = {ATTRIBUTES = (); }; };
+		8465FBF215EBA204002937E2 /* feeddriver_message.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E8A5105335BC0059C3BA /* feeddriver_message.h */; settings = {ATTRIBUTES = (); }; };
+		8465FBF315EBA204002937E2 /* feeddriver_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E8A6105335BC0059C3BA /* feeddriver_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FBF415EBA204002937E2 /* feedstorage.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E8A8105335BC0059C3BA /* feedstorage.h */; settings = {ATTRIBUTES = (); }; };
+		8465FBF515EBA204002937E2 /* hotmailstorage.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E8B1105335BC0059C3BA /* hotmailstorage.h */; settings = {ATTRIBUTES = (); }; };
+		8465FBF615EBA204002937E2 /* imapdriver.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E8BF105335BC0059C3BA /* imapdriver.h */; settings = {ATTRIBUTES = (); }; };
+		8465FBF715EBA204002937E2 /* imapdriver_cached.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E8C1105335BC0059C3BA /* imapdriver_cached.h */; settings = {ATTRIBUTES = (); }; };
+		8465FBF815EBA204002937E2 /* imapdriver_cached_message.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E8C3105335BC0059C3BA /* imapdriver_cached_message.h */; settings = {ATTRIBUTES = (); }; };
+		8465FBF915EBA204002937E2 /* imapdriver_message.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E8C5105335BC0059C3BA /* imapdriver_message.h */; settings = {ATTRIBUTES = (); }; };
+		8465FBFA15EBA204002937E2 /* imapdriver_tools.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E8C7105335BC0059C3BA /* imapdriver_tools.h */; settings = {ATTRIBUTES = (); }; };
+		8465FBFB15EBA204002937E2 /* imapdriver_tools_private.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E8C8105335BC0059C3BA /* imapdriver_tools_private.h */; settings = {ATTRIBUTES = (); }; };
+		8465FBFC15EBA204002937E2 /* imapdriver_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E8C9105335BC0059C3BA /* imapdriver_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FBFD15EBA204002937E2 /* imapstorage.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E8CB105335BC0059C3BA /* imapstorage.h */; settings = {ATTRIBUTES = (); }; };
+		8465FBFE15EBA204002937E2 /* maildirdriver.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E8D9105335BC0059C3BA /* maildirdriver.h */; settings = {ATTRIBUTES = (); }; };
+		8465FBFF15EBA204002937E2 /* maildirdriver_cached.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E8DB105335BC0059C3BA /* maildirdriver_cached.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC0015EBA204002937E2 /* maildirdriver_cached_message.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E8DD105335BC0059C3BA /* maildirdriver_cached_message.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC0115EBA204002937E2 /* maildirdriver_message.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E8DF105335BC0059C3BA /* maildirdriver_message.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC0215EBA204002937E2 /* maildirdriver_tools.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E8E1105335BC0059C3BA /* maildirdriver_tools.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC0315EBA204002937E2 /* maildirdriver_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E8E2105335BC0059C3BA /* maildirdriver_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC0415EBA204002937E2 /* maildirstorage.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E8E4105335BC0059C3BA /* maildirstorage.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC0515EBA204002937E2 /* mboxdriver.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E8F8105335BC0059C3BA /* mboxdriver.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC0615EBA204002937E2 /* mboxdriver_cached.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E8FA105335BC0059C3BA /* mboxdriver_cached.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC0715EBA204002937E2 /* mboxdriver_cached_message.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E8FC105335BC0059C3BA /* mboxdriver_cached_message.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC0815EBA204002937E2 /* mboxdriver_message.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E8FE105335BC0059C3BA /* mboxdriver_message.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC0915EBA204002937E2 /* mboxdriver_tools.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E900105335BC0059C3BA /* mboxdriver_tools.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC0A15EBA204002937E2 /* mboxdriver_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E901105335BC0059C3BA /* mboxdriver_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC0B15EBA204002937E2 /* mboxstorage.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E903105335BC0059C3BA /* mboxstorage.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC0C15EBA204002937E2 /* mhdriver.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E911105335BC0059C3BA /* mhdriver.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC0D15EBA204002937E2 /* mhdriver_cached.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E913105335BC0059C3BA /* mhdriver_cached.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC0E15EBA204002937E2 /* mhdriver_cached_message.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E915105335BC0059C3BA /* mhdriver_cached_message.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC0F15EBA204002937E2 /* mhdriver_message.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E917105335BC0059C3BA /* mhdriver_message.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC1015EBA204002937E2 /* mhdriver_tools.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E919105335BC0059C3BA /* mhdriver_tools.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC1115EBA204002937E2 /* mhdriver_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E91A105335BC0059C3BA /* mhdriver_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC1215EBA204002937E2 /* mhstorage.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E91C105335BC0059C3BA /* mhstorage.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC1315EBA204002937E2 /* mime_message_driver.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E925105335BC0059C3BA /* mime_message_driver.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC1415EBA204002937E2 /* pop3driver.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E94C105335BC0059C3BA /* pop3driver.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC1515EBA204002937E2 /* pop3driver_cached.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E94E105335BC0059C3BA /* pop3driver_cached.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC1615EBA204002937E2 /* pop3driver_cached_message.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E950105335BC0059C3BA /* pop3driver_cached_message.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC1715EBA204002937E2 /* pop3driver_message.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E952105335BC0059C3BA /* pop3driver_message.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC1815EBA204002937E2 /* pop3driver_tools.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E954105335BC0059C3BA /* pop3driver_tools.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC1915EBA204002937E2 /* pop3driver_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E955105335BC0059C3BA /* pop3driver_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC1A15EBA204002937E2 /* pop3storage.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E957105335BC0059C3BA /* pop3storage.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC1B15EBA204002937E2 /* maildriver.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E966105335BC0059C3BA /* maildriver.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC1C15EBA204002937E2 /* maildriver_errors.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E967105335BC0059C3BA /* maildriver_errors.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC1D15EBA204002937E2 /* maildriver_tools.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E969105335BC0059C3BA /* maildriver_tools.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC1E15EBA204002937E2 /* maildriver_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E96B105335BC0059C3BA /* maildriver_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC1F15EBA204002937E2 /* maildriver_types_helper.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E96D105335BC0059C3BA /* maildriver_types_helper.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC2015EBA204002937E2 /* mailfolder.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E96F105335BC0059C3BA /* mailfolder.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC2115EBA204002937E2 /* mailmessage.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E971105335BC0059C3BA /* mailmessage.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC2215EBA204002937E2 /* mailmessage_tools.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E973105335BC0059C3BA /* mailmessage_tools.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC2315EBA204002937E2 /* mailmessage_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E975105335BC0059C3BA /* mailmessage_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC2415EBA204002937E2 /* mailstorage.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E977105335BC0059C3BA /* mailstorage.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC2515EBA204002937E2 /* mailstorage_tools.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E979105335BC0059C3BA /* mailstorage_tools.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC2615EBA204002937E2 /* mailstorage_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E97A105335BC0059C3BA /* mailstorage_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC2715EBA204002937E2 /* generic_cache.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E98A105335BC0059C3BA /* generic_cache.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC2815EBA204002937E2 /* generic_cache_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E98B105335BC0059C3BA /* generic_cache_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC2915EBA204002937E2 /* imfcache.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E98D105335BC0059C3BA /* imfcache.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC2A15EBA204002937E2 /* mailthread.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E98F105335BC0059C3BA /* mailthread.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC2B15EBA204002937E2 /* mailthread_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E991105335BC0059C3BA /* mailthread_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC2C15EBA204002937E2 /* mailengine.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E99F105335BC0059C3BA /* mailengine.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC2D15EBA204002937E2 /* mailprivacy.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E9A1105335BC0059C3BA /* mailprivacy.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC2E15EBA204002937E2 /* mailprivacy_gnupg.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E9A3105335BC0059C3BA /* mailprivacy_gnupg.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC2F15EBA204002937E2 /* mailprivacy_smime.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E9A5105335BC0059C3BA /* mailprivacy_smime.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC3015EBA204002937E2 /* mailprivacy_tools.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E9A7105335BC0059C3BA /* mailprivacy_tools.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC3115EBA204002937E2 /* mailprivacy_tools_private.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E9A8105335BC0059C3BA /* mailprivacy_tools_private.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC3215EBA204002937E2 /* mailprivacy_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E9A9105335BC0059C3BA /* mailprivacy_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC3315EBA204002937E2 /* date.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E9BC105335BC0059C3BA /* date.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC3415EBA205002937E2 /* newsfeed.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E9C1105335BC0059C3BA /* newsfeed.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC3515EBA205002937E2 /* newsfeed_item.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E9C3105335BC0059C3BA /* newsfeed_item.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC3615EBA205002937E2 /* newsfeed_item_enclosure.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E9C5105335BC0059C3BA /* newsfeed_item_enclosure.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC3715EBA205002937E2 /* newsfeed_private.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E9C7105335BC0059C3BA /* newsfeed_private.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC3815EBA205002937E2 /* newsfeed_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E9C8105335BC0059C3BA /* newsfeed_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC3915EBA205002937E2 /* parser.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E9CA105335BC0059C3BA /* parser.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC3A15EBA205002937E2 /* parser_atom03.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E9CC105335BC0059C3BA /* parser_atom03.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC3B15EBA205002937E2 /* parser_atom10.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E9CE105335BC0059C3BA /* parser_atom10.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC3C15EBA205002937E2 /* parser_rdf.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E9D0105335BC0059C3BA /* parser_rdf.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC3D15EBA205002937E2 /* parser_rss20.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E9D2105335BC0059C3BA /* parser_rss20.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC3E15EBA205002937E2 /* acl.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E9EF105335BC0059C3BA /* acl.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC3F15EBA205002937E2 /* acl_parser.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E9F1105335BC0059C3BA /* acl_parser.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC4015EBA205002937E2 /* acl_sender.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E9F3105335BC0059C3BA /* acl_sender.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC4115EBA205002937E2 /* acl_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E9F5105335BC0059C3BA /* acl_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC4215EBA205002937E2 /* annotatemore.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E9F7105335BC0059C3BA /* annotatemore.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC4315EBA205002937E2 /* annotatemore_parser.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E9F9105335BC0059C3BA /* annotatemore_parser.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC4415EBA205002937E2 /* annotatemore_sender.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E9FB105335BC0059C3BA /* annotatemore_sender.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC4515EBA205002937E2 /* annotatemore_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E9FD105335BC0059C3BA /* annotatemore_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC4615EBA205002937E2 /* idle.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E9FF105335BC0059C3BA /* idle.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC4715EBA205002937E2 /* mailimap.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EA01105335BC0059C3BA /* mailimap.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC4815EBA205002937E2 /* mailimap_extension.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EA03105335BC0059C3BA /* mailimap_extension.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC4915EBA205002937E2 /* mailimap_extension_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EA04105335BC0059C3BA /* mailimap_extension_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC4A15EBA205002937E2 /* mailimap_helper.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EA06105335BC0059C3BA /* mailimap_helper.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC4B15EBA205002937E2 /* mailimap_keywords.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EA08105335BC0059C3BA /* mailimap_keywords.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC4C15EBA205002937E2 /* mailimap_parser.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EA0A105335BC0059C3BA /* mailimap_parser.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC4D15EBA205002937E2 /* mailimap_print.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EA0C105335BC0059C3BA /* mailimap_print.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC4E15EBA205002937E2 /* mailimap_sender.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EA0E105335BC0059C3BA /* mailimap_sender.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC4F15EBA205002937E2 /* mailimap_socket.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EA10105335BC0059C3BA /* mailimap_socket.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC5015EBA205002937E2 /* mailimap_ssl.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EA12105335BC0059C3BA /* mailimap_ssl.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC5115EBA205002937E2 /* mailimap_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EA14105335BC0059C3BA /* mailimap_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC5215EBA205002937E2 /* mailimap_types_helper.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EA16105335BC0059C3BA /* mailimap_types_helper.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC5315EBA205002937E2 /* namespace.h in Headers */ = {isa = PBXBuildFile; fileRef = C6516B69130DD667004ADD56 /* namespace.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC5415EBA205002937E2 /* namespace_parser.h in Headers */ = {isa = PBXBuildFile; fileRef = C65179F0130E85CA004ADD56 /* namespace_parser.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC5515EBA205002937E2 /* namespace_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6517A05130E86C6004ADD56 /* namespace_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC5615EBA205002937E2 /* namespace_sender.h in Headers */ = {isa = PBXBuildFile; fileRef = C6517A0B130E86D3004ADD56 /* namespace_sender.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC5715EBA205002937E2 /* quota.h in Headers */ = {isa = PBXBuildFile; fileRef = C6E57201110376F200897274 /* quota.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC5815EBA205002937E2 /* quota_parser.h in Headers */ = {isa = PBXBuildFile; fileRef = C6E571FB110376F200897274 /* quota_parser.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC5915EBA205002937E2 /* quota_sender.h in Headers */ = {isa = PBXBuildFile; fileRef = C6E571FD110376F200897274 /* quota_sender.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC5A15EBA205002937E2 /* quota_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6E571FF110376F200897274 /* quota_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC5B15EBA205002937E2 /* uidplus.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EA1C105335BC0059C3BA /* uidplus.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC5C15EBA205002937E2 /* uidplus_parser.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EA1E105335BC0059C3BA /* uidplus_parser.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC5D15EBA205002937E2 /* uidplus_sender.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EA20105335BC0059C3BA /* uidplus_sender.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC5E15EBA205002937E2 /* uidplus_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EA22105335BC0059C3BA /* uidplus_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC5F15EBA205002937E2 /* xlist.h in Headers */ = {isa = PBXBuildFile; fileRef = C6667DEE1342ACCD00969A8E /* xlist.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC6015EBA205002937E2 /* mailimf.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EA2D105335BC0059C3BA /* mailimf.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC6115EBA205002937E2 /* mailimf_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EA2F105335BC0059C3BA /* mailimf_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC6215EBA205002937E2 /* mailimf_types_helper.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EA31105335BC0059C3BA /* mailimf_types_helper.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC6315EBA205002937E2 /* mailimf_write.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EA32105335BC0059C3BA /* mailimf_write.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC6415EBA205002937E2 /* mailimf_write_file.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EA34105335BC0059C3BA /* mailimf_write_file.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC6515EBA205002937E2 /* mailimf_write_generic.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EA36105335BC0059C3BA /* mailimf_write_generic.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC6615EBA205002937E2 /* mailimf_write_mem.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EA38105335BC0059C3BA /* mailimf_write_mem.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC6715EBA205002937E2 /* maildir.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EA42105335BC0059C3BA /* maildir.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC6815EBA205002937E2 /* maildir_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EA43105335BC0059C3BA /* maildir_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC6915EBA205002937E2 /* mailmbox.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EA51105335BC0059C3BA /* mailmbox.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC6A15EBA205002937E2 /* mailmbox_parse.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EA53105335BC0059C3BA /* mailmbox_parse.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC6B15EBA205002937E2 /* mailmbox_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EA55105335BC0059C3BA /* mailmbox_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC6C15EBA205002937E2 /* mailmh.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EA5F105335BC0059C3BA /* mailmh.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC6D15EBA205002937E2 /* mailmime.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EA70105335BC0059C3BA /* mailmime.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC6E15EBA205002937E2 /* mailmime_content.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EA72105335BC0059C3BA /* mailmime_content.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC6F15EBA205002937E2 /* mailmime_decode.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EA74105335BC0059C3BA /* mailmime_decode.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC7015EBA205002937E2 /* mailmime_disposition.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EA76105335BC0059C3BA /* mailmime_disposition.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC7115EBA205002937E2 /* mailmime_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EA78105335BC0059C3BA /* mailmime_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC7215EBA205002937E2 /* mailmime_types_helper.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EA7A105335BC0059C3BA /* mailmime_types_helper.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC7315EBA205002937E2 /* mailmime_write.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EA7B105335BC0059C3BA /* mailmime_write.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC7415EBA205002937E2 /* mailmime_write_file.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EA7D105335BC0059C3BA /* mailmime_write_file.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC7515EBA205002937E2 /* mailmime_write_generic.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EA7F105335BC0059C3BA /* mailmime_write_generic.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC7615EBA205002937E2 /* mailmime_write_mem.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EA81105335BC0059C3BA /* mailmime_write_mem.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC7715EBA205002937E2 /* newsnntp.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EA90105335BC0059C3BA /* newsnntp.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC7815EBA205002937E2 /* newsnntp_socket.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EA92105335BC0059C3BA /* newsnntp_socket.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC7915EBA205002937E2 /* newsnntp_ssl.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EA94105335BC0059C3BA /* newsnntp_ssl.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC7A15EBA205002937E2 /* newsnntp_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EA95105335BC0059C3BA /* newsnntp_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC7B15EBA205002937E2 /* mailpop3.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EA9E105335BC0059C3BA /* mailpop3.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC7C15EBA205002937E2 /* mailpop3_helper.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EAA0105335BC0059C3BA /* mailpop3_helper.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC7D15EBA205002937E2 /* mailpop3_socket.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EAA2105335BC0059C3BA /* mailpop3_socket.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC7E15EBA205002937E2 /* mailpop3_ssl.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EAA4105335BC0059C3BA /* mailpop3_ssl.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC7F15EBA205002937E2 /* mailpop3_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EAA5105335BC0059C3BA /* mailpop3_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC8015EBA205002937E2 /* mailsmtp.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EAB1105335BC0059C3BA /* mailsmtp.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC8115EBA205002937E2 /* mailsmtp_helper.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EAB3105335BC0059C3BA /* mailsmtp_helper.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC8215EBA205002937E2 /* mailsmtp_socket.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EAB5105335BC0059C3BA /* mailsmtp_socket.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC8315EBA205002937E2 /* mailsmtp_ssl.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EAB7105335BC0059C3BA /* mailsmtp_ssl.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC8415EBA205002937E2 /* mailsmtp_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EAB8105335BC0059C3BA /* mailsmtp_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC8515EBA259002937E2 /* nntpdriver.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E933105335BC0059C3BA /* nntpdriver.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC8615EBA259002937E2 /* nntpdriver_cached.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E935105335BC0059C3BA /* nntpdriver_cached.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC8715EBA259002937E2 /* nntpdriver_cached_message.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E937105335BC0059C3BA /* nntpdriver_cached_message.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC8815EBA259002937E2 /* nntpdriver_message.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E939105335BC0059C3BA /* nntpdriver_message.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC8915EBA259002937E2 /* nntpdriver_tools.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E93B105335BC0059C3BA /* nntpdriver_tools.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC8A15EBA259002937E2 /* nntpdriver_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E93C105335BC0059C3BA /* nntpdriver_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC8B15EBA259002937E2 /* nntpstorage.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E93E105335BC0059C3BA /* nntpstorage.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC8C15EBA259002937E2 /* libetpan.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EAC1105335BD0059C3BA /* libetpan.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC8D15EBA259002937E2 /* namespace_parser.h in Headers */ = {isa = PBXBuildFile; fileRef = C68C61FE130FFE7E00F16728 /* namespace_parser.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC8E15EBA259002937E2 /* namespace_sender.h in Headers */ = {isa = PBXBuildFile; fileRef = C68C61FF130FFE7E00F16728 /* namespace_sender.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC8F15EBA259002937E2 /* namespace_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C68C6200130FFE7E00F16728 /* namespace_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC9015EBA259002937E2 /* namespace.h in Headers */ = {isa = PBXBuildFile; fileRef = C68C6201130FFE7E00F16728 /* namespace.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC9115EBA259002937E2 /* quota_parser.h in Headers */ = {isa = PBXBuildFile; fileRef = C68C6202130FFE7E00F16728 /* quota_parser.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC9215EBA259002937E2 /* quota_sender.h in Headers */ = {isa = PBXBuildFile; fileRef = C68C6203130FFE7E00F16728 /* quota_sender.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC9315EBA259002937E2 /* quota_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C68C6204130FFE7E00F16728 /* quota_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC9415EBA259002937E2 /* quota.h in Headers */ = {isa = PBXBuildFile; fileRef = C68C6205130FFE7E00F16728 /* quota.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC9515EBA259002937E2 /* acl.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66931083CDA000FA050B /* acl.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC9615EBA259002937E2 /* acl_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66941083CDA000FA050B /* acl_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC9715EBA259002937E2 /* annotatemore.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66951083CDA000FA050B /* annotatemore.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC9815EBA259002937E2 /* annotatemore_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66961083CDA000FA050B /* annotatemore_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC9915EBA259002937E2 /* carray.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66971083CDA000FA050B /* carray.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC9A15EBA259002937E2 /* charconv.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66981083CDA000FA050B /* charconv.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC9B15EBA259002937E2 /* chash.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66991083CDA000FA050B /* chash.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC9C15EBA259002937E2 /* clist.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC669A1083CDA000FA050B /* clist.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC9D15EBA259002937E2 /* data_message_driver.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC669B1083CDA000FA050B /* data_message_driver.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC9E15EBA259002937E2 /* dbdriver.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC669C1083CDA000FA050B /* dbdriver.h */; settings = {ATTRIBUTES = (); }; };
+		8465FC9F15EBA259002937E2 /* dbdriver_message.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC669D1083CDA000FA050B /* dbdriver_message.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCA015EBA259002937E2 /* dbdriver_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC669E1083CDA000FA050B /* dbdriver_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCA115EBA259002937E2 /* dbstorage.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC669F1083CDA000FA050B /* dbstorage.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCA215EBA259002937E2 /* feeddriver.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66A01083CDA000FA050B /* feeddriver.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCA315EBA259002937E2 /* feeddriver_message.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66A11083CDA000FA050B /* feeddriver_message.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCA415EBA259002937E2 /* feeddriver_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66A21083CDA000FA050B /* feeddriver_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCA515EBA259002937E2 /* feedstorage.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66A31083CDA000FA050B /* feedstorage.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCA615EBA259002937E2 /* generic_cache_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66A41083CDA000FA050B /* generic_cache_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCA715EBA259002937E2 /* hotmailstorage.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66A51083CDA000FA050B /* hotmailstorage.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCA815EBA259002937E2 /* idle.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66A61083CDA000FA050B /* idle.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCA915EBA259002937E2 /* imapdriver.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66A71083CDA000FA050B /* imapdriver.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCAA15EBA259002937E2 /* imapdriver_cached.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66A81083CDA000FA050B /* imapdriver_cached.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCAB15EBA259002937E2 /* imapdriver_cached_message.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66A91083CDA000FA050B /* imapdriver_cached_message.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCAC15EBA259002937E2 /* imapdriver_message.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66AA1083CDA000FA050B /* imapdriver_message.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCAD15EBA259002937E2 /* imapdriver_tools.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66AB1083CDA000FA050B /* imapdriver_tools.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCAE15EBA259002937E2 /* imapdriver_tools_private.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66AC1083CDA000FA050B /* imapdriver_tools_private.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCAF15EBA259002937E2 /* imapdriver_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66AD1083CDA000FA050B /* imapdriver_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCB015EBA259002937E2 /* imapstorage.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66AE1083CDA000FA050B /* imapstorage.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCB115EBA259002937E2 /* libetpan-config.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66AF1083CDA000FA050B /* libetpan-config.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCB215EBA259002937E2 /* libetpan.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66B01083CDA000FA050B /* libetpan.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCB315EBA259002937E2 /* libetpan_version.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66B11083CDA000FA050B /* libetpan_version.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCB415EBA259002937E2 /* mail.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66B21083CDA000FA050B /* mail.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCB515EBA259002937E2 /* maildir.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66B31083CDA000FA050B /* maildir.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCB615EBA259002937E2 /* maildir_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66B41083CDA000FA050B /* maildir_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCB715EBA259002937E2 /* maildirdriver.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66B51083CDA000FA050B /* maildirdriver.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCB815EBA259002937E2 /* maildirdriver_cached.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66B61083CDA000FA050B /* maildirdriver_cached.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCB915EBA259002937E2 /* maildirdriver_cached_message.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66B71083CDA000FA050B /* maildirdriver_cached_message.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCBA15EBA259002937E2 /* maildirdriver_message.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66B81083CDA000FA050B /* maildirdriver_message.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCBB15EBA259002937E2 /* maildirdriver_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66B91083CDA000FA050B /* maildirdriver_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCBC15EBA259002937E2 /* maildirstorage.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66BA1083CDA000FA050B /* maildirstorage.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCBD15EBA259002937E2 /* maildriver.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66BB1083CDA000FA050B /* maildriver.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCBE15EBA259002937E2 /* maildriver_errors.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66BC1083CDA000FA050B /* maildriver_errors.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCBF15EBA259002937E2 /* maildriver_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66BD1083CDA000FA050B /* maildriver_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCC015EBA259002937E2 /* maildriver_types_helper.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66BE1083CDA000FA050B /* maildriver_types_helper.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCC115EBA259002937E2 /* mailengine.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66BF1083CDA000FA050B /* mailengine.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCC215EBA259002937E2 /* mailfolder.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66C01083CDA000FA050B /* mailfolder.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCC315EBA259002937E2 /* mailimap.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66C11083CDA000FA050B /* mailimap.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCC415EBA259002937E2 /* mailimap_extension.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66C21083CDA000FA050B /* mailimap_extension.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCC515EBA259002937E2 /* mailimap_extension_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66C31083CDA000FA050B /* mailimap_extension_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCC615EBA259002937E2 /* mailimap_helper.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66C41083CDA000FA050B /* mailimap_helper.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCC715EBA259002937E2 /* mailimap_socket.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66C51083CDA000FA050B /* mailimap_socket.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCC815EBA259002937E2 /* mailimap_ssl.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66C61083CDA000FA050B /* mailimap_ssl.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCC915EBA259002937E2 /* mailimap_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66C71083CDA000FA050B /* mailimap_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCCA15EBA259002937E2 /* mailimap_types_helper.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66C81083CDA000FA050B /* mailimap_types_helper.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCCB15EBA259002937E2 /* mailimf.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66C91083CDA000FA050B /* mailimf.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCCC15EBA259002937E2 /* mailimf_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66CA1083CDA000FA050B /* mailimf_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCCD15EBA259002937E2 /* mailimf_types_helper.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66CB1083CDA000FA050B /* mailimf_types_helper.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCCE15EBA259002937E2 /* mailimf_write_file.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66CC1083CDA000FA050B /* mailimf_write_file.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCCF15EBA259002937E2 /* mailimf_write_generic.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66CD1083CDA000FA050B /* mailimf_write_generic.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCD015EBA259002937E2 /* mailimf_write_mem.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66CE1083CDA000FA050B /* mailimf_write_mem.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCD115EBA259002937E2 /* maillock.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66CF1083CDA000FA050B /* maillock.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCD215EBA259002937E2 /* mailmbox.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66D01083CDA000FA050B /* mailmbox.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCD315EBA259002937E2 /* mailmbox_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66D11083CDA000FA050B /* mailmbox_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCD415EBA259002937E2 /* mailmessage.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66D21083CDA000FA050B /* mailmessage.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCD515EBA259002937E2 /* mailmessage_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66D31083CDA000FA050B /* mailmessage_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCD615EBA259002937E2 /* mailmh.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66D41083CDA000FA050B /* mailmh.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCD715EBA259002937E2 /* mailmime.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66D51083CDA000FA050B /* mailmime.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCD815EBA259002937E2 /* mailmime_content.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66D61083CDA000FA050B /* mailmime_content.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCD915EBA259002937E2 /* mailmime_decode.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66D71083CDA000FA050B /* mailmime_decode.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCDA15EBA259002937E2 /* mailmime_disposition.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66D81083CDA000FA050B /* mailmime_disposition.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCDB15EBA259002937E2 /* mailmime_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66D91083CDA000FA050B /* mailmime_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCDC15EBA259002937E2 /* mailmime_types_helper.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66DA1083CDA000FA050B /* mailmime_types_helper.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCDD15EBA259002937E2 /* mailmime_write_file.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66DB1083CDA000FA050B /* mailmime_write_file.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCDE15EBA259002937E2 /* mailmime_write_generic.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66DC1083CDA000FA050B /* mailmime_write_generic.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCDF15EBA259002937E2 /* mailmime_write_mem.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66DD1083CDA000FA050B /* mailmime_write_mem.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCE015EBA259002937E2 /* mailpop3.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66DE1083CDA000FA050B /* mailpop3.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCE115EBA259002937E2 /* mailpop3_helper.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66DF1083CDA000FA050B /* mailpop3_helper.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCE215EBA259002937E2 /* mailpop3_socket.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66E01083CDA000FA050B /* mailpop3_socket.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCE315EBA259002937E2 /* mailpop3_ssl.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66E11083CDA000FA050B /* mailpop3_ssl.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCE415EBA259002937E2 /* mailpop3_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66E21083CDA000FA050B /* mailpop3_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCE515EBA259002937E2 /* mailprivacy.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66E31083CDA000FA050B /* mailprivacy.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCE615EBA259002937E2 /* mailprivacy_gnupg.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66E41083CDA000FA050B /* mailprivacy_gnupg.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCE715EBA259002937E2 /* mailprivacy_smime.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66E51083CDA000FA050B /* mailprivacy_smime.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCE815EBA259002937E2 /* mailprivacy_tools.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66E61083CDA000FA050B /* mailprivacy_tools.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCE915EBA259002937E2 /* mailprivacy_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66E71083CDA000FA050B /* mailprivacy_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCEA15EBA259002937E2 /* mailsem.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66E81083CDA000FA050B /* mailsem.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCEB15EBA259002937E2 /* mailsmtp.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66E91083CDA000FA050B /* mailsmtp.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCEC15EBA259002937E2 /* mailsmtp_helper.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66EA1083CDA000FA050B /* mailsmtp_helper.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCED15EBA259002937E2 /* mailsmtp_socket.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66EB1083CDA000FA050B /* mailsmtp_socket.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCEE15EBA259002937E2 /* mailsmtp_ssl.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66EC1083CDA000FA050B /* mailsmtp_ssl.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCEF15EBA259002937E2 /* mailsmtp_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66ED1083CDA000FA050B /* mailsmtp_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCF015EBA259002937E2 /* mailstorage.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66EE1083CDA000FA050B /* mailstorage.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCF115EBA259002937E2 /* mailstorage_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66EF1083CDA000FA050B /* mailstorage_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCF215EBA259002937E2 /* mailstream.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66F01083CDA000FA050B /* mailstream.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCF315EBA259002937E2 /* mailstream_helper.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66F11083CDA000FA050B /* mailstream_helper.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCF415EBA259002937E2 /* mailstream_low.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66F21083CDA000FA050B /* mailstream_low.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCF515EBA259002937E2 /* mailstream_socket.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66F31083CDA000FA050B /* mailstream_socket.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCF615EBA259002937E2 /* mailstream_ssl.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66F41083CDA000FA050B /* mailstream_ssl.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCF715EBA259002937E2 /* mailstream_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66F51083CDA000FA050B /* mailstream_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCF815EBA259002937E2 /* mailthread.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66F61083CDA000FA050B /* mailthread.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCF915EBA259002937E2 /* mailthread_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66F71083CDA000FA050B /* mailthread_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCFA15EBA259002937E2 /* mboxdriver.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66F81083CDA000FA050B /* mboxdriver.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCFB15EBA259002937E2 /* mboxdriver_cached.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66F91083CDA000FA050B /* mboxdriver_cached.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCFC15EBA259002937E2 /* mboxdriver_cached_message.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66FA1083CDA000FA050B /* mboxdriver_cached_message.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCFD15EBA259002937E2 /* mboxdriver_message.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66FB1083CDA000FA050B /* mboxdriver_message.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCFE15EBA259002937E2 /* mboxdriver_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66FC1083CDA000FA050B /* mboxdriver_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FCFF15EBA259002937E2 /* mboxstorage.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66FD1083CDA000FA050B /* mboxstorage.h */; settings = {ATTRIBUTES = (); }; };
+		8465FD0015EBA259002937E2 /* mhdriver.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66FE1083CDA000FA050B /* mhdriver.h */; settings = {ATTRIBUTES = (); }; };
+		8465FD0115EBA259002937E2 /* mhdriver_cached.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC66FF1083CDA000FA050B /* mhdriver_cached.h */; settings = {ATTRIBUTES = (); }; };
+		8465FD0215EBA259002937E2 /* mhdriver_cached_message.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC67001083CDA000FA050B /* mhdriver_cached_message.h */; settings = {ATTRIBUTES = (); }; };
+		8465FD0315EBA259002937E2 /* mhdriver_message.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC67011083CDA000FA050B /* mhdriver_message.h */; settings = {ATTRIBUTES = (); }; };
+		8465FD0415EBA259002937E2 /* mhdriver_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC67021083CDA000FA050B /* mhdriver_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FD0515EBA259002937E2 /* mhstorage.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC67031083CDA000FA050B /* mhstorage.h */; settings = {ATTRIBUTES = (); }; };
+		8465FD0615EBA259002937E2 /* mime_message_driver.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC67041083CDA000FA050B /* mime_message_driver.h */; settings = {ATTRIBUTES = (); }; };
+		8465FD0715EBA259002937E2 /* mmapstring.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC67051083CDA000FA050B /* mmapstring.h */; settings = {ATTRIBUTES = (); }; };
+		8465FD0815EBA259002937E2 /* newsfeed.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC67061083CDA000FA050B /* newsfeed.h */; settings = {ATTRIBUTES = (); }; };
+		8465FD0915EBA259002937E2 /* newsfeed_item.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC67071083CDA000FA050B /* newsfeed_item.h */; settings = {ATTRIBUTES = (); }; };
+		8465FD0A15EBA259002937E2 /* newsfeed_item_enclosure.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC67081083CDA000FA050B /* newsfeed_item_enclosure.h */; settings = {ATTRIBUTES = (); }; };
+		8465FD0B15EBA259002937E2 /* newsfeed_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC67091083CDA000FA050B /* newsfeed_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FD0C15EBA259002937E2 /* newsnntp.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC670A1083CDA000FA050B /* newsnntp.h */; settings = {ATTRIBUTES = (); }; };
+		8465FD0D15EBA259002937E2 /* newsnntp_socket.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC670B1083CDA000FA050B /* newsnntp_socket.h */; settings = {ATTRIBUTES = (); }; };
+		8465FD0E15EBA259002937E2 /* newsnntp_ssl.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC670C1083CDA000FA050B /* newsnntp_ssl.h */; settings = {ATTRIBUTES = (); }; };
+		8465FD0F15EBA259002937E2 /* newsnntp_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC670D1083CDA000FA050B /* newsnntp_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FD1015EBA259002937E2 /* nntpdriver.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC670E1083CDA000FA050B /* nntpdriver.h */; settings = {ATTRIBUTES = (); }; };
+		8465FD1115EBA259002937E2 /* nntpdriver_cached.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC670F1083CDA000FA050B /* nntpdriver_cached.h */; settings = {ATTRIBUTES = (); }; };
+		8465FD1215EBA259002937E2 /* nntpdriver_cached_message.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC67101083CDA000FA050B /* nntpdriver_cached_message.h */; settings = {ATTRIBUTES = (); }; };
+		8465FD1315EBA259002937E2 /* nntpdriver_message.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC67111083CDA000FA050B /* nntpdriver_message.h */; settings = {ATTRIBUTES = (); }; };
+		8465FD1415EBA259002937E2 /* nntpdriver_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC67121083CDA000FA050B /* nntpdriver_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FD1515EBA259002937E2 /* nntpstorage.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC67131083CDA000FA050B /* nntpstorage.h */; settings = {ATTRIBUTES = (); }; };
+		8465FD1615EBA259002937E2 /* pop3driver.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC67141083CDA000FA050B /* pop3driver.h */; settings = {ATTRIBUTES = (); }; };
+		8465FD1715EBA259002937E2 /* pop3driver_cached.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC67151083CDA000FA050B /* pop3driver_cached.h */; settings = {ATTRIBUTES = (); }; };
+		8465FD1815EBA259002937E2 /* pop3driver_cached_message.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC67161083CDA000FA050B /* pop3driver_cached_message.h */; settings = {ATTRIBUTES = (); }; };
+		8465FD1915EBA259002937E2 /* pop3driver_message.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC67171083CDA000FA050B /* pop3driver_message.h */; settings = {ATTRIBUTES = (); }; };
+		8465FD1A15EBA259002937E2 /* pop3driver_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC67181083CDA000FA050B /* pop3driver_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FD1B15EBA259002937E2 /* pop3storage.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC67191083CDA000FA050B /* pop3storage.h */; settings = {ATTRIBUTES = (); }; };
+		8465FD1C15EBA259002937E2 /* uidplus.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC671A1083CDA000FA050B /* uidplus.h */; settings = {ATTRIBUTES = (); }; };
+		8465FD1D15EBA259002937E2 /* uidplus_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC671B1083CDA000FA050B /* uidplus_types.h */; settings = {ATTRIBUTES = (); }; };
+		8465FD1E15EBA259002937E2 /* config.h in Headers */ = {isa = PBXBuildFile; fileRef = C69AAFB51054298E00F32FBD /* config.h */; settings = {ATTRIBUTES = (); }; };
 		C6451AFE1083D316003135FD /* mailimf_write.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9EA32105335BC0059C3BA /* mailimf_write.h */; };
 		C6451AFF1083D316003135FD /* mhdriver_cached.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E913105335BC0059C3BA /* mhdriver_cached.h */; };
 		C6451B001083D316003135FD /* mhdriver_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F9E91A105335BC0059C3BA /* mhdriver_types.h */; };
@@ -828,13 +1162,13 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		C6DC649E10829CEB00FA050B /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			dstPath = include;
 			dstSubfolderSpec = 16;
 			files = (
 				C6DC67A81083CDBC00FA050B /* libetpan in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 		};
 		C6DC64B310829E8300FA050B /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -2203,6 +2537,347 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		8465FBD015EBA1F7002937E2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8465FC8C15EBA259002937E2 /* libetpan.h in Headers */,
+				8465FC8515EBA259002937E2 /* nntpdriver.h in Headers */,
+				8465FC8615EBA259002937E2 /* nntpdriver_cached.h in Headers */,
+				8465FC8715EBA259002937E2 /* nntpdriver_cached_message.h in Headers */,
+				8465FC8815EBA259002937E2 /* nntpdriver_message.h in Headers */,
+				8465FC8915EBA259002937E2 /* nntpdriver_tools.h in Headers */,
+				8465FC8A15EBA259002937E2 /* nntpdriver_types.h in Headers */,
+				8465FC8B15EBA259002937E2 /* nntpstorage.h in Headers */,
+				8465FC8D15EBA259002937E2 /* namespace_parser.h in Headers */,
+				8465FC8E15EBA259002937E2 /* namespace_sender.h in Headers */,
+				8465FC8F15EBA259002937E2 /* namespace_types.h in Headers */,
+				8465FC9015EBA259002937E2 /* namespace.h in Headers */,
+				8465FC9115EBA259002937E2 /* quota_parser.h in Headers */,
+				8465FC9215EBA259002937E2 /* quota_sender.h in Headers */,
+				8465FC9315EBA259002937E2 /* quota_types.h in Headers */,
+				8465FC9415EBA259002937E2 /* quota.h in Headers */,
+				8465FC9515EBA259002937E2 /* acl.h in Headers */,
+				8465FC9615EBA259002937E2 /* acl_types.h in Headers */,
+				8465FC9715EBA259002937E2 /* annotatemore.h in Headers */,
+				8465FC9815EBA259002937E2 /* annotatemore_types.h in Headers */,
+				8465FC9915EBA259002937E2 /* carray.h in Headers */,
+				8465FC9A15EBA259002937E2 /* charconv.h in Headers */,
+				8465FC9B15EBA259002937E2 /* chash.h in Headers */,
+				8465FC9C15EBA259002937E2 /* clist.h in Headers */,
+				8465FC9D15EBA259002937E2 /* data_message_driver.h in Headers */,
+				8465FC9E15EBA259002937E2 /* dbdriver.h in Headers */,
+				8465FC9F15EBA259002937E2 /* dbdriver_message.h in Headers */,
+				8465FCA015EBA259002937E2 /* dbdriver_types.h in Headers */,
+				8465FCA115EBA259002937E2 /* dbstorage.h in Headers */,
+				8465FCA215EBA259002937E2 /* feeddriver.h in Headers */,
+				8465FCA315EBA259002937E2 /* feeddriver_message.h in Headers */,
+				8465FCA415EBA259002937E2 /* feeddriver_types.h in Headers */,
+				8465FCA515EBA259002937E2 /* feedstorage.h in Headers */,
+				8465FCA615EBA259002937E2 /* generic_cache_types.h in Headers */,
+				8465FCA715EBA259002937E2 /* hotmailstorage.h in Headers */,
+				8465FCA815EBA259002937E2 /* idle.h in Headers */,
+				8465FCA915EBA259002937E2 /* imapdriver.h in Headers */,
+				8465FCAA15EBA259002937E2 /* imapdriver_cached.h in Headers */,
+				8465FCAB15EBA259002937E2 /* imapdriver_cached_message.h in Headers */,
+				8465FCAC15EBA259002937E2 /* imapdriver_message.h in Headers */,
+				8465FCAD15EBA259002937E2 /* imapdriver_tools.h in Headers */,
+				8465FCAE15EBA259002937E2 /* imapdriver_tools_private.h in Headers */,
+				8465FCAF15EBA259002937E2 /* imapdriver_types.h in Headers */,
+				8465FCB015EBA259002937E2 /* imapstorage.h in Headers */,
+				8465FCB115EBA259002937E2 /* libetpan-config.h in Headers */,
+				8465FCB215EBA259002937E2 /* libetpan.h in Headers */,
+				8465FCB315EBA259002937E2 /* libetpan_version.h in Headers */,
+				8465FCB415EBA259002937E2 /* mail.h in Headers */,
+				8465FCB515EBA259002937E2 /* maildir.h in Headers */,
+				8465FCB615EBA259002937E2 /* maildir_types.h in Headers */,
+				8465FCB715EBA259002937E2 /* maildirdriver.h in Headers */,
+				8465FCB815EBA259002937E2 /* maildirdriver_cached.h in Headers */,
+				8465FCB915EBA259002937E2 /* maildirdriver_cached_message.h in Headers */,
+				8465FCBA15EBA259002937E2 /* maildirdriver_message.h in Headers */,
+				8465FCBB15EBA259002937E2 /* maildirdriver_types.h in Headers */,
+				8465FCBC15EBA259002937E2 /* maildirstorage.h in Headers */,
+				8465FCBD15EBA259002937E2 /* maildriver.h in Headers */,
+				8465FCBE15EBA259002937E2 /* maildriver_errors.h in Headers */,
+				8465FCBF15EBA259002937E2 /* maildriver_types.h in Headers */,
+				8465FCC015EBA259002937E2 /* maildriver_types_helper.h in Headers */,
+				8465FCC115EBA259002937E2 /* mailengine.h in Headers */,
+				8465FCC215EBA259002937E2 /* mailfolder.h in Headers */,
+				8465FCC315EBA259002937E2 /* mailimap.h in Headers */,
+				8465FCC415EBA259002937E2 /* mailimap_extension.h in Headers */,
+				8465FCC515EBA259002937E2 /* mailimap_extension_types.h in Headers */,
+				8465FCC615EBA259002937E2 /* mailimap_helper.h in Headers */,
+				8465FCC715EBA259002937E2 /* mailimap_socket.h in Headers */,
+				8465FCC815EBA259002937E2 /* mailimap_ssl.h in Headers */,
+				8465FCC915EBA259002937E2 /* mailimap_types.h in Headers */,
+				8465FCCA15EBA259002937E2 /* mailimap_types_helper.h in Headers */,
+				8465FCCB15EBA259002937E2 /* mailimf.h in Headers */,
+				8465FCCC15EBA259002937E2 /* mailimf_types.h in Headers */,
+				8465FCCD15EBA259002937E2 /* mailimf_types_helper.h in Headers */,
+				8465FCCE15EBA259002937E2 /* mailimf_write_file.h in Headers */,
+				8465FCCF15EBA259002937E2 /* mailimf_write_generic.h in Headers */,
+				8465FCD015EBA259002937E2 /* mailimf_write_mem.h in Headers */,
+				8465FCD115EBA259002937E2 /* maillock.h in Headers */,
+				8465FCD215EBA259002937E2 /* mailmbox.h in Headers */,
+				8465FCD315EBA259002937E2 /* mailmbox_types.h in Headers */,
+				8465FCD415EBA259002937E2 /* mailmessage.h in Headers */,
+				8465FCD515EBA259002937E2 /* mailmessage_types.h in Headers */,
+				8465FCD615EBA259002937E2 /* mailmh.h in Headers */,
+				8465FCD715EBA259002937E2 /* mailmime.h in Headers */,
+				8465FCD815EBA259002937E2 /* mailmime_content.h in Headers */,
+				8465FCD915EBA259002937E2 /* mailmime_decode.h in Headers */,
+				8465FCDA15EBA259002937E2 /* mailmime_disposition.h in Headers */,
+				8465FCDB15EBA259002937E2 /* mailmime_types.h in Headers */,
+				8465FCDC15EBA259002937E2 /* mailmime_types_helper.h in Headers */,
+				8465FCDD15EBA259002937E2 /* mailmime_write_file.h in Headers */,
+				8465FCDE15EBA259002937E2 /* mailmime_write_generic.h in Headers */,
+				8465FCDF15EBA259002937E2 /* mailmime_write_mem.h in Headers */,
+				8465FCE015EBA259002937E2 /* mailpop3.h in Headers */,
+				8465FCE115EBA259002937E2 /* mailpop3_helper.h in Headers */,
+				8465FCE215EBA259002937E2 /* mailpop3_socket.h in Headers */,
+				8465FCE315EBA259002937E2 /* mailpop3_ssl.h in Headers */,
+				8465FCE415EBA259002937E2 /* mailpop3_types.h in Headers */,
+				8465FCE515EBA259002937E2 /* mailprivacy.h in Headers */,
+				8465FCE615EBA259002937E2 /* mailprivacy_gnupg.h in Headers */,
+				8465FCE715EBA259002937E2 /* mailprivacy_smime.h in Headers */,
+				8465FCE815EBA259002937E2 /* mailprivacy_tools.h in Headers */,
+				8465FCE915EBA259002937E2 /* mailprivacy_types.h in Headers */,
+				8465FCEA15EBA259002937E2 /* mailsem.h in Headers */,
+				8465FCEB15EBA259002937E2 /* mailsmtp.h in Headers */,
+				8465FCEC15EBA259002937E2 /* mailsmtp_helper.h in Headers */,
+				8465FCED15EBA259002937E2 /* mailsmtp_socket.h in Headers */,
+				8465FCEE15EBA259002937E2 /* mailsmtp_ssl.h in Headers */,
+				8465FCEF15EBA259002937E2 /* mailsmtp_types.h in Headers */,
+				8465FCF015EBA259002937E2 /* mailstorage.h in Headers */,
+				8465FCF115EBA259002937E2 /* mailstorage_types.h in Headers */,
+				8465FCF215EBA259002937E2 /* mailstream.h in Headers */,
+				8465FCF315EBA259002937E2 /* mailstream_helper.h in Headers */,
+				8465FCF415EBA259002937E2 /* mailstream_low.h in Headers */,
+				8465FCF515EBA259002937E2 /* mailstream_socket.h in Headers */,
+				8465FCF615EBA259002937E2 /* mailstream_ssl.h in Headers */,
+				8465FCF715EBA259002937E2 /* mailstream_types.h in Headers */,
+				8465FCF815EBA259002937E2 /* mailthread.h in Headers */,
+				8465FCF915EBA259002937E2 /* mailthread_types.h in Headers */,
+				8465FCFA15EBA259002937E2 /* mboxdriver.h in Headers */,
+				8465FCFB15EBA259002937E2 /* mboxdriver_cached.h in Headers */,
+				8465FCFC15EBA259002937E2 /* mboxdriver_cached_message.h in Headers */,
+				8465FCFD15EBA259002937E2 /* mboxdriver_message.h in Headers */,
+				8465FCFE15EBA259002937E2 /* mboxdriver_types.h in Headers */,
+				8465FCFF15EBA259002937E2 /* mboxstorage.h in Headers */,
+				8465FD0015EBA259002937E2 /* mhdriver.h in Headers */,
+				8465FD0115EBA259002937E2 /* mhdriver_cached.h in Headers */,
+				8465FD0215EBA259002937E2 /* mhdriver_cached_message.h in Headers */,
+				8465FD0315EBA259002937E2 /* mhdriver_message.h in Headers */,
+				8465FD0415EBA259002937E2 /* mhdriver_types.h in Headers */,
+				8465FD0515EBA259002937E2 /* mhstorage.h in Headers */,
+				8465FD0615EBA259002937E2 /* mime_message_driver.h in Headers */,
+				8465FD0715EBA259002937E2 /* mmapstring.h in Headers */,
+				8465FD0815EBA259002937E2 /* newsfeed.h in Headers */,
+				8465FD0915EBA259002937E2 /* newsfeed_item.h in Headers */,
+				8465FD0A15EBA259002937E2 /* newsfeed_item_enclosure.h in Headers */,
+				8465FD0B15EBA259002937E2 /* newsfeed_types.h in Headers */,
+				8465FD0C15EBA259002937E2 /* newsnntp.h in Headers */,
+				8465FD0D15EBA259002937E2 /* newsnntp_socket.h in Headers */,
+				8465FD0E15EBA259002937E2 /* newsnntp_ssl.h in Headers */,
+				8465FD0F15EBA259002937E2 /* newsnntp_types.h in Headers */,
+				8465FD1015EBA259002937E2 /* nntpdriver.h in Headers */,
+				8465FD1115EBA259002937E2 /* nntpdriver_cached.h in Headers */,
+				8465FD1215EBA259002937E2 /* nntpdriver_cached_message.h in Headers */,
+				8465FD1315EBA259002937E2 /* nntpdriver_message.h in Headers */,
+				8465FD1415EBA259002937E2 /* nntpdriver_types.h in Headers */,
+				8465FD1515EBA259002937E2 /* nntpstorage.h in Headers */,
+				8465FD1615EBA259002937E2 /* pop3driver.h in Headers */,
+				8465FD1715EBA259002937E2 /* pop3driver_cached.h in Headers */,
+				8465FD1815EBA259002937E2 /* pop3driver_cached_message.h in Headers */,
+				8465FD1915EBA259002937E2 /* pop3driver_message.h in Headers */,
+				8465FD1A15EBA259002937E2 /* pop3driver_types.h in Headers */,
+				8465FD1B15EBA259002937E2 /* pop3storage.h in Headers */,
+				8465FD1C15EBA259002937E2 /* uidplus.h in Headers */,
+				8465FD1D15EBA259002937E2 /* uidplus_types.h in Headers */,
+				8465FD1E15EBA259002937E2 /* config.h in Headers */,
+				8465FBD115EBA204002937E2 /* base64.h in Headers */,
+				8465FBD215EBA204002937E2 /* carray.h in Headers */,
+				8465FBD315EBA204002937E2 /* charconv.h in Headers */,
+				8465FBD415EBA204002937E2 /* chash.h in Headers */,
+				8465FBD515EBA204002937E2 /* clist.h in Headers */,
+				8465FBD615EBA204002937E2 /* connect.h in Headers */,
+				8465FBD715EBA204002937E2 /* hmac-md5.h in Headers */,
+				8465FBD815EBA204002937E2 /* mail.h in Headers */,
+				8465FBD915EBA204002937E2 /* mail_cache_db.h in Headers */,
+				8465FBDA15EBA204002937E2 /* mail_cache_db_types.h in Headers */,
+				8465FBDB15EBA204002937E2 /* maillock.h in Headers */,
+				8465FBDC15EBA204002937E2 /* mailsasl.h in Headers */,
+				8465FBDD15EBA204002937E2 /* mailsem.h in Headers */,
+				8465FBDE15EBA204002937E2 /* mailstream.h in Headers */,
+				8465FBDF15EBA204002937E2 /* mailstream_cancel.h in Headers */,
+				8465FBE015EBA204002937E2 /* mailstream_cancel_types.h in Headers */,
+				8465FBE115EBA204002937E2 /* mailstream_helper.h in Headers */,
+				8465FBE215EBA204002937E2 /* mailstream_low.h in Headers */,
+				8465FBE315EBA204002937E2 /* mailstream_socket.h in Headers */,
+				8465FBE415EBA204002937E2 /* mailstream_ssl.h in Headers */,
+				8465FBE515EBA204002937E2 /* mailstream_ssl_private.h in Headers */,
+				8465FBE615EBA204002937E2 /* mailstream_types.h in Headers */,
+				8465FBE715EBA204002937E2 /* md5.h in Headers */,
+				8465FBE815EBA204002937E2 /* md5global.h in Headers */,
+				8465FBE915EBA204002937E2 /* mmapstring.h in Headers */,
+				8465FBEA15EBA204002937E2 /* mmapstring_private.h in Headers */,
+				8465FBEB15EBA204002937E2 /* timeutils.h in Headers */,
+				8465FBEC15EBA204002937E2 /* data_message_driver.h in Headers */,
+				8465FBED15EBA204002937E2 /* dbdriver.h in Headers */,
+				8465FBEE15EBA204002937E2 /* dbdriver_message.h in Headers */,
+				8465FBEF15EBA204002937E2 /* dbdriver_types.h in Headers */,
+				8465FBF015EBA204002937E2 /* dbstorage.h in Headers */,
+				8465FBF115EBA204002937E2 /* feeddriver.h in Headers */,
+				8465FBF215EBA204002937E2 /* feeddriver_message.h in Headers */,
+				8465FBF315EBA204002937E2 /* feeddriver_types.h in Headers */,
+				8465FBF415EBA204002937E2 /* feedstorage.h in Headers */,
+				8465FBF515EBA204002937E2 /* hotmailstorage.h in Headers */,
+				8465FBF615EBA204002937E2 /* imapdriver.h in Headers */,
+				8465FBF715EBA204002937E2 /* imapdriver_cached.h in Headers */,
+				8465FBF815EBA204002937E2 /* imapdriver_cached_message.h in Headers */,
+				8465FBF915EBA204002937E2 /* imapdriver_message.h in Headers */,
+				8465FBFA15EBA204002937E2 /* imapdriver_tools.h in Headers */,
+				8465FBFB15EBA204002937E2 /* imapdriver_tools_private.h in Headers */,
+				8465FBFC15EBA204002937E2 /* imapdriver_types.h in Headers */,
+				8465FBFD15EBA204002937E2 /* imapstorage.h in Headers */,
+				8465FBFE15EBA204002937E2 /* maildirdriver.h in Headers */,
+				8465FBFF15EBA204002937E2 /* maildirdriver_cached.h in Headers */,
+				8465FC0015EBA204002937E2 /* maildirdriver_cached_message.h in Headers */,
+				8465FC0115EBA204002937E2 /* maildirdriver_message.h in Headers */,
+				8465FC0215EBA204002937E2 /* maildirdriver_tools.h in Headers */,
+				8465FC0315EBA204002937E2 /* maildirdriver_types.h in Headers */,
+				8465FC0415EBA204002937E2 /* maildirstorage.h in Headers */,
+				8465FC0515EBA204002937E2 /* mboxdriver.h in Headers */,
+				8465FC0615EBA204002937E2 /* mboxdriver_cached.h in Headers */,
+				8465FC0715EBA204002937E2 /* mboxdriver_cached_message.h in Headers */,
+				8465FC0815EBA204002937E2 /* mboxdriver_message.h in Headers */,
+				8465FC0915EBA204002937E2 /* mboxdriver_tools.h in Headers */,
+				8465FC0A15EBA204002937E2 /* mboxdriver_types.h in Headers */,
+				8465FC0B15EBA204002937E2 /* mboxstorage.h in Headers */,
+				8465FC0C15EBA204002937E2 /* mhdriver.h in Headers */,
+				8465FC0D15EBA204002937E2 /* mhdriver_cached.h in Headers */,
+				8465FC0E15EBA204002937E2 /* mhdriver_cached_message.h in Headers */,
+				8465FC0F15EBA204002937E2 /* mhdriver_message.h in Headers */,
+				8465FC1015EBA204002937E2 /* mhdriver_tools.h in Headers */,
+				8465FC1115EBA204002937E2 /* mhdriver_types.h in Headers */,
+				8465FC1215EBA204002937E2 /* mhstorage.h in Headers */,
+				8465FC1315EBA204002937E2 /* mime_message_driver.h in Headers */,
+				8465FC1415EBA204002937E2 /* pop3driver.h in Headers */,
+				8465FC1515EBA204002937E2 /* pop3driver_cached.h in Headers */,
+				8465FC1615EBA204002937E2 /* pop3driver_cached_message.h in Headers */,
+				8465FC1715EBA204002937E2 /* pop3driver_message.h in Headers */,
+				8465FC1815EBA204002937E2 /* pop3driver_tools.h in Headers */,
+				8465FC1915EBA204002937E2 /* pop3driver_types.h in Headers */,
+				8465FC1A15EBA204002937E2 /* pop3storage.h in Headers */,
+				8465FC1B15EBA204002937E2 /* maildriver.h in Headers */,
+				8465FC1C15EBA204002937E2 /* maildriver_errors.h in Headers */,
+				8465FC1D15EBA204002937E2 /* maildriver_tools.h in Headers */,
+				8465FC1E15EBA204002937E2 /* maildriver_types.h in Headers */,
+				8465FC1F15EBA204002937E2 /* maildriver_types_helper.h in Headers */,
+				8465FC2015EBA204002937E2 /* mailfolder.h in Headers */,
+				8465FC2115EBA204002937E2 /* mailmessage.h in Headers */,
+				8465FC2215EBA204002937E2 /* mailmessage_tools.h in Headers */,
+				8465FC2315EBA204002937E2 /* mailmessage_types.h in Headers */,
+				8465FC2415EBA204002937E2 /* mailstorage.h in Headers */,
+				8465FC2515EBA204002937E2 /* mailstorage_tools.h in Headers */,
+				8465FC2615EBA204002937E2 /* mailstorage_types.h in Headers */,
+				8465FC2715EBA204002937E2 /* generic_cache.h in Headers */,
+				8465FC2815EBA204002937E2 /* generic_cache_types.h in Headers */,
+				8465FC2915EBA204002937E2 /* imfcache.h in Headers */,
+				8465FC2A15EBA204002937E2 /* mailthread.h in Headers */,
+				8465FC2B15EBA204002937E2 /* mailthread_types.h in Headers */,
+				8465FC2C15EBA204002937E2 /* mailengine.h in Headers */,
+				8465FC2D15EBA204002937E2 /* mailprivacy.h in Headers */,
+				8465FC2E15EBA204002937E2 /* mailprivacy_gnupg.h in Headers */,
+				8465FC2F15EBA204002937E2 /* mailprivacy_smime.h in Headers */,
+				8465FC3015EBA204002937E2 /* mailprivacy_tools.h in Headers */,
+				8465FC3115EBA204002937E2 /* mailprivacy_tools_private.h in Headers */,
+				8465FC3215EBA204002937E2 /* mailprivacy_types.h in Headers */,
+				8465FC3315EBA204002937E2 /* date.h in Headers */,
+				8465FC3415EBA205002937E2 /* newsfeed.h in Headers */,
+				8465FC3515EBA205002937E2 /* newsfeed_item.h in Headers */,
+				8465FC3615EBA205002937E2 /* newsfeed_item_enclosure.h in Headers */,
+				8465FC3715EBA205002937E2 /* newsfeed_private.h in Headers */,
+				8465FC3815EBA205002937E2 /* newsfeed_types.h in Headers */,
+				8465FC3915EBA205002937E2 /* parser.h in Headers */,
+				8465FC3A15EBA205002937E2 /* parser_atom03.h in Headers */,
+				8465FC3B15EBA205002937E2 /* parser_atom10.h in Headers */,
+				8465FC3C15EBA205002937E2 /* parser_rdf.h in Headers */,
+				8465FC3D15EBA205002937E2 /* parser_rss20.h in Headers */,
+				8465FC3E15EBA205002937E2 /* acl.h in Headers */,
+				8465FC3F15EBA205002937E2 /* acl_parser.h in Headers */,
+				8465FC4015EBA205002937E2 /* acl_sender.h in Headers */,
+				8465FC4115EBA205002937E2 /* acl_types.h in Headers */,
+				8465FC4215EBA205002937E2 /* annotatemore.h in Headers */,
+				8465FC4315EBA205002937E2 /* annotatemore_parser.h in Headers */,
+				8465FC4415EBA205002937E2 /* annotatemore_sender.h in Headers */,
+				8465FC4515EBA205002937E2 /* annotatemore_types.h in Headers */,
+				8465FC4615EBA205002937E2 /* idle.h in Headers */,
+				8465FC4715EBA205002937E2 /* mailimap.h in Headers */,
+				8465FC4815EBA205002937E2 /* mailimap_extension.h in Headers */,
+				8465FC4915EBA205002937E2 /* mailimap_extension_types.h in Headers */,
+				8465FC4A15EBA205002937E2 /* mailimap_helper.h in Headers */,
+				8465FC4B15EBA205002937E2 /* mailimap_keywords.h in Headers */,
+				8465FC4C15EBA205002937E2 /* mailimap_parser.h in Headers */,
+				8465FC4D15EBA205002937E2 /* mailimap_print.h in Headers */,
+				8465FC4E15EBA205002937E2 /* mailimap_sender.h in Headers */,
+				8465FC4F15EBA205002937E2 /* mailimap_socket.h in Headers */,
+				8465FC5015EBA205002937E2 /* mailimap_ssl.h in Headers */,
+				8465FC5115EBA205002937E2 /* mailimap_types.h in Headers */,
+				8465FC5215EBA205002937E2 /* mailimap_types_helper.h in Headers */,
+				8465FC5315EBA205002937E2 /* namespace.h in Headers */,
+				8465FC5415EBA205002937E2 /* namespace_parser.h in Headers */,
+				8465FC5515EBA205002937E2 /* namespace_types.h in Headers */,
+				8465FC5615EBA205002937E2 /* namespace_sender.h in Headers */,
+				8465FC5715EBA205002937E2 /* quota.h in Headers */,
+				8465FC5815EBA205002937E2 /* quota_parser.h in Headers */,
+				8465FC5915EBA205002937E2 /* quota_sender.h in Headers */,
+				8465FC5A15EBA205002937E2 /* quota_types.h in Headers */,
+				8465FC5B15EBA205002937E2 /* uidplus.h in Headers */,
+				8465FC5C15EBA205002937E2 /* uidplus_parser.h in Headers */,
+				8465FC5D15EBA205002937E2 /* uidplus_sender.h in Headers */,
+				8465FC5E15EBA205002937E2 /* uidplus_types.h in Headers */,
+				8465FC5F15EBA205002937E2 /* xlist.h in Headers */,
+				8465FC6015EBA205002937E2 /* mailimf.h in Headers */,
+				8465FC6115EBA205002937E2 /* mailimf_types.h in Headers */,
+				8465FC6215EBA205002937E2 /* mailimf_types_helper.h in Headers */,
+				8465FC6315EBA205002937E2 /* mailimf_write.h in Headers */,
+				8465FC6415EBA205002937E2 /* mailimf_write_file.h in Headers */,
+				8465FC6515EBA205002937E2 /* mailimf_write_generic.h in Headers */,
+				8465FC6615EBA205002937E2 /* mailimf_write_mem.h in Headers */,
+				8465FC6715EBA205002937E2 /* maildir.h in Headers */,
+				8465FC6815EBA205002937E2 /* maildir_types.h in Headers */,
+				8465FC6915EBA205002937E2 /* mailmbox.h in Headers */,
+				8465FC6A15EBA205002937E2 /* mailmbox_parse.h in Headers */,
+				8465FC6B15EBA205002937E2 /* mailmbox_types.h in Headers */,
+				8465FC6C15EBA205002937E2 /* mailmh.h in Headers */,
+				8465FC6D15EBA205002937E2 /* mailmime.h in Headers */,
+				8465FC6E15EBA205002937E2 /* mailmime_content.h in Headers */,
+				8465FC6F15EBA205002937E2 /* mailmime_decode.h in Headers */,
+				8465FC7015EBA205002937E2 /* mailmime_disposition.h in Headers */,
+				8465FC7115EBA205002937E2 /* mailmime_types.h in Headers */,
+				8465FC7215EBA205002937E2 /* mailmime_types_helper.h in Headers */,
+				8465FC7315EBA205002937E2 /* mailmime_write.h in Headers */,
+				8465FC7415EBA205002937E2 /* mailmime_write_file.h in Headers */,
+				8465FC7515EBA205002937E2 /* mailmime_write_generic.h in Headers */,
+				8465FC7615EBA205002937E2 /* mailmime_write_mem.h in Headers */,
+				8465FC7715EBA205002937E2 /* newsnntp.h in Headers */,
+				8465FC7815EBA205002937E2 /* newsnntp_socket.h in Headers */,
+				8465FC7915EBA205002937E2 /* newsnntp_ssl.h in Headers */,
+				8465FC7A15EBA205002937E2 /* newsnntp_types.h in Headers */,
+				8465FC7B15EBA205002937E2 /* mailpop3.h in Headers */,
+				8465FC7C15EBA205002937E2 /* mailpop3_helper.h in Headers */,
+				8465FC7D15EBA205002937E2 /* mailpop3_socket.h in Headers */,
+				8465FC7E15EBA205002937E2 /* mailpop3_ssl.h in Headers */,
+				8465FC7F15EBA205002937E2 /* mailpop3_types.h in Headers */,
+				8465FC8015EBA205002937E2 /* mailsmtp.h in Headers */,
+				8465FC8115EBA205002937E2 /* mailsmtp_helper.h in Headers */,
+				8465FC8215EBA205002937E2 /* mailsmtp_socket.h in Headers */,
+				8465FC8315EBA205002937E2 /* mailsmtp_ssl.h in Headers */,
+				8465FC8415EBA205002937E2 /* mailsmtp_types.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8DC2EF500486A6940098B216 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -2573,6 +3248,7 @@
 				C6DC649E10829CEB00FA050B /* CopyFiles */,
 				C69AB10710546FE500F32FBD /* Sources */,
 				C69AB10810546FE500F32FBD /* Frameworks */,
+				8465FBD015EBA1F7002937E2 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -2605,8 +3281,11 @@
 /* Begin PBXProject section */
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+			};
 			buildConfigurationList = 1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "libetpan" */;
-			compatibilityVersion = "Xcode 3.1";
+			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
@@ -3140,18 +3819,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Frameworks";
 				PRODUCT_NAME = libetpan;
-				SDKROOT = macosx;
+				SDKROOT = macosx10.7;
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Debug;
@@ -3160,6 +3839,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -3168,7 +3848,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Frameworks";
 				PRODUCT_NAME = libetpan;
-				SDKROOT = macosx;
+				SDKROOT = macosx10.7;
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Release;
@@ -3184,8 +3864,8 @@
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/include";
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-DHAVE_CONFIG_H";
-				PREBINDING = NO;
 				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
@@ -3198,8 +3878,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/include";
 				OTHER_CFLAGS = "-DHAVE_CONFIG_H";
-				PREBINDING = NO;
 				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
@@ -3207,15 +3887,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INSTALL_PATH = /usr/local/lib;
-				PREBINDING = NO;
 				PRODUCT_NAME = etpan;
-				SDKROOT = macosx;
+				SDKROOT = macosx10.7;
 			};
 			name = Debug;
 		};
@@ -3223,14 +3902,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_MODEL_TUNING = G5;
 				INSTALL_PATH = /usr/local/lib;
-				PREBINDING = NO;
 				PRODUCT_NAME = etpan;
-				SDKROOT = macosx;
+				SDKROOT = macosx10.7;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -3241,11 +3919,9 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INSTALL_PATH = /usr/local/lib;
-				PREBINDING = NO;
 				PRODUCT_NAME = "etpan-iphone";
 				SDKROOT = iphoneos;
 			};
@@ -3257,10 +3933,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_MODEL_TUNING = G5;
 				INSTALL_PATH = /usr/local/lib;
-				PREBINDING = NO;
 				PRODUCT_NAME = "etpan-iphone";
 				SDKROOT = iphoneos;
 				ZERO_LINK = NO;

@@ -8,6 +8,7 @@
  */
 
 #import "LEPIMAPNamespace.h"
+#include <libetpan/namespace_types.h>
 
 @interface LEPIMAPNamespace (Private)
 

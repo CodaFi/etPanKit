@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 
+
 @interface NSData (LEPCharsetDetection)
 
 - (NSString *) lepCharsetForFilteredHTML:(BOOL)filterHTML;

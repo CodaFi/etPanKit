@@ -2668,8 +2668,8 @@ struct capability_value capability_values[] = {
         
         [self _login];
         if ([self error] != nil) {
-            if ([[[self error] domain] isEqualToString:LEPErrorDomain] &&
-                (([[self error] code] == LEPErrorConnection)) || ([[self error] code] == LEPErrorParse)) {
+            if (([[[self error] domain] isEqualToString:LEPErrorDomain] &&
+                 (([[self error] code] == LEPErrorConnection))) || (([[self error] code] == LEPErrorParse) && (([[self error] code] == LEPErrorConnection)))) {
                 // disconnect
                 [self _unsetup];
                 
@@ -2693,8 +2693,8 @@ struct capability_value capability_values[] = {
     [self setAuthType:[self authType] & ~LEPAuthTypeMechanismMask];
     [self _login];
     if ([self error] != nil) {
-        if ([[[self error] domain] isEqualToString:LEPErrorDomain] &&
-            (([[self error] code] == LEPErrorConnection)) || ([[self error] code] == LEPErrorParse)) {
+        if (([[[self error] domain] isEqualToString:LEPErrorDomain] &&
+				(([[self error] code] == LEPErrorConnection))) || (([[self error] code] == LEPErrorParse) && (([[self error] code] == LEPErrorConnection)))) {
             // disconnect
             [self _unsetup];
             

@@ -148,6 +148,9 @@ static int gnutls_init_done = 0;
 static int openssl_init_done = 0;
 #endif
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+
 void mailstream_ssl_init_lock(void)
 {
 #if !defined (HAVE_PTHREAD_H) && defined (WIN32) && defined (USE_SSL)
@@ -1164,3 +1167,4 @@ int mailstream_ssl_get_fd(struct mailstream_ssl_context * ssl_context)
   return ssl_context->fd;
 }
 
+#pragma clang diagnostic pop

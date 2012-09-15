@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#include <libetpan/namespace_types.h>
 
 @interface LEPIMAPNamespaceItem : NSObject {
     char _delimiter;

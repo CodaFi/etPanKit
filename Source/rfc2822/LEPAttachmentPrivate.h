@@ -7,6 +7,8 @@
  *
  */
 
+#include <libetpan/mailmime_types.h>
+
 @interface LEPAttachment (LEPAttachmentPrivate)
 
 + (NSArray *) attachmentsWithMIME:(struct mailmime *)mime;

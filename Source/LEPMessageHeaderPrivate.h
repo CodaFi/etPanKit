@@ -8,6 +8,8 @@
  */
 
 #import "LEPMessageHeader.h"
+#include <libetpan/mailimf_types.h>
+#include <libetpan/mailimap_types.h>
 
 @interface LEPMessageHeader (LEPMessageHeaderPrivate)
 
