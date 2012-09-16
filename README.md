@@ -1,6 +1,6 @@
 # EtPanKit
 
-EtPanKit is an Objective-C interface for the  libEtPan framework for Mac and iOS.  It features:
+EtPanKit is an Objective-C interface for the  libEtPan framework for Mac.  It features:
 
 * Fast, efficient, and secure IMAP and SMTP connections and requests with some POP requests built in.
 * Many abstract classes for maximum subclass-ability.
@@ -8,10 +8,11 @@ EtPanKit is an Objective-C interface for the  libEtPan framework for Mac and iOS
 * IDLE support.
 * NSOperation based classes which are submitted asynchronously to their queue.   
 * Block-based and delegate-based callbacks for operations.
+* AppleDoc documentation that is installed on build.
 
 # Setup
 
-To use the current development version, add etPanKit as a subproject, then link to either the static library, or the framework.  LibEtPan is automatically included as a dependency if added as a subproject.  Make absolutely sure that the framework is being copied over, but not installed.
+To use the current development version, add etPanKit as a subproject, then link to either the static library, or the framework.  LibEtPan is automatically included as a dependency if added as a subproject.  [AppleDoc](https://github.com/tomaz/appledoc) is also required in this version.  For more detailed instructions, visit the [wiki](https://github.com/CodaFi/etPanKit/wiki).
 
 # Usage
 
@@ -62,7 +63,7 @@ While this framework is in use in applications such as Sparrow, this version may
 
 As changes and tweaks are committed, this API may change in backwards-incompatible ways, or break many current projects.  It is my goal to minimize such instances, so future development will revolve around cleanup and documentation work.
 
-The main goal of EtPanKit is to provide a high-quality mail framework with an easy to use interface, while maintaining the ability to subclass and tweak at will.  There are only a few other options for mail frameworks on OSX and iOS, and we aim to be a contender for the top spot.
+The main goal of EtPanKit is to provide a high-quality mail framework with an easy to use interface, while maintaining the ability to subclass and tweak at will.  There are only a few other options for mail frameworks on OSX, and we aim to be a contender for the top spot.
 
 # Contributing
 
@@ -70,7 +71,7 @@ We will happily accept pull requests that meet one of the following criteria:
 
  1. It fixes something that is already in EPK. This might be a bug, or something that doesn't work as expected.
  2. It's something so basic or important that EPK really should have it.
- 3. Documentation!
+ 3. Documentation! (AppleDoc only, please)
 
 # Copyright and License
 

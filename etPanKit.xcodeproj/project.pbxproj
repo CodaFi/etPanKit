@@ -683,7 +683,7 @@
 				8DC2EF520486A6940098B216 /* Resources */,
 				8DC2EF540486A6940098B216 /* Sources */,
 				8DC2EF560486A6940098B216 /* Frameworks */,
-				84DE44A816051C8100854ADF /* ShellScript */,
+				84DE452B1605476200854ADF /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -767,7 +767,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		84DE44A816051C8100854ADF /* ShellScript */ = {
+		84DE452B1605476200854ADF /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -778,7 +778,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# This can be inserted as a Run Script build phase or a Build Rule in your Xcode project.\n\n# You can set this to whatever you like.\nDOCUMENTATION_DIR=\"Documentation\"\nBUNDLE_ID=$(/usr/libexec/PlistBuddy -c \"Print :CFBundleIdentifier\" \"${BUILD_ROOT}/${INFOPLIST_PATH}\")\n\n# DOCUMENTATION_FOLDER_PATH\n\nif [ -e /usr/local/bin/appledoc ] ; then\n/usr/local/bin/appledoc --project-name $PRODUCT_NAME --project-company CodaFi --output $DOCUMENTATION_DIR  --logformat xcode --exit-threshold 2 --verbose xcode --docset-bundle-filename \"$BUNDLE_ID.$PRODUCT_NAME.docset\" .\nelse\necho \"AppleDoc is not installed in /usr/local/bin , you can download it from https://github.com/tomaz/appledoc\"\nfi";
+			shellScript = "# This can be inserted as a Run Script build phase or a Build Rule in your Xcode project.\n\n# You can set this to whatever you like.\nDOCUMENTATION_DIR=\"Documentation\"\nBUNDLE_ID=$(/usr/libexec/PlistBuddy -c \"Print :CFBundleIdentifier\" \"${BUILD_ROOT}/${INFOPLIST_PATH}\")\n\n# DOCUMENTATION_FOLDER_PATH\n\nif [ -e /usr/local/bin/appledoc ] ; then\n/usr/local/bin/appledoc --project-name $PRODUCT_NAME --project-company \"DINH Viêt Hoà\" --output $DOCUMENTATION_DIR  --logformat xcode --exit-threshold 2 --verbose xcode --docset-bundle-filename \"$BUNDLE_ID.$PRODUCT_NAME.docset\" .\nelse\necho \"AppleDoc is not installed in /usr/local/bin , you can download it from https://github.com/tomaz/appledoc\"\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 
