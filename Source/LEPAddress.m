@@ -118,14 +118,14 @@
         else {
             addr = imap_addr->ad_mailbox_name;
         }
-        mailbox = [NSString stringWithUTF8String:addr];
+        mailbox = @(addr);
     }
     else if (imap_addr->ad_mailbox_name == NULL) {
         // fix by Gabor Cselle, (http://gaborcselle.com/), reported 8/16/2009
-        mailbox = [NSString stringWithFormat:@"@%@", [NSString stringWithUTF8String:imap_addr->ad_host_name]];
+        mailbox = [NSString stringWithFormat:@"@%@", @(imap_addr->ad_host_name)];
     }
     else {
-        mailbox = [NSString stringWithFormat:@"%@@%@", [NSString stringWithUTF8String:imap_addr->ad_mailbox_name], [NSString stringWithUTF8String:imap_addr->ad_host_name]];
+        mailbox = [NSString stringWithFormat:@"%@@%@", @(imap_addr->ad_mailbox_name), @(imap_addr->ad_host_name)];
     }
     
     address = [[LEPAddress alloc] init];
@@ -151,7 +151,7 @@
 		[address setDisplayName:[NSString lepStringByDecodingMIMEHeaderValue:mailbox->mb_display_name]];
 	}
 	if (mailbox->mb_addr_spec != NULL) {
-		[address setMailbox:[NSString stringWithUTF8String:mailbox->mb_addr_spec]];
+		[address setMailbox:@(mailbox->mb_addr_spec)];
 	}
     if ([address mailbox] == nil) {
         [address setMailbox:@""];
@@ -166,10 +166,10 @@
 	
     address = [[LEPAddress alloc] init];
 	if (mailbox->mb_display_name != NULL) {
-		[address setDisplayName:[NSString stringWithUTF8String:mailbox->mb_display_name]];
+		[address setDisplayName:@(mailbox->mb_display_name)];
 	}
 	if (mailbox->mb_addr_spec != NULL) {
-		[address setMailbox:[NSString stringWithUTF8String:mailbox->mb_addr_spec]];
+		[address setMailbox:@(mailbox->mb_addr_spec)];
 	}
     if ([address mailbox] == nil) {
         [address setMailbox:@""];
@@ -257,7 +257,7 @@
     col = 0;
     mailimf_mailbox_list_write_mem(str, &col, mb_list);
     
-    result = [NSString stringWithUTF8String:str->str];
+    result = @(str->str);
     
     mailimf_mailbox_list_free(mb_list);
     mmap_string_free(str);
@@ -284,7 +284,7 @@
     col = 0;
     mailimf_mailbox_list_write_mem(str, &col, mb_list);
     
-    result = [NSString stringWithUTF8String:str->str];
+    result = @(str->str);
     
     mailimf_mailbox_list_free(mb_list);
     mmap_string_free(str);

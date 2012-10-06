@@ -43,6 +43,7 @@
 #import <EtPanKit/LEPIMAPNamespace.h>
 #import <EtPanKit/LEPIMAPCheckRequest.h>
 
+#import <EtPanKit/NSString+LEPUUID.h>
 #import <EtPanKit/NSData+LEPUTF8.h>
 #import <EtPanKit/NSString+LEP.h>
 

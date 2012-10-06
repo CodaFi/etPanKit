@@ -1,4 +1,4 @@
 Documentation set was installed to Xcode!
 
-Path: /Users/admin/Library/Developer/Shared/Documentation/DocSets/File Doesn't Exist, Will Create: /Users/admin/Library/Developer/Xcode/DerivedData/etPanKit-glafbqvapferqffldgmbrhhaduac/Build/Products/EtPanKit.framework/Versions/A/Resources/Info.plist.EtPanKit.docset
-Time: 2012-09-15 23:59:36 +0000
+Path: /Users/admin/Library/Developer/Shared/Documentation/DocSets/File Doesn't Exist, Will Create: /Users/admin/Library/Developer/Xcode/DerivedData/Mail-czsytcvbaojkwkcewkyreurllcdy/Build/Products/EtPanKit.framework/Versions/A/Resources/Info.plist.EtPanKit.docset
+Time: 2012-10-06 00:39:25 +0000

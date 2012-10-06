@@ -68,7 +68,7 @@
     [self setGmailMailboxNames:mailboxes];
     [mailboxes release];
     
-    _sessionsCount = 1;
+	_sessionsCount = 1;
     _checkCertificate = YES;
     
 	return self;

@@ -577,7 +577,7 @@ static void body_progress(size_t current, size_t maximum, void * context)
 {
     LEPIMAPSession * session;
     
-    session = context;
+    session = (__bridge LEPIMAPSession *)(context);
     [session _bodyProgressWithCurrent:current maximum:maximum];
 }
 
@@ -585,7 +585,7 @@ static void items_progress(size_t current, size_t maximum, void * context)
 {
     LEPIMAPSession * session;
     
-    session = context;
+    session = (__bridge LEPIMAPSession *)(context);
     [session _itemsProgress];
 }
 
@@ -2351,7 +2351,7 @@ static void items_progress(size_t current, size_t maximum, void * context)
 }
 
 struct capability_value {
-    NSString * name;
+    __unsafe_unretained  NSString * name;
     char value;
 };
 

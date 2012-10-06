@@ -116,7 +116,7 @@
 				partID = @"1";
 			}
 			[attachment _setPartID:partID];
-			return [NSArray arrayWithObject:attachment];
+			return @[attachment];
 		}
 		case MAILIMAP_BODY_TYPE_1PART_MSG:
 		{
@@ -135,7 +135,7 @@
 			}
 			[attachment _setPartID:partID];
 			LEPLog(@"attachment %@", partID);
-			return [NSArray arrayWithObject:attachment];
+			return @[attachment];
 		}
 	}
 	
@@ -169,7 +169,7 @@
 	[attachment setAttachments:subAttachments];
 	[nextPartID release];
 	
-    result = [NSArray arrayWithObject:attachment];
+    result = @[attachment];
 	[attachment release];
 	
 	return result;
@@ -210,7 +210,7 @@
 								 &cur_token, &contentid);
 		if (r == MAILIMF_NO_ERROR) {
 			// msg id
-            [self setContentID:[NSString stringWithUTF8String:contentid]];
+            [self setContentID:@(contentid)];
             free(contentid);
 		}
     }
@@ -238,7 +238,7 @@
         }
         
         if (extension->bd_loc != NULL) {
-            [self setContentLocation:[NSString stringWithUTF8String:extension->bd_loc]];
+            [self setContentLocation:@(extension->bd_loc)];
         }
     }
 }
@@ -254,22 +254,22 @@
 	
 	switch (basic->bd_media_basic->med_type) {
 		case MAILIMAP_MEDIA_BASIC_APPLICATION:
-			mimeType = [[NSString alloc] initWithFormat:@"application/%@", [NSString stringWithUTF8String:basic->bd_media_basic->med_subtype]];
+			mimeType = [[NSString alloc] initWithFormat:@"application/%@", @(basic->bd_media_basic->med_subtype)];
 			break;
 		case MAILIMAP_MEDIA_BASIC_AUDIO:
-			mimeType = [[NSString alloc] initWithFormat:@"audio/%@", [NSString stringWithUTF8String:basic->bd_media_basic->med_subtype]];
+			mimeType = [[NSString alloc] initWithFormat:@"audio/%@", @(basic->bd_media_basic->med_subtype)];
 			break;
 		case MAILIMAP_MEDIA_BASIC_IMAGE:
-			mimeType = [[NSString alloc] initWithFormat:@"image/%@", [NSString stringWithUTF8String:basic->bd_media_basic->med_subtype]];
+			mimeType = [[NSString alloc] initWithFormat:@"image/%@", @(basic->bd_media_basic->med_subtype)];
 			break;
 		case MAILIMAP_MEDIA_BASIC_MESSAGE:
-			mimeType = [[NSString alloc] initWithFormat:@"message/%@", [NSString stringWithUTF8String:basic->bd_media_basic->med_subtype]];
+			mimeType = [[NSString alloc] initWithFormat:@"message/%@", @(basic->bd_media_basic->med_subtype)];
 			break;
 		case MAILIMAP_MEDIA_BASIC_VIDEO:
-			mimeType = [[NSString alloc] initWithFormat:@"video/%@", [NSString stringWithUTF8String:basic->bd_media_basic->med_subtype]];
+			mimeType = [[NSString alloc] initWithFormat:@"video/%@", @(basic->bd_media_basic->med_subtype)];
 			break;
 		case MAILIMAP_MEDIA_BASIC_OTHER:
-			mimeType = [[NSString alloc] initWithFormat:@"other/%@", [NSString stringWithUTF8String:basic->bd_media_basic->med_subtype]];
+			mimeType = [[NSString alloc] initWithFormat:@"other/%@", @(basic->bd_media_basic->med_subtype)];
 			break;
 	}
 	[attachment setMimeType:mimeType];
@@ -285,7 +285,7 @@
 	
 	attachment = [[LEPIMAPAttachment alloc] init];
 	[attachment _setFieldsFromFields:text->bd_fields extension:extension];
-	[attachment setMimeType:[NSString stringWithFormat:@"text/%@", [NSString stringWithUTF8String:text->bd_media_text]]];
+	[attachment setMimeType:[NSString stringWithFormat:@"text/%@", @(text->bd_media_text)]];
 	
 	return [attachment autorelease];
 }

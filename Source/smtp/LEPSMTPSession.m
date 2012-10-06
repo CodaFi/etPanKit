@@ -83,7 +83,7 @@ static void progress(size_t current, size_t maximum, void * context)
 {
     LEPSMTPSession * session;
     
-    session = context;
+    session = (__bridge LEPSMTPSession *)(context);
     [session _progressWithCurrent:current maximum:maximum];
 }
 

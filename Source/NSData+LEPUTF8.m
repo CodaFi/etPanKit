@@ -49,7 +49,7 @@
         result = nil;
     }
     else {
-        result = [NSString stringWithUTF8String:utf8str];
+        result = @(utf8str);
     }
     charconv_buffer_free(utf8str);
 #endif

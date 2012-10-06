@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		84DE44ED1605227200854ADF /* libetpan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84DE44E71605217800854ADF /* libetpan.framework */; };
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 		C6056E2B11397D6400DEB02F /* LEPIMAPAccount+Gmail.h in Headers */ = {isa = PBXBuildFile; fileRef = C6056E2911397D6400DEB02F /* LEPIMAPAccount+Gmail.h */; settings = {ATTRIBUTES = (); }; };
 		C6056E2C11397D6400DEB02F /* LEPIMAPAccount+Gmail.m in Sources */ = {isa = PBXBuildFile; fileRef = C6056E2A11397D6400DEB02F /* LEPIMAPAccount+Gmail.m */; };
@@ -94,7 +93,7 @@
 		C6910CCE111502DC00623B9F /* LEPIMAPMessageAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = C6910CCC111502DC00623B9F /* LEPIMAPMessageAttachment.m */; };
 		C6910D2D1115096800623B9F /* LEPAbstractMessageAttachment.h in Headers */ = {isa = PBXBuildFile; fileRef = C6910D2B1115096800623B9F /* LEPAbstractMessageAttachment.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C6910D2E1115096800623B9F /* LEPAbstractMessageAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = C6910D2C1115096800623B9F /* LEPAbstractMessageAttachment.m */; };
-		C6910ED61115CB4000623B9F /* NSString+LEPUUID.h in Headers */ = {isa = PBXBuildFile; fileRef = C6910ED41115CB4000623B9F /* NSString+LEPUUID.h */; };
+		C6910ED61115CB4000623B9F /* NSString+LEPUUID.h in Headers */ = {isa = PBXBuildFile; fileRef = C6910ED41115CB4000623B9F /* NSString+LEPUUID.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C6910ED71115CB4000623B9F /* NSString+LEPUUID.m in Sources */ = {isa = PBXBuildFile; fileRef = C6910ED51115CB4000623B9F /* NSString+LEPUUID.m */; };
 		C6910EE71115CD7B00623B9F /* LEPAddressPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = C6910EE61115CD7B00623B9F /* LEPAddressPrivate.h */; };
 		C6910EEE1115CE1200623B9F /* NSString+LEP.h in Headers */ = {isa = PBXBuildFile; fileRef = C6910EEC1115CE1200623B9F /* NSString+LEP.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -148,23 +147,23 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		84DE44E61605217800854ADF /* PBXContainerItemProxy */ = {
+		8462FEB8161FC7FB005449C4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 84DE44DD1605217800854ADF /* libetpan.xcodeproj */;
+			containerPortal = 8462FEAF161FC7FB005449C4 /* libetpan.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
 			remoteInfo = libetpan;
 		};
-		84DE44E81605217800854ADF /* PBXContainerItemProxy */ = {
+		8462FEBA161FC7FB005449C4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 84DE44DD1605217800854ADF /* libetpan.xcodeproj */;
+			containerPortal = 8462FEAF161FC7FB005449C4 /* libetpan.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = C69AB10A10546FE500F32FBD;
 			remoteInfo = "static libetpan";
 		};
-		84DE4502160526C000854ADF /* PBXContainerItemProxy */ = {
+		8462FEBC161FC7FB005449C4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 84DE44DD1605217800854ADF /* libetpan.xcodeproj */;
+			containerPortal = 8462FEAF161FC7FB005449C4 /* libetpan.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = C6DC660510829E8300FA050B;
 			remoteInfo = "static libetpan iphone";
@@ -177,7 +176,7 @@
 		089C1667FE841158C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		32DBCF5E0370ADEE00C91783 /* etPanKit_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = etPanKit_Prefix.pch; sourceTree = "<group>"; };
-		84DE44DD1605217800854ADF /* libetpan.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libetpan.xcodeproj; path = "Externals/libetpan/build-mac/libetpan.xcodeproj"; sourceTree = "<group>"; };
+		8462FEAF161FC7FB005449C4 /* libetpan.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libetpan.xcodeproj; path = ../../.Trash/libetpan.xcodeproj; sourceTree = "<group>"; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DC2EF5B0486A6940098B216 /* EtPanKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EtPanKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6056E2911397D6400DEB02F /* LEPIMAPAccount+Gmail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LEPIMAPAccount+Gmail.h"; sourceTree = "<group>"; };
@@ -323,7 +322,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84DE44ED1605227200854ADF /* libetpan.framework in Frameworks */,
 				C6E5725C1103E73000897274 /* Foundation.framework in Frameworks */,
 				C6F94F24129E6776005852A4 /* Security.framework in Frameworks */,
 			);
@@ -343,7 +341,7 @@
 		0867D691FE84028FC02AAC07 /* etPanKit */ = {
 			isa = PBXGroup;
 			children = (
-				84DE44DD1605217800854ADF /* libetpan.xcodeproj */,
+				8462FEAF161FC7FB005449C4 /* libetpan.xcodeproj */,
 				C63C92BD110372FA006B5066 /* Externals */,
 				C655A76610F11344009E6B45 /* Source */,
 				32C88DFF0371C24200C91783 /* Other Sources */,
@@ -401,12 +399,12 @@
 			name = "Other Sources";
 			sourceTree = "<group>";
 		};
-		84DE44DE1605217800854ADF /* Products */ = {
+		8462FEB0161FC7FB005449C4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				84DE44E71605217800854ADF /* libetpan.framework */,
-				84DE44E91605217800854ADF /* libetpan.a */,
-				84DE4503160526C000854ADF /* libetpan-iphone.a */,
+				8462FEB9161FC7FB005449C4 /* libetpan.framework */,
+				8462FEBB161FC7FB005449C4 /* libetpan.a */,
+				8462FEBD161FC7FB005449C4 /* libetpan-iphone.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -617,6 +615,7 @@
 				C6E572571103E71700897274 /* LEPIMAPFetchAllFoldersRequest.h in Headers */,
 				C6E572F71103F15600897274 /* LEPIMAPFolderPrivate.h in Headers */,
 				C673583111067D07004D4928 /* LEPIMAPCreateFolderRequest.h in Headers */,
+				C6910ED61115CB4000623B9F /* NSString+LEPUUID.h in Headers */,
 				C673586C11067E32004D4928 /* LEPIMAPDeleteFolderRequest.h in Headers */,
 				C673587011067E8C004D4928 /* LEPIMAPRenameFolderRequest.h in Headers */,
 				C67358DE11068A54004D4928 /* LEPIMAPFetchFolderMessagesRequest.h in Headers */,
@@ -631,7 +630,6 @@
 				C6910C631114F2B900623B9F /* LEPIMAPFetchMessageStructureRequest.h in Headers */,
 				C6910CCD111502DC00623B9F /* LEPIMAPMessageAttachment.h in Headers */,
 				C6910D2D1115096800623B9F /* LEPAbstractMessageAttachment.h in Headers */,
-				C6910ED61115CB4000623B9F /* NSString+LEPUUID.h in Headers */,
 				C6910EE71115CD7B00623B9F /* LEPAddressPrivate.h in Headers */,
 				C6910EEE1115CE1200623B9F /* NSString+LEP.h in Headers */,
 				C691100811160DC400623B9F /* LEPIMAPAlternativeAttachment.h in Headers */,
@@ -683,7 +681,6 @@
 				8DC2EF520486A6940098B216 /* Resources */,
 				8DC2EF540486A6940098B216 /* Sources */,
 				8DC2EF560486A6940098B216 /* Frameworks */,
-				84DE452B1605476200854ADF /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -718,8 +715,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 84DE44DE1605217800854ADF /* Products */;
-					ProjectRef = 84DE44DD1605217800854ADF /* libetpan.xcodeproj */;
+					ProductGroup = 8462FEB0161FC7FB005449C4 /* Products */;
+					ProjectRef = 8462FEAF161FC7FB005449C4 /* libetpan.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -730,25 +727,25 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		84DE44E71605217800854ADF /* libetpan.framework */ = {
+		8462FEB9161FC7FB005449C4 /* libetpan.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = libetpan.framework;
-			remoteRef = 84DE44E61605217800854ADF /* PBXContainerItemProxy */;
+			remoteRef = 8462FEB8161FC7FB005449C4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		84DE44E91605217800854ADF /* libetpan.a */ = {
+		8462FEBB161FC7FB005449C4 /* libetpan.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libetpan.a;
-			remoteRef = 84DE44E81605217800854ADF /* PBXContainerItemProxy */;
+			remoteRef = 8462FEBA161FC7FB005449C4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		84DE4503160526C000854ADF /* libetpan-iphone.a */ = {
+		8462FEBD161FC7FB005449C4 /* libetpan-iphone.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = "libetpan-iphone.a";
-			remoteRef = 84DE4502160526C000854ADF /* PBXContainerItemProxy */;
+			remoteRef = 8462FEBC161FC7FB005449C4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -765,22 +762,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		84DE452B1605476200854ADF /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# This can be inserted as a Run Script build phase or a Build Rule in your Xcode project.\n\n# You can set this to whatever you like.\nDOCUMENTATION_DIR=\"Documentation\"\nBUNDLE_ID=$(/usr/libexec/PlistBuddy -c \"Print :CFBundleIdentifier\" \"${BUILD_ROOT}/${INFOPLIST_PATH}\")\n\n# DOCUMENTATION_FOLDER_PATH\n\nif [ -e /usr/local/bin/appledoc ] ; then\n/usr/local/bin/appledoc --project-name $PRODUCT_NAME --project-company \"DINH Viêt Hoà\" --output $DOCUMENTATION_DIR  --logformat xcode --exit-threshold 2 --verbose xcode --docset-bundle-filename \"$BUNDLE_ID.$PRODUCT_NAME.docset\" .\nelse\necho \"AppleDoc is not installed in /usr/local/bin , you can download it from https://github.com/tomaz/appledoc\"\nfi";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8DC2EF540486A6940098B216 /* Sources */ = {
@@ -867,6 +848,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -879,7 +861,7 @@
 				GCC_PREFIX_HEADER = etPanKit_Prefix.pch;
 				ICU_LDFLAGS = "$(SRCROOT)/Externals/icu/lib/libicui18n.a $(SRCROOT)/Externals/icu/lib/libicuuc.a $(SRCROOT)/Externals/icu/lib/libicudata.a";
 				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "@executable_path/../Frameworks";
+				INSTALL_PATH = "@loader_path/../Frameworks";
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-lsasl2",
@@ -889,7 +871,8 @@
 					"-liconv",
 				);
 				PRODUCT_NAME = EtPanKit;
-				SDKROOT = macosx;
+				SDKROOT = macosx10.7;
+				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Debug;
@@ -898,6 +881,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -908,7 +892,7 @@
 				GCC_PREFIX_HEADER = etPanKit_Prefix.pch;
 				ICU_LDFLAGS = "$(SRCROOT)/Externals/icu/lib/libicui18n.a $(SRCROOT)/Externals/icu/lib/libicuuc.a $(SRCROOT)/Externals/icu/lib/libicudata.a";
 				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "@executable_path/../Frameworks";
+				INSTALL_PATH = "@loader_path/../Frameworks";
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-lsasl2",
@@ -918,7 +902,8 @@
 					"-liconv",
 				);
 				PRODUCT_NAME = EtPanKit;
-				SDKROOT = macosx;
+				SDKROOT = macosx10.7;
+				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Release;
@@ -936,8 +921,9 @@
 					"$(SRCROOT)/Externals/libxml2/include/libxml2",
 					/usr/include/libxml2,
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx;
+				SDKROOT = macosx10.7;
 			};
 			name = Debug;
 		};
@@ -953,7 +939,8 @@
 					"$(SRCROOT)/Externals/libxml2/include/libxml2",
 					/usr/include/libxml2,
 				);
-				SDKROOT = macosx;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx10.7;
 			};
 			name = Release;
 		};
