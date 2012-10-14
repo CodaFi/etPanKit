@@ -577,7 +577,7 @@ static void body_progress(size_t current, size_t maximum, void * context)
 {
     LEPIMAPSession * session;
     
-    session = (__bridge LEPIMAPSession *)(context);
+    session = (LEPIMAPSession *)(context);
     [session _bodyProgressWithCurrent:current maximum:maximum];
 }
 
@@ -585,7 +585,7 @@ static void items_progress(size_t current, size_t maximum, void * context)
 {
     LEPIMAPSession * session;
     
-    session = (__bridge LEPIMAPSession *)(context);
+    session = (LEPIMAPSession *)(context);
     [session _itemsProgress];
 }
 
