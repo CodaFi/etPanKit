@@ -1,0 +1,3 @@
+[submodule "Externals/LibEtPan"]
+	path = Externals/LibEtPan
+	url = git://github.com/dinhviethoa/libetpan.git
