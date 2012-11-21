@@ -877,6 +877,11 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = etPanKit_Prefix.pch;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/Externals/libxml2/include/libxml2",
+					/usr/include/libxml2,
+					"$(SRCROOT)/include",
+				);
 				ICU_LDFLAGS = "$(SRCROOT)/Externals/icu/lib/libicui18n.a $(SRCROOT)/Externals/icu/lib/libicuuc.a $(SRCROOT)/Externals/icu/lib/libicudata.a";
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "@loader_path/../Frameworks";
@@ -908,6 +913,11 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = etPanKit_Prefix.pch;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/Externals/libxml2/include/libxml2",
+					/usr/include/libxml2,
+					"$(SRCROOT)/include",
+				);
 				ICU_LDFLAGS = "$(SRCROOT)/Externals/icu/lib/libicui18n.a $(SRCROOT)/Externals/icu/lib/libicuuc.a $(SRCROOT)/Externals/icu/lib/libicudata.a";
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "@loader_path/../Frameworks";
