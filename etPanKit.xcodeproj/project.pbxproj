@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84789415165D97C6001A5EE0 /* LEPMimeManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 84789413165D97C6001A5EE0 /* LEPMimeManager.h */; };
+		84789416165D97C6001A5EE0 /* LEPMimeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84789414165D97C6001A5EE0 /* LEPMimeManager.m */; };
 		84A9E13E162A4EE4006737FA /* libetpan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A9E135162A4E8F006737FA /* libetpan.a */; };
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 		C6056E2B11397D6400DEB02F /* LEPIMAPAccount+Gmail.h in Headers */ = {isa = PBXBuildFile; fileRef = C6056E2911397D6400DEB02F /* LEPIMAPAccount+Gmail.h */; settings = {ATTRIBUTES = (); }; };
@@ -184,6 +186,8 @@
 		089C1667FE841158C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		32DBCF5E0370ADEE00C91783 /* etPanKit_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = etPanKit_Prefix.pch; sourceTree = "<group>"; };
+		84789413165D97C6001A5EE0 /* LEPMimeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEPMimeManager.h; sourceTree = "<group>"; };
+		84789414165D97C6001A5EE0 /* LEPMimeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEPMimeManager.m; sourceTree = "<group>"; };
 		84A9E129162A4E8E006737FA /* libetpan.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libetpan.xcodeproj; path = "Externals/LibEtPan/build-mac/libetpan.xcodeproj"; sourceTree = "<group>"; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DC2EF5B0486A6940098B216 /* EtPanKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EtPanKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -350,7 +354,6 @@
 		0867D691FE84028FC02AAC07 /* etPanKit */ = {
 			isa = PBXGroup;
 			children = (
-				84A9E129162A4E8E006737FA /* libetpan.xcodeproj */,
 				C63C92BD110372FA006B5066 /* Externals */,
 				C655A76610F11344009E6B45 /* Source */,
 				32C88DFF0371C24200C91783 /* Other Sources */,
@@ -421,6 +424,7 @@
 		C63C92BD110372FA006B5066 /* Externals */ = {
 			isa = PBXGroup;
 			children = (
+				84A9E129162A4E8E006737FA /* libetpan.xcodeproj */,
 			);
 			name = Externals;
 			sourceTree = "<group>";
@@ -428,11 +432,11 @@
 		C655A76610F11344009E6B45 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				C69110B311162CE900623B9F /* EtPanKit.h */,
 				C6E9BC791347DF33005F4C2C /* icu */,
 				C681662B10F5142D00B07764 /* imap */,
 				C69112A211164F1B00623B9F /* rfc2822 */,
 				C681663A10F5142D00B07764 /* smtp */,
-				C69110B311162CE900623B9F /* EtPanKit.h */,
 				C691100E1116102500623B9F /* LEPAbstractAlternativeAttachment.h */,
 				C691100F1116102500623B9F /* LEPAbstractAlternativeAttachment.m */,
 				C655A77010F11344009E6B45 /* LEPAbstractAttachment.h */,
@@ -444,11 +448,22 @@
 				C63050F61114819C00FDD7CA /* LEPAddress.h */,
 				C63050F71114819C00FDD7CA /* LEPAddress.m */,
 				C6910EE61115CD7B00623B9F /* LEPAddressPrivate.h */,
+				C6F952AA129E8EB8005852A4 /* LEPCertificateUtils.h */,
+				C6F952AB129E8EB8005852A4 /* LEPCertificateUtils.m */,
 				C622012C10F1650600A207C0 /* LEPConstants.h */,
 				C6E572441103998300897274 /* LEPError.h */,
+				C6A9E3A112F5BE7E009C12A8 /* LEPMailProvider.h */,
+				C6A9E3A212F5BE7E009C12A8 /* LEPMailProvider.m */,
+				C6A9E39212F5B9B2009C12A8 /* LEPMailProvidersManager.h */,
+				C6A9E39312F5B9B2009C12A8 /* LEPMailProvidersManager.m */,
 				C6560B5E111A4B6400BF7565 /* LEPMessageHeader.h */,
 				C6560B5F111A4B6400BF7565 /* LEPMessageHeader.m */,
 				C6560B60111A4B6400BF7565 /* LEPMessageHeaderPrivate.h */,
+				84789413165D97C6001A5EE0 /* LEPMimeManager.h */,
+				84789414165D97C6001A5EE0 /* LEPMimeManager.m */,
+				C6A9E3A912F5CAC6009C12A8 /* LEPNetService.h */,
+				C6A9E3AA12F5CAC6009C12A8 /* LEPNetService.m */,
+				C6A9E39D12F5BB3B009C12A8 /* LEPSingleton.h */,
 				C622010710F15B8F00A207C0 /* LEPUtils.h */,
 				C622010910F1600500A207C0 /* LEPUtils.m */,
 				C681643D10F3EB6100B07764 /* NSData+LEPUTF8.h */,
@@ -457,15 +472,6 @@
 				C6910EED1115CE1200623B9F /* NSString+LEP.m */,
 				C6910ED41115CB4000623B9F /* NSString+LEPUUID.h */,
 				C6910ED51115CB4000623B9F /* NSString+LEPUUID.m */,
-				C6F952AA129E8EB8005852A4 /* LEPCertificateUtils.h */,
-				C6F952AB129E8EB8005852A4 /* LEPCertificateUtils.m */,
-				C6A9E39212F5B9B2009C12A8 /* LEPMailProvidersManager.h */,
-				C6A9E39312F5B9B2009C12A8 /* LEPMailProvidersManager.m */,
-				C6A9E3A112F5BE7E009C12A8 /* LEPMailProvider.h */,
-				C6A9E3A212F5BE7E009C12A8 /* LEPMailProvider.m */,
-				C6A9E3A912F5CAC6009C12A8 /* LEPNetService.h */,
-				C6A9E3AA12F5CAC6009C12A8 /* LEPNetService.m */,
-				C6A9E39D12F5BB3B009C12A8 /* LEPSingleton.h */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -676,6 +682,7 @@
 				C6C65274131170790061B309 /* LEPIMAPNamespaceRequest.h in Headers */,
 				C65BF08713291E3E00372160 /* LEPIMAPCheckRequest.h in Headers */,
 				C6E9BDC91347DF33005F4C2C /* NSData+LEPCharsetDetection.h in Headers */,
+				84789415165D97C6001A5EE0 /* LEPMimeManager.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -837,6 +844,7 @@
 				C6C65275131170790061B309 /* LEPIMAPNamespaceRequest.m in Sources */,
 				C65BF08813291E3E00372160 /* LEPIMAPCheckRequest.m in Sources */,
 				C6E9BDCA1347DF33005F4C2C /* NSData+LEPCharsetDetection.m in Sources */,
+				84789416165D97C6001A5EE0 /* LEPMimeManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
