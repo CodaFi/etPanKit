@@ -80,9 +80,10 @@
 - (NSString *) RFC822String;
 
 /**
- The value of the object represented in the format  "John Doe <john.doe@email.com>"
+ The value of the object represented in the format  "John Doe <john.doe@email.com>".  Returns nil in 
+ the case of a malformed address.
  
- @return An NSString
+ @return An NSString or nil
  */
 - (NSString*) prettifiedStringValue;
 
