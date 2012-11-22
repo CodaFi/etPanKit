@@ -247,7 +247,7 @@
 													extension:(struct mailimap_body_ext_1part *)extension
 {
 	LEPIMAPAttachment * attachment;
-	NSString * mimeType;
+	NSString * mimeType = nil;
 	
 	attachment = [[LEPIMAPAttachment alloc] init];
 	[attachment _setFieldsFromFields:basic->bd_fields extension:extension];

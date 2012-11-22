@@ -181,7 +181,7 @@
     
     [uidSet release];
     
-    return [request autorelease];
+    return request;
 }
 
 - (LEPIMAPRequest *) copyMessagesUIDs:(NSArray * /* NSNumber uint32_t */)messagesUids toFolder:(LEPIMAPFolder *)toFolder
@@ -203,7 +203,7 @@
     
     [uidSet release];
     
-    return [request autorelease];
+    return request;
 }
 
 - (LEPIMAPFetchFolderMessagesRequest *) fetchMessagesRequest

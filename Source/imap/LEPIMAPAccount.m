@@ -327,7 +327,7 @@
     //LEPLog(@"%@", localizedMailbox);
     for(NSDictionary * item in localizedMailbox) {
         NSArray * mailboxNames;
-        BOOL match;
+//        BOOL match;
 		NSMutableSet * currentSet;
 		
         mailboxNames = [item allValues];
@@ -350,10 +350,9 @@
 				[currentSet addObject:str];
 			}
         }
-		
 		unsigned int matchCount;
 		matchCount = 0;
-		match = NO;
+//		match = NO;
 		for(NSString * folderName in folderNameArray) {
 			if ([currentSet containsObject:folderName]) {
 				[currentSet removeObject:folderName];
