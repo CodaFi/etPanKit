@@ -292,6 +292,27 @@
     return result;
 }
 
+//A completely formed address object should return a string in the format: "John Doe <john.doe@email.com>"
+- (NSString*) prettifiedStringValue {
+	if (self.displayName.length == 0) {
+		if (self.mailbox == nil) {
+			return nil;
+		}
+		else {
+			return [NSString stringWithFormat:@"<%@>", self.mailbox];
+		}
+	}
+	else {
+		if (self.mailbox != nil) {
+			return [NSString stringWithFormat:@"%@ <%@>", self.displayName, self.mailbox];
+		}
+		else {
+			return self.displayName;
+		}
+	}
+	return nil;
+}
+
 - (NSUInteger)hash
 {
 	return [[self displayName] hash] + [[self mailbox] hash];

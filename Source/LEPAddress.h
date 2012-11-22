@@ -79,6 +79,13 @@
  */
 - (NSString *) RFC822String;
 
+/**
+ The value of the object represented in the format  "John Doe <john.doe@email.com>"
+ 
+ @return An NSString
+ */
+- (NSString*) prettifiedStringValue;
+
 @end
 
 @interface LEPAddress (LEPNSArray)
