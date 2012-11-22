@@ -20,4 +20,8 @@
 @property (nonatomic, assign, getter=isInlineAttachment) BOOL inlineAttachment;
 @property (nonatomic, assign) LEPAbstractMessage * message;
 
+//-(BOOL)isPlainTextAttachment;
+//-(BOOL)isImageAttachment;
+//-(BOOL)isPDFAttachment;
+
 @end

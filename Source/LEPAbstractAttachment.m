@@ -82,4 +82,15 @@
     return attachment;
 }
 
+-(BOOL)isPlainTextAttachment {
+	BOOL result = NO;
+	if (self.isInlineAttachment) {
+		if (![[self.mimeType lowercaseString]isEqualToString:@"text/html"]) {
+			result = [[self.mimeType lowercaseString]isEqualToString:@"text/plain"];
+		}
+	}
+	return result;
+}
+
+
 @end
