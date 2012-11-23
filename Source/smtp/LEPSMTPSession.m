@@ -422,6 +422,7 @@ static void progress(size_t current, size_t maximum, void * context)
     
 	LEPLog(@"setup");
 	[self _setup];
+	[self setError:nil];
 	
 	LEPLog(@"connect");
 	[self _connect];

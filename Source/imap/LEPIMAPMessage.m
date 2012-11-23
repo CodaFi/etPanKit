@@ -19,6 +19,7 @@
 #import "LEPMessageHeader.h"
 #import "LEPAbstractAttachment.h"
 #import "LEPUtils.h"
+#import "LEPAbstractMessageAttachment.h"
 #include <libetpan/libetpan.h>
 
 @interface LEPIMAPMessage ()
@@ -110,6 +111,15 @@
     [self _setupRequest:request];
     
     return [request autorelease];
+}
+
+
+-(NSArray*)textAttachments {
+	NSMutableArray *result = [NSMutableArray array];
+	for (LEPAbstractMessageAttachment *abstractAttachment in self.attachments) {
+		[result addObjectsFromArray:[abstractAttachment plainTextAttachments]];
+	}
+	return result;
 }
 
 - (NSString *) description

@@ -19,4 +19,6 @@
 @property (nonatomic, retain, readonly) LEPMessageHeader * header;
 @property (nonatomic, retain) NSArray * /* LEPAbstractAttachment */ attachments;
 
+-(NSArray*)plainTextAttachments;
+
 @end

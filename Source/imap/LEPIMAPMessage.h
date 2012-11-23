@@ -26,4 +26,9 @@
 - (LEPIMAPFetchMessageRequest *) fetchMessageRequest;
 - (LEPIMAPFetchAttachmentRequest *) fetchAttachmentRequestWithPartID:(NSString *)partID;
 
+/**
+ An array containing all attachments that have the MIME type text/plain
+ @return An NSArray of text/plain attachments
+ */
+-(NSArray*)textAttachments;
 @end

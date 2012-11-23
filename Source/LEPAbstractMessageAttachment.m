@@ -39,6 +39,14 @@
 	}
 }
 
+-(NSArray*)plainTextAttachments {
+	NSMutableArray *result = [NSMutableArray array];
+	for (LEPAbstractAttachment *attachment in self.attachments) {
+		[result addObjectsFromArray:[attachment plainTextAttachments]];
+	}
+	return result;
+}
+
 - (id)initWithCoder:(NSCoder *)decoder
 {
 	self = [super initWithCoder:decoder];
