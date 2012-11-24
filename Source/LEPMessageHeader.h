@@ -51,6 +51,8 @@
 @property (nonatomic, retain, readonly) NSString * extractedSubject;
 @property (nonatomic, retain, readonly) NSString * partialExtractedSubject;
 
+-(NSString*)datedMessageID;
+
 /** A user agent describing the software that sent the message.
  
  The userAgent is stored in the message under the X-Mailer header field.  The X-Mailer mail header field is used to describe the software used in sending the email.  If you send an email using Outlook, you'll find an X-Mailer header in your outgoing email that indicates that Outlook sent it, and the version.  Likewise, the X-Mailer header for emails sent by the Chilkat email component will indicate that "Chilkat Software" was the mailer. You may change it so that the name of your application is contained in X-Mailer.

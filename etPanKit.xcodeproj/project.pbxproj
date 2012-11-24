@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		84789415165D97C6001A5EE0 /* LEPMimeManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 84789413165D97C6001A5EE0 /* LEPMimeManager.h */; };
 		84789416165D97C6001A5EE0 /* LEPMimeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84789414165D97C6001A5EE0 /* LEPMimeManager.m */; };
+		849C49D016617BF0006C7EBE /* LEPIMAPSearchRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 849C49CE16617BF0006C7EBE /* LEPIMAPSearchRequest.h */; };
+		849C49D116617BF0006C7EBE /* LEPIMAPSearchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 849C49CF16617BF0006C7EBE /* LEPIMAPSearchRequest.m */; };
 		84A9E13E162A4EE4006737FA /* libetpan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A9E135162A4E8F006737FA /* libetpan.a */; };
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 		C6056E2B11397D6400DEB02F /* LEPIMAPAccount+Gmail.h in Headers */ = {isa = PBXBuildFile; fileRef = C6056E2911397D6400DEB02F /* LEPIMAPAccount+Gmail.h */; settings = {ATTRIBUTES = (); }; };
@@ -188,6 +190,8 @@
 		32DBCF5E0370ADEE00C91783 /* etPanKit_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = etPanKit_Prefix.pch; sourceTree = "<group>"; };
 		84789413165D97C6001A5EE0 /* LEPMimeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEPMimeManager.h; sourceTree = "<group>"; };
 		84789414165D97C6001A5EE0 /* LEPMimeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEPMimeManager.m; sourceTree = "<group>"; };
+		849C49CE16617BF0006C7EBE /* LEPIMAPSearchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEPIMAPSearchRequest.h; sourceTree = "<group>"; };
+		849C49CF16617BF0006C7EBE /* LEPIMAPSearchRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEPIMAPSearchRequest.m; sourceTree = "<group>"; };
 		84A9E129162A4E8E006737FA /* libetpan.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libetpan.xcodeproj; path = "Externals/LibEtPan/build-mac/libetpan.xcodeproj"; sourceTree = "<group>"; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DC2EF5B0486A6940098B216 /* EtPanKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EtPanKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -536,6 +540,8 @@
 				C673586F11067E8C004D4928 /* LEPIMAPRenameFolderRequest.m */,
 				C681663610F5142D00B07764 /* LEPIMAPRequest.h */,
 				C681663710F5142D00B07764 /* LEPIMAPRequest.m */,
+				849C49CE16617BF0006C7EBE /* LEPIMAPSearchRequest.h */,
+				849C49CF16617BF0006C7EBE /* LEPIMAPSearchRequest.m */,
 				C617A228111F4847000FCE35 /* LEPIMAPSelectRequest.h */,
 				C617A229111F4847000FCE35 /* LEPIMAPSelectRequest.m */,
 				C681663810F5142D00B07764 /* LEPIMAPSession.h */,
@@ -683,6 +689,7 @@
 				C65BF08713291E3E00372160 /* LEPIMAPCheckRequest.h in Headers */,
 				C6E9BDC91347DF33005F4C2C /* NSData+LEPCharsetDetection.h in Headers */,
 				84789415165D97C6001A5EE0 /* LEPMimeManager.h in Headers */,
+				849C49D016617BF0006C7EBE /* LEPIMAPSearchRequest.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -845,6 +852,7 @@
 				C65BF08813291E3E00372160 /* LEPIMAPCheckRequest.m in Sources */,
 				C6E9BDCA1347DF33005F4C2C /* NSData+LEPCharsetDetection.m in Sources */,
 				84789416165D97C6001A5EE0 /* LEPMimeManager.m in Sources */,
+				849C49D116617BF0006C7EBE /* LEPIMAPSearchRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

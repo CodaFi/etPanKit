@@ -1407,6 +1407,49 @@ static void items_progress(size_t current, size_t maximum, void * context)
 	}
 }
 
+- (NSIndexSet *) _searchFolder:(NSString *)path withKey:(struct mailimap_search_key *)key {
+	[self _selectIfNeeded:path];
+	NSMutableIndexSet *result;
+	clistiter * iter;
+
+	if (self.error != nil) {
+		return nil;
+	}
+	clist * fetch_result;
+	int err = mailimap_uid_search(_lepData, "utf-8", key, &fetch_result);
+	LEPLog(@"Session had error %i", err);
+	
+	if (err == MAILIMAP_ERROR_PARSE) {
+		NSError * error;
+		
+        LEPLog(@"error parse");
+		error = [[NSError alloc] initWithDomain:LEPErrorDomain code:LEPErrorFetch userInfo:nil];
+		[self setError:error];
+		[error release];
+        return nil;
+	}
+    else if ([self _hasError:err]) {
+		NSError * error;
+		
+        LEPLog(@"error fetch");
+		error = [[NSError alloc] initWithDomain:LEPErrorDomain code:LEPErrorFetch userInfo:nil];
+		[self setError:error];
+		[error release];
+        return nil;
+	}
+	else if (err != MAILIMAP_ERROR_STREAM) {
+		if ([self _hasError:err] == NO) {
+			result = [[[NSMutableIndexSet alloc]init]autorelease];
+			for(iter = clist_begin(fetch_result) ; iter != NULL ; iter = clist_next(iter)) {
+				[result addIndex:clist_content(iter)];
+			}
+		}
+		mailimap_fetch_list_free(fetch_result);
+		return result;
+	}
+	return nil;
+}
+
 - (NSDictionary *) _fetchFolderMessagesMessageNumberUIDMappingForPath:(NSString *)path fromUID:(uint32_t)fromUID toUID:(uint32_t)toUID
 {
     struct mailimap_set * imap_set;

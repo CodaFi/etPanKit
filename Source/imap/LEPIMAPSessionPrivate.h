@@ -9,6 +9,7 @@
 
 #import "LEPIMAPSession.h"
 #import "LEPIMAPMessage.h"
+#include <libetpan/mailimap_types_helper.h>
 
 @class LEPIMAPFolder;
 @class LEPIMAPAccount;
@@ -25,6 +26,8 @@
 - (void) _renameFolder:(NSString *)path withNewPath:(NSString *)newPath;
 - (void) _deleteFolder:(NSString *)path;
 - (void) _createFolder:(NSString *)path;
+
+- (NSIndexSet *) _searchFolder:(NSString *)path withKey:(struct mailimap_search_key *)key;
 
 - (void) _subscribeFolder:(NSString *)path;
 - (void) _unsubscribeFolder:(NSString *)path;
