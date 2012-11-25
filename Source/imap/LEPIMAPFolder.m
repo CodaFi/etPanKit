@@ -34,12 +34,6 @@
 
 @implementation LEPIMAPFolder
 
-@synthesize account = _account;
-@synthesize uidValidity = _uidValidity;
-@synthesize path = _path;
-@synthesize uidNext = _uidNext;
-@synthesize flags = _flags;
-
 - (id) init
 {
 	self = [super init];
