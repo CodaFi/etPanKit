@@ -63,7 +63,7 @@ typedef enum {
 	return [self _buildSearchWithOption:LEPKeyKindText];
 }
 
--(char *)_mallocText:(NSString*)text {
+-(char *)_stringToChar:(NSString*)text {
 	char *buf = malloc([text maximumLengthOfBytesUsingEncoding:NSUTF8StringEncoding] + 1);
 	BOOL result = [text getCString:buf maxLength:[text maximumLengthOfBytesUsingEncoding:NSUTF8StringEncoding] encoding:NSUTF8StringEncoding];
 	if (result == NO) {
@@ -76,17 +76,17 @@ typedef enum {
 	switch (option) {
 		case LEPKeyKindTo:
 			
-			return mailimap_search_key_new(MAILIMAP_SEARCH_KEY_OR, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, mailimap_search_key_new_to([self _mallocText:self.to]), mailimap_search_key_new_or(mailimap_search_key_new_cc([self _mallocText:self.to]), mailimap_search_key_new_bcc([self _mallocText:self.to])), NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+			return mailimap_search_key_new(MAILIMAP_SEARCH_KEY_OR, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, mailimap_search_key_new_to([self _stringToChar:self.to]), mailimap_search_key_new_or(mailimap_search_key_new_cc([self _stringToChar:self.to]), mailimap_search_key_new_bcc([self _stringToChar:self.to])), NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 			break;
 			
 		case LEPKeyKindFrom:
 			
-			return mailimap_search_key_new(MAILIMAP_SEARCH_KEY_FROM, NULL, NULL, NULL, NULL, [self _mallocText:self.from], NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+			return mailimap_search_key_new(MAILIMAP_SEARCH_KEY_FROM, NULL, NULL, NULL, NULL, [self _stringToChar:self.from], NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 			break;
 			
 		case LEPKeyKindSubject:
 			
-			return mailimap_search_key_new(MAILIMAP_SEARCH_KEY_SUBJECT, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, [self _mallocText:self.subject], NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+			return mailimap_search_key_new(MAILIMAP_SEARCH_KEY_SUBJECT, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, [self _stringToChar:self.subject], NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 			break;
 			
 		case LEPKeyKindText:
@@ -100,14 +100,23 @@ typedef enum {
 }
 																		   
 -(struct mailimap_search_key *)textSearchKey {
-	struct mailimap_search_key *toSearch = mailimap_search_key_new(MAILIMAP_SEARCH_KEY_OR, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, mailimap_search_key_new_to([self _mallocText:self.to]), mailimap_search_key_new_or(mailimap_search_key_new_cc([self _mallocText:self.to]), mailimap_search_key_new_bcc([self _mallocText:self.to])), NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+	struct mailimap_search_key *toSearch = mailimap_search_key_new(MAILIMAP_SEARCH_KEY_OR, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, mailimap_search_key_new_to([self _stringToChar:self.to]), mailimap_search_key_new_or(mailimap_search_key_new_cc([self _stringToChar:self.to]), mailimap_search_key_new_bcc([self _stringToChar:self.to])), NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 																   
-   struct mailimap_search_key *or1 = mailimap_search_key_new_or(mailimap_search_key_new_text([self _mallocText:self.text]), toSearch);
+   struct mailimap_search_key *or1 = mailimap_search_key_new_or(mailimap_search_key_new_text([self _stringToChar:self.text]), toSearch);
    
-   struct mailimap_search_key *from = mailimap_search_key_new(MAILIMAP_SEARCH_KEY_FROM, NULL, NULL, NULL, NULL, [self _mallocText:self.from], NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-   struct mailimap_search_key *or2 = mailimap_search_key_new_or(mailimap_search_key_new_text([self _mallocText:self.text]), from);
+   struct mailimap_search_key *from = mailimap_search_key_new(MAILIMAP_SEARCH_KEY_FROM, NULL, NULL, NULL, NULL, [self _stringToChar:self.from], NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+   struct mailimap_search_key *or2 = mailimap_search_key_new_or(mailimap_search_key_new_text([self _stringToChar:self.text]), from);
    
    return mailimap_search_key_new_or(or1, or2);
+}
+
+-(void)dealloc {
+	[self.text release];
+	[self.subject release];
+	[self.to release];
+	[self.from release];
+	[self.foundUIDs release];
+	[super dealloc];
 }
 
 @end

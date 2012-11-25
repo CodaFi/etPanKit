@@ -29,6 +29,7 @@
 #import "LEPConstants.h"
 #import "LEPIMAPIdleRequest.h"
 #import "LEPIMAPCapabilityRequest.h"
+#import "LEPIMAPSearchRequest.h"
 #import <libetpan/libetpan.h>
 
 @implementation LEPIMAPFolder
@@ -111,6 +112,16 @@
     [self _setupRequest:request];
     
     return [request autorelease];
+}
+
+- (LEPIMAPSearchRequest*) searchRequest {
+	LEPIMAPSearchRequest * request;
+	
+	request = [[LEPIMAPSearchRequest alloc] initWithPath:self.path];
+	
+	[self _setupRequest:request];
+	
+	return request;
 }
 
 - (LEPIMAPRequest *) subscribeRequest

@@ -8,6 +8,7 @@
 @class LEPIMAPFolder;
 @class LEPIMAPIdleRequest;
 @class LEPIMAPCapabilityRequest;
+@class LEPIMAPSearchRequest;
 
 @interface LEPIMAPFolder : NSObject {
     LEPIMAPAccount * _account;
@@ -53,6 +54,8 @@
 
 - (LEPIMAPRequest *) subscribeRequest;
 - (LEPIMAPRequest *) unsubscribeRequest;
+
+- (LEPIMAPSearchRequest*)searchRequest;
 
 - (LEPIMAPRequest *) deleteRequest;
 - (LEPIMAPRequest *) renameRequestWithNewPath:(NSString *)newPath;
