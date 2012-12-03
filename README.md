@@ -65,6 +65,15 @@ As changes and tweaks are committed, this API may change in backwards-incompatib
 
 The main goal of EtPanKit is to provide a high-quality mail framework with an easy to use interface, while maintaining the ability to subclass and tweak at will.  There are only a few other options for mail frameworks on OSX, and we aim to be a contender for the top spot.
 
+
+# News
+
+Version 0.1.1 (Searchin' for something)
+
+- Documentation updates for LEPIMAPFolder.
+- Search requests for IMAP servers through LEPIMAPFolder's `-searchRequest` method.
+- EtPanKit now build with two errors, both of them hardcoded in.
+
 # Contributing
 
 We will happily accept pull requests that meet one of the following criteria:
