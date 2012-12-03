@@ -9,6 +9,10 @@
 #import "LEPCertificateUtils.h"
 #import <Security/Security.h>
 
+//For 10.8 deprecation of OpenSSL aspects of Security.framework
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated"
+
 BOOL lepCheckCertificate(mailstream * stream, NSString * host)
 {
     ssize_t size;
@@ -105,3 +109,6 @@ free_der:
 err:
     return valid;
 }
+
+#pragma clang diagnostic pop
+

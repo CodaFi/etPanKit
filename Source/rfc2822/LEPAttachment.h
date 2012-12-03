@@ -10,11 +10,11 @@
 
 - (id) initWithContentsOfFile:(NSString *)filename;
 
-+ (LEPAttachment *) attachmentWithContentsOfFile:(NSString *)filename;
++ (LEPAbstractAttachment *) attachmentWithContentsOfFile:(NSString *)filename;
 
-+ (LEPAttachment *) attachmentWithHTMLString:(NSString *)html; // with alternative by default
-+ (LEPAttachment *) attachmentWithHTMLString:(NSString *)html withTextAlternative:(BOOL)hasAlternative;
++ (LEPAbstractAttachment *) attachmentWithHTMLString:(NSString *)html; // with alternative by default
++ (LEPAbstractAttachment *) attachmentWithHTMLString:(NSString *)html withTextAlternative:(BOOL)hasAlternative;
 
-+ (LEPAttachment *) attachmentWithString:(NSString *)stringValue;
++ (LEPAbstractAttachment *) attachmentWithString:(NSString *)stringValue;
 
 @end

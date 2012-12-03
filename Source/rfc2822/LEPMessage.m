@@ -574,7 +574,7 @@ err:
 	
 	if (([self HTMLBody] != nil) && ([self body] == nil)) {
 		NSMutableArray * newArray;
-		LEPAttachment * attachment;
+		LEPAbstractAttachment * attachment;
 		
 		attachment = [LEPAttachment attachmentWithHTMLString:[self HTMLBody]];
 		
@@ -588,7 +588,7 @@ err:
 		NSMutableArray * newArray;
 		LEPAlternativeAttachment * alternative;
 		NSMutableArray * altAttachments;
-		LEPAttachment * altAttachment;
+		LEPAbstractAttachment * altAttachment;
 		
 		alternative = [[LEPAlternativeAttachment alloc] init];
 		altAttachments = [[NSMutableArray alloc] init];
@@ -607,7 +607,7 @@ err:
 	}
 	else if ([self body] != nil) {
 		NSMutableArray * newArray;
-		LEPAttachment * attachment;
+		LEPAbstractAttachment * attachment;
 		
 		attachment = [LEPAttachment attachmentWithString:[self body]];
 		

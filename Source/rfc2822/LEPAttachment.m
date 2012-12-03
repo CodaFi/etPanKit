@@ -307,17 +307,17 @@ static char * get_content_type_str(struct mailmime_content * content)
 	return nil;
 }
 
-+ (LEPAttachment *) attachmentWithContentsOfFile:(NSString *)filename
++ (LEPAbstractAttachment *) attachmentWithContentsOfFile:(NSString *)filename
 {
 	return [[[self alloc] initWithContentsOfFile:filename] autorelease];
 }
 
-+ (LEPAttachment *) attachmentWithHTMLString:(NSString *)html
++ (LEPAbstractAttachment *) attachmentWithHTMLString:(NSString *)html
 {
 	return [self attachmentWithHTMLString:html withTextAlternative:YES];
 }
 
-+ (LEPAttachment *) attachmentWithHTMLString:(NSString *)html withTextAlternative:(BOOL)hasAlternative;
++ (LEPAbstractAttachment *) attachmentWithHTMLString:(NSString *)html withTextAlternative:(BOOL)hasAlternative;
 {
 	if (!hasAlternative) {
 		NSData * data;
@@ -334,7 +334,7 @@ static char * get_content_type_str(struct mailmime_content * content)
 	else {
 		LEPAlternativeAttachment * alternativeAttachment;
 		NSMutableArray * attachments;
-		LEPAttachment * attachment;
+		LEPAbstractAttachment * attachment;
 		
 		alternativeAttachment = [[LEPAlternativeAttachment alloc] init];
 		attachments = [[NSMutableArray alloc] init];
