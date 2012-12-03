@@ -30,7 +30,7 @@
  */
 
 /*
- * $Id: imapdriver_tools.c,v 1.37 2011/01/06 00:09:52 hoa Exp $
+ * $Id: imapdriver_tools.c,v 1.38 2011/06/04 13:25:56 hoa Exp $
  */
 
 #ifdef HAVE_CONFIG_H
@@ -502,7 +502,14 @@ imap_disposition_to_mime_disposition(struct mailimap_body_fld_dsp * imap_dsp,
   cur_token = 0;
   r = mailmime_disposition_type_parse(imap_dsp->dsp_type,
       strlen(imap_dsp->dsp_type), &cur_token, &dsp_type);
-  if (r != MAILIMF_NO_ERROR) {
+  if (r == MAILIMF_ERROR_PARSE) {
+    dsp_type = mailmime_disposition_type_new(MAILMIME_DISPOSITION_TYPE_ATTACHMENT, NULL);
+    if (dsp_type == NULL) {
+      res = MAIL_ERROR_MEMORY;
+      goto err;
+    }
+  }
+  else if (r != MAILIMF_NO_ERROR) {
     res = MAILIMF_ERROR_PARSE;
     goto err;
   }

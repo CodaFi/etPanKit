@@ -2125,6 +2125,57 @@ static void items_progress(size_t current, size_t maximum, void * context)
 	}
 }
 
+- (void) _storeLabels:(NSArray*)labels kind:(LEPIMAPStoreLabelsRequestKind)kind messagesUIDs:(NSArray *)uids path:(NSString *)path {
+	struct mailimap_set * imap_set;
+	int r;
+	
+    [self _selectIfNeeded:path];
+	if ([self error] != nil)
+        return;
+	imap_set = setFromArray(uids);
+	if (clist_count(imap_set->set_list) == 0)
+		return;
+	
+	struct mailimap_msg_att_xgmlabels *lbls = mailimap_msg_att_xgmlabels_new_empty();
+	for (NSString *label in labels) {
+		mailimap_msg_att_xgmlabels_add(lbls, strdup([label UTF8String]));
+	}
+	if (lbls == NULL) {
+//		for(clistiter * cur = clist_begin(imap_set->set_list) ; cur != NULL ; cur = clist_next(cur)) {
+//			
+//		}
+		clist_free(imap_set->set_list);
+		mailimap_msg_att_xgmlabels_free(lbls);
+		mailimap_set_free(imap_set);
+		return;
+	}
+	r = mailimap_uid_store_xgmlabels(_lepData, imap_set, 0, 0, lbls);
+	if (r == MAILIMAP_ERROR_STREAM) {
+        NSError * error;
+        
+        error = [[NSError alloc] initWithDomain:LEPErrorDomain code:LEPErrorConnection userInfo:nil];
+        [self setError:error];
+        [error release];
+        return;
+    }
+    else if (r == MAILIMAP_ERROR_PARSE) {
+        NSError * error;
+        
+        error = [[NSError alloc] initWithDomain:LEPErrorDomain code:LEPErrorParse userInfo:nil];
+        [self setError:error];
+        [error release];
+        return;
+    }
+	else if ([self _hasError:r]) {
+		NSError * error;
+		
+		error = [[NSError alloc] initWithDomain:LEPErrorDomain code:LEPErrorStore userInfo:nil];
+		[self setError:error];
+		[error release];
+        return;
+	}
+}
+
 - (void) _logout
 {
     [self setError:nil];

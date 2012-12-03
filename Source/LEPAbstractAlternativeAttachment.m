@@ -22,7 +22,7 @@
 - (void) dealloc
 {
 	[_attachments release];
-	[super dealloc];
+	[super dealloc]; 
 }
 
 - (void) setMessage:(LEPAbstractMessage *)message

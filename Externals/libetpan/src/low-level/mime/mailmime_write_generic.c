@@ -30,7 +30,7 @@
  */
 
 /*
- * $Id: mailmime_write_generic.c,v 1.11 2008/06/15 11:40:41 hoa Exp $
+ * $Id: mailmime_write_generic.c,v 1.13 2011/06/25 15:30:46 hoa Exp $
  */
 
 #ifdef HAVE_CONFIG_H
@@ -1280,7 +1280,7 @@ static inline int write_remaining(int (* do_write)(void *, const char *, size_t)
 #define QP_MAX_COL 72
 
 int mailmime_quoted_printable_write_driver(int (* do_write)(void *, const char *, size_t), void * data, int * col, int istext,
-    const char * text, size_t size)
+                                           const char * text, size_t size)
 {
   size_t i;
   const char * start;
@@ -1288,203 +1288,208 @@ int mailmime_quoted_printable_write_driver(int (* do_write)(void *, const char *
   char hexstr[6];
   int r;
   int state;
-
+  
   start = text;
   len = 0;
   state = STATE_INIT;
-
+  
   i = 0;
   while (i < size) {
     unsigned char ch;
-
+    
     if (* col + len > QP_MAX_COL) {
       r = write_remaining(do_write, data, col, &start, &len);
       if (r != MAILIMF_NO_ERROR)
-	return r;
+        return r;
       start = text + i;
-
+      
       r = mailimf_string_write_driver(do_write, data, col, "=\r\n", 3);
       if (r != MAILIMF_NO_ERROR)
-	return r;
+        return r;
     }
-
+    
     ch = text[i];
-
+    
     switch (state) {
-
-    case STATE_INIT:
-      switch (ch) {
-      case ' ':
-      case '\t':
-        state = STATE_SPACE;
-	break;
         
-      case '\r':
-	state = STATE_CR;
-	break;
-
-      case '!':
-      case '"':
-      case '#':
-      case '$':
-      case '@':
-      case '[':
-      case '\\':
-      case ']':
-      case '^':
-      case '`':
-      case '{':
-      case '|':
-      case '}':
-      case '~':
-      case '=':
-      case '?':
-      case '_':
-      case 'F': /* there is no more 'From' at the beginning of a line */
-	r = write_remaining(do_write, data, col, &start, &len);
-	if (r != MAILIMF_NO_ERROR)
-	  return r;
-        start = text + i + 1;
-
-	snprintf(hexstr, 6, "=%02X", ch);
-
-	r = mailimf_string_write_driver(do_write, data, col, hexstr, 3);
-	if (r != MAILIMF_NO_ERROR)
-	  return r;
-	break;
-
-      default:
-	if (istext && (ch == '\n')) {
-	  r = write_remaining(do_write, data, col, &start, &len);
-	  if (r != MAILIMF_NO_ERROR)
-	    return r;
-          start = text + i + 1;
-          
-	  r = mailimf_string_write_driver(do_write, data, col, "\r\n", 2);
-	  if (r != MAILIMF_NO_ERROR)
-	    return r;
-	  break;
-	}
-	else {
-	  if (((ch >= 33) && (ch <= 60)) || ((ch >= 62) && (ch <= 126))) {
-	    len ++;
-	  }
-	  else {
-	    r = write_remaining(do_write, data, col, &start, &len);
-	    if (r != MAILIMF_NO_ERROR)
-	      return r;
+      case STATE_INIT:
+        switch (ch) {
+          case ' ':
+          case '\t':
+            state = STATE_SPACE;
+            len ++;
+            i ++;
+            break;
+            
+          case '\r':
+            state = STATE_CR;
+            len ++;
+            i ++;
+            break;
+            
+          case '!':
+          case '"':
+          case '#':
+          case '$':
+          case '@':
+          case '[':
+          case '\\':
+          case ']':
+          case '^':
+          case '`':
+          case '{':
+          case '|':
+          case '}':
+          case '~':
+          case '=':
+          case '?':
+          case '_':
+          case 'F': /* there is no more 'From' at the beginning of a line */
+            r = write_remaining(do_write, data, col, &start, &len);
+            if (r != MAILIMF_NO_ERROR)
+              return r;
             start = text + i + 1;
-
-	    snprintf(hexstr, 6, "=%02X", ch);
-
-	    r = mailimf_string_write_driver(do_write, data, col, hexstr, 3);
-	    if (r != MAILIMF_NO_ERROR)
-	      return r;
-	  }
-	}
-
-	break;
-      }
-
-      i ++;
-      break;
-
-    case STATE_CR:
-      switch (ch) {
-      case '\n':
-	r = write_remaining(do_write, data, col, &start, &len);
-	if (r != MAILIMF_NO_ERROR)
-	  return r;
-        start = text + i + 1;
-	r = mailimf_string_write_driver(do_write, data, col, "\r\n", 2);
-	if (r != MAILIMF_NO_ERROR)
-	  return r;
-	i ++;
-	state = STATE_INIT;
-	break;
-
-      default:
-	r = write_remaining(do_write, data, col, &start, &len);
-	if (r != MAILIMF_NO_ERROR)
-	  return r;
-        start = text + i;
-	snprintf(hexstr, 6, "=%02X", '\r');
-	r = mailimf_string_write_driver(do_write, data, col, hexstr, 3);
-	if (r != MAILIMF_NO_ERROR)
-	  return r;
-	state = STATE_INIT;
-	break;
-      }
-      break;
-
-    case STATE_SPACE:
-      switch (ch) {
-      case '\r':
-	state = STATE_SPACE_CR;
-	i ++;
-	break;
-
-      case '\n':
-        r = write_remaining(do_write, data, col, &start, &len);
-        if (r != MAILIMF_NO_ERROR)
-          return r;
-        start = text + i + 1;
-        snprintf(hexstr, 6, "=%02X\r\n", text[i - 1]);
-        r = mailimf_string_write_driver(do_write, data, col, hexstr, strlen(hexstr));
-        if (r != MAILIMF_NO_ERROR)
-          return r;
-        state = STATE_INIT;
-	i ++;
+            
+            snprintf(hexstr, 6, "=%02X", ch);
+            
+            r = mailimf_string_write_driver(do_write, data, col, hexstr, 3);
+            if (r != MAILIMF_NO_ERROR)
+              return r;
+            i ++;
+            break;
+            
+          default:
+            if (istext && (ch == '\n')) {
+              r = write_remaining(do_write, data, col, &start, &len);
+              if (r != MAILIMF_NO_ERROR)
+                return r;
+              start = text + i + 1;
+              
+              r = mailimf_string_write_driver(do_write, data, col, "\r\n", 2);
+              if (r != MAILIMF_NO_ERROR)
+                return r;
+              i ++;
+              break;
+            }
+            else {
+              if (((ch >= 33) && (ch <= 60)) || ((ch >= 62) && (ch <= 126))) {
+                len ++;
+                i ++;
+              }
+              else {
+                r = write_remaining(do_write, data, col, &start, &len);
+                if (r != MAILIMF_NO_ERROR)
+                  return r;
+                start = text + i + 1;
+                
+                snprintf(hexstr, 6, "=%02X", ch);
+                
+                r = mailimf_string_write_driver(do_write, data, col, hexstr, 3);
+                if (r != MAILIMF_NO_ERROR)
+                  return r;
+                i ++;
+              }
+            }
+            
+            break;
+        }
         break;
         
-      case ' ':
-      case '\t':
-	len ++;
-        i ++;
+      case STATE_CR:
+        switch (ch) {
+          case '\n':
+            r = write_remaining(do_write, data, col, &start, &len);
+            if (r != MAILIMF_NO_ERROR)
+              return r;
+            start = text + i + 1;
+            r = mailimf_string_write_driver(do_write, data, col, "\r\n", 2);
+            if (r != MAILIMF_NO_ERROR)
+              return r;
+            i ++;
+            state = STATE_INIT;
+            break;
+            
+          default:
+            r = write_remaining(do_write, data, col, &start, &len);
+            if (r != MAILIMF_NO_ERROR)
+              return r;
+            start = text + i;
+            snprintf(hexstr, 6, "=%02X", '\r');
+            r = mailimf_string_write_driver(do_write, data, col, hexstr, 3);
+            if (r != MAILIMF_NO_ERROR)
+              return r;
+            state = STATE_INIT;
+            break;
+        }
         break;
-
-      default:
+        
+      case STATE_SPACE:
+        switch (ch) {
+          case '\r':
+            state = STATE_SPACE_CR;
+            i ++;
+            break;
+            
+          case '\n':
+            r = write_remaining(do_write, data, col, &start, &len);
+            if (r != MAILIMF_NO_ERROR)
+              return r;
+            start = text + i + 1;
+            snprintf(hexstr, 6, "=%02X\r\n", text[i - 1]);
+            r = mailimf_string_write_driver(do_write, data, col, hexstr, strlen(hexstr));
+            if (r != MAILIMF_NO_ERROR)
+              return r;
+            state = STATE_INIT;
+            i ++;
+            break;
+            
+          case ' ':
+          case '\t':
+            len ++;
+            i ++;
+            break;
+            
+          default:
 #if 0
-	len += 2;
-        state = STATE_INIT;
-        i ++;
+            len += 2;
+            state = STATE_INIT;
+            i ++;
 #endif
-        len ++;
-        state = STATE_INIT;
-	break;
-      }
-
-      break;
-
-    case STATE_SPACE_CR:
-      switch (ch) {
-      case '\n':
-	r = write_remaining(do_write, data, col, &start, &len);
-	if (r != MAILIMF_NO_ERROR)
-	  return r;
-        start = text + i + 1;
-	snprintf(hexstr, 6, "=%02X\r\n", text[i - 2]);
-	r = mailimf_string_write_driver(do_write, data, col, hexstr, strlen(hexstr));
-	if (r != MAILIMF_NO_ERROR)
-	  return r;
-	state = STATE_INIT;
-        i ++;
-	break;
-
-      default:
-	r = write_remaining(do_write, data, col, &start, &len);
-	if (r != MAILIMF_NO_ERROR)
-	  return r;
-        start = text + i + 1;
-	snprintf(hexstr, 6, "%c=%02X", text[i - 2], '\r');
-	r = mailimf_string_write_driver(do_write, data, col, hexstr, strlen(hexstr));
-	if (r != MAILIMF_NO_ERROR)
-	  return r;
-	state = STATE_INIT;
-	break;
-      }
-
-      break;
+            state = STATE_INIT;
+            break;
+        }
+        
+        break;
+        
+      case STATE_SPACE_CR:
+        switch (ch) {
+          case '\n':
+            r = write_remaining(do_write, data, col, &start, &len);
+            if (r != MAILIMF_NO_ERROR)
+              return r;
+            start = text + i + 1;
+            snprintf(hexstr, 6, "=%02X\r\n", text[i - 2]);
+            r = mailimf_string_write_driver(do_write, data, col, hexstr, strlen(hexstr));
+            if (r != MAILIMF_NO_ERROR)
+              return r;
+            state = STATE_INIT;
+            i ++;
+            break;
+            
+          default:
+            r = write_remaining(do_write, data, col, &start, &len);
+            if (r != MAILIMF_NO_ERROR)
+              return r;
+            start = text + i + 1;
+            snprintf(hexstr, 6, "%c=%02X", text[i - 2], '\r');
+            r = mailimf_string_write_driver(do_write, data, col, hexstr, strlen(hexstr));
+            if (r != MAILIMF_NO_ERROR)
+              return r;
+            state = STATE_INIT;
+            break;
+        }
+        
+        break;
     }
   }
   

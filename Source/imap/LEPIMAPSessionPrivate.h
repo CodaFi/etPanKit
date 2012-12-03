@@ -63,6 +63,8 @@
 
 - (void) _storeFlags:(LEPIMAPMessageFlag)flags kind:(LEPIMAPStoreFlagsRequestKind)kind messagesUids:(NSArray *)uids path:(NSString *)path;
 
+- (void) _storeLabels:(NSArray *)labels kind:(LEPIMAPStoreLabelsRequestKind)kind messagesUIDs:(NSArray *)uids path:(NSString *)path;
+
 - (BOOL) _idlePrepare;
 - (void) _idleUnprepare;
 - (void) _idlePath:(NSString *)path lastUID:(int64_t)lastUID;

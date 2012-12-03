@@ -30,7 +30,7 @@
  */
 
 /*
- * $Id: mailimf.c,v 1.48 2011/03/12 16:23:44 hoa Exp $
+ * $Id: mailimf.c,v 1.50 2011/06/20 23:25:26 hoa Exp $
  */
 
 #ifdef HAVE_CONFIG_H
@@ -5407,11 +5407,35 @@ int mailimf_msg_id_parse(const char * message, size_t length,
     return r;
 
   r = mailimf_lower_parse(message, length, &cur_token);
-  if (r != MAILIMF_NO_ERROR) {
+  if (r == MAILIMF_ERROR_PARSE) {
+    r = mailimf_addr_spec_msg_id_parse(message, length, &cur_token, &msg_id);
+    if (r != MAILIMF_NO_ERROR) {
+      res = r;
+      goto err;
+    }
+    
+    * result = msg_id;
+    * indx = cur_token;
+    
+    return MAILIMF_NO_ERROR;
+  }
+  else if (r != MAILIMF_NO_ERROR) {
     res = r;
     goto err;
   }
 
+  // workaround for mbox mail
+  r = mailimf_lower_parse(message, length, &cur_token);
+  if (r == MAILIMF_NO_ERROR) {
+    // ok
+  }
+  else if (r == MAILIMF_ERROR_PARSE) {
+    // ok
+  }
+  else {
+    res = r;
+    goto err;
+  }
   r = mailimf_addr_spec_msg_id_parse(message, length, &cur_token, &msg_id);
   if (r != MAILIMF_NO_ERROR) {
     res = r;
@@ -5424,7 +5448,18 @@ int mailimf_msg_id_parse(const char * message, size_t length,
     res = r;
     goto err;
   }
-
+  r = mailimf_greater_parse(message, length, &cur_token);
+  if (r == MAILIMF_NO_ERROR) {
+    // ok
+  }
+  else if (r == MAILIMF_ERROR_PARSE) {
+    // ok
+  }
+  else {
+    res = r;
+    goto err;
+  }
+  
 #if 0
   r = mailimf_id_left_parse(message, length, &cur_token, &id_left);
   if (r != MAILIMF_NO_ERROR) {

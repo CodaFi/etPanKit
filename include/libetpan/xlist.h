@@ -56,4 +56,8 @@ int mailimap_xlist(mailimap * session, const char * mb,
 LIBETPAN_EXPORT
 int mailimap_has_xlist(mailimap * session);
 
+#ifdef __cplusplus
+}
+#endif
+
 #endif

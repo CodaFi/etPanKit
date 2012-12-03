@@ -29,11 +29,11 @@
  * SUCH DAMAGE.
  */
 
-#include "namespace_parser.h"
-
 #ifdef HAVE_CONFIG_H
 #	include <config.h>
 #endif
+
+#include "namespace_parser.h"
 
 #include "namespace_types.h"
 #include "mailimap_keywords.h"
@@ -152,8 +152,9 @@ static int mailimap_namespace_info_parse(mailstream * fd,
     
     r = mailimap_quoted_char_parse(fd, buffer, &cur_token, &delimiter);
     if (r == MAILIMAP_ERROR_PARSE) {
-      res = r;
-      goto free_prefix;
+      // could not parse, use delimiter as fallback
+      // this is an issue on Courier-IMAP
+      delimiter = prefix[strlen(prefix) - 1];
     }
     
     r = mailimap_dquote_parse(fd, buffer, &cur_token);
@@ -166,7 +167,7 @@ static int mailimap_namespace_info_parse(mailstream * fd,
   r = mailimap_cparenth_parse(fd, buffer, &cur_token);
   if (r != MAILIMAP_NO_ERROR) {
     res = r;
-    goto free_ext;
+    goto free_prefix;
   }
   
   r = mailimap_struct_multiple_parse(fd, buffer, &cur_token,
@@ -447,11 +448,17 @@ static int mailimap_namespace_data_parse(mailstream * fd,
   return MAILIMAP_NO_ERROR;
   
 free_shared:
-  mailimap_namespace_item_free(shared_namespace);
+  if (shared_namespace != NULL) {
+    mailimap_namespace_item_free(shared_namespace);
+  }
 free_other:
-  mailimap_namespace_item_free(other_namespace);
+  if (other_namespace != NULL) {
+    mailimap_namespace_item_free(other_namespace);
+  }
 free_personal:
-  mailimap_namespace_item_free(personal_namespace);
+  if (personal_namespace != NULL) {
+    mailimap_namespace_item_free(personal_namespace);
+  }
 err:
   return res;
 }

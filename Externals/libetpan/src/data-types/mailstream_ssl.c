@@ -30,7 +30,7 @@
  */
 
 /*
- * $Id: mailstream_ssl.c,v 1.74 2011/02/27 01:11:50 hoa Exp $
+ * $Id: mailstream_ssl.c,v 1.77 2011/08/30 19:42:16 colinleroy Exp $
  */
 
 /*
@@ -70,6 +70,10 @@
 #	ifdef HAVE_SYS_SELECT_H
 #		include <sys/select.h>
 #	endif
+#endif
+
+#if LIBETPAN_IOS_DISABLE_SSL
+#undef USE_SSL
 #endif
 
 /* mailstream_low, ssl */
@@ -144,12 +148,81 @@ struct mailstream_ssl_data {
 #	define MUTEX_LOCK(x)
 #	define MUTEX_UNLOCK(x)
 #endif
-static int gnutls_init_done = 0;
+static int gnutls_init_not_required = 0;
 static int openssl_init_done = 0;
 #endif
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+// Used to make OpenSSL thread safe
+#if defined (HAVE_PTHREAD_H) && !defined (WIN32) && defined (USE_SSL) && defined (LIBETPAN_REENTRANT)
+  struct CRYPTO_dynlock_value
+  {
+      pthread_mutex_t mutex;
+  };
+
+  static pthread_mutex_t * s_mutex_buf = NULL;
+
+  static void locking_function(int mode, int n, const char * file, int line)
+  {
+    if (mode & CRYPTO_LOCK)
+      MUTEX_LOCK(&s_mutex_buf[n]);
+    else
+      MUTEX_UNLOCK(&s_mutex_buf[n]);
+  }
+
+  static unsigned long id_function(void)
+  {
+    return ((unsigned long) pthread_self());
+  }
+
+  static struct CRYPTO_dynlock_value *dyn_create_function(const char *file, int line)
+  {
+    struct CRYPTO_dynlock_value *value;
+    
+    value = (struct CRYPTO_dynlock_value *) malloc(sizeof(struct CRYPTO_dynlock_value));
+    if (!value) {
+      goto err;
+    }
+    pthread_mutex_init(&value->mutex, NULL);
+    
+    return value;
+    
+  err:
+    return (NULL);
+  }
+
+  static void dyn_lock_function(int mode, struct CRYPTO_dynlock_value *l, const char *file, int line)
+  {
+    if (mode & CRYPTO_LOCK) {
+      MUTEX_LOCK(&l->mutex);
+    }
+    else {
+      MUTEX_UNLOCK(&l->mutex);
+    }
+  }
+
+  static void dyn_destroy_function(struct CRYPTO_dynlock_value *l,const char *file, int line)
+  {
+    pthread_mutex_destroy(&l->mutex);
+    free(l);
+  }
+
+  static void mailstream_openssl_reentrant_setup(void)
+  {
+		unsigned int i;
+	
+    s_mutex_buf = (pthread_mutex_t *) malloc(CRYPTO_num_locks() * sizeof(* s_mutex_buf));
+    if(s_mutex_buf == NULL)
+      return;
+    
+    for(i = 0 ; i < CRYPTO_num_locks() ; i++)
+      pthread_mutex_init(&s_mutex_buf[i], NULL);
+    CRYPTO_set_id_callback(id_function);
+    CRYPTO_set_locking_callback(locking_function);
+    CRYPTO_set_dynlock_create_callback(dyn_create_function);
+    CRYPTO_set_dynlock_lock_callback(dyn_lock_function);
+    CRYPTO_set_dynlock_destroy_callback(dyn_destroy_function);
+  }
+#endif
 
 void mailstream_ssl_init_lock(void)
 {
@@ -162,7 +235,7 @@ void mailstream_gnutls_init_not_required(void)
 {
 #ifdef USE_SSL
   MUTEX_LOCK(&ssl_lock);
-  gnutls_init_done = 1;
+  gnutls_init_not_required = 1;
   MUTEX_UNLOCK(&ssl_lock);
 #endif
 }
@@ -188,17 +261,21 @@ static inline void mailstream_ssl_init(void)
   MUTEX_LOCK(&ssl_lock);
 #ifndef USE_GNUTLS
   if (!openssl_init_done) {
+    #if defined (HAVE_PTHREAD_H) && !defined (WIN32) && defined (USE_SSL) && defined (LIBETPAN_REENTRANT)
+      mailstream_openssl_reentrant_setup();
+    #endif
+    
+    SSL_load_error_strings();
     SSL_library_init();
     OpenSSL_add_all_digests();
     OpenSSL_add_all_algorithms();
     OpenSSL_add_all_ciphers();
+    
     openssl_init_done = 1;
   }
 #else
-  if (!gnutls_init_done) {
+  if (!gnutls_init_not_required)
     gnutls_global_init();
-    gnutls_init_done = 1;
-  }
 #endif
   MUTEX_UNLOCK(&ssl_lock);
 #endif
@@ -257,6 +334,7 @@ static ssize_t mailstream_low_ssl_write(mailstream_low * s,
 static void mailstream_low_ssl_free(mailstream_low * s);
 static int mailstream_low_ssl_get_fd(mailstream_low * s);
 static void mailstream_low_ssl_cancel(mailstream_low * s);
+static struct mailstream_cancel * mailstream_low_ssl_get_cancel(mailstream_low * s);
 
 static mailstream_low_driver local_mailstream_ssl_driver = {
   /* mailstream_read */ mailstream_low_ssl_read,
@@ -265,6 +343,7 @@ static mailstream_low_driver local_mailstream_ssl_driver = {
   /* mailstream_get_fd */ mailstream_low_ssl_get_fd,
   /* mailstream_free */ mailstream_low_ssl_free,
   /* mailstream_cancel */ mailstream_low_ssl_cancel,
+  /* mailstream_get_cancel */ mailstream_low_ssl_get_cancel,
 };
 
 mailstream_low_driver * mailstream_ssl_driver = &local_mailstream_ssl_driver;
@@ -298,7 +377,7 @@ static int mailstream_openssl_client_cert_cb(SSL *ssl, X509 **x509, EVP_PKEY **p
 		return 0;
 }
 
-static struct mailstream_ssl_data * ssl_data_new_full(int fd, SSL_METHOD * method, void (* callback)(struct mailstream_ssl_context * ssl_context, void * cb_data), void * cb_data)
+static struct mailstream_ssl_data * ssl_data_new_full(int fd, const SSL_METHOD * method, void (* callback)(struct mailstream_ssl_context * ssl_context, void * cb_data), void * cb_data)
 {
   struct mailstream_ssl_data * ssl_data;
   SSL * ssl_conn;
@@ -423,19 +502,6 @@ static struct mailstream_ssl_data * ssl_data_new(int fd, void (* callback)(struc
   struct mailstream_ssl_data * ssl_data;
   gnutls_session session;
   struct mailstream_cancel * cancel;
-  
-  const int cipher_prio[] = { GNUTLS_CIPHER_AES_128_CBC,
-		  		GNUTLS_CIPHER_3DES_CBC,
-		  		GNUTLS_CIPHER_AES_256_CBC,
-		  		GNUTLS_CIPHER_ARCFOUR_128, 0 };
-  const int kx_prio[] = { GNUTLS_KX_DHE_RSA,
-		  	   GNUTLS_KX_RSA, 
-		  	   GNUTLS_KX_DHE_DSS, 0 };
-  const int mac_prio[] = { GNUTLS_MAC_SHA1,
-		  		GNUTLS_MAC_MD5, 0 };
-  const int proto_prio[] = { GNUTLS_TLS1,
-		  		  GNUTLS_SSL3, 0 };
-
   gnutls_certificate_credentials_t xcred;
   int r;
   struct mailstream_ssl_context * ssl_context = NULL;
@@ -459,10 +525,8 @@ static struct mailstream_ssl_data * ssl_data_new(int fd, void (* callback)(struc
   gnutls_certificate_client_set_retrieve_function(xcred, mailstream_gnutls_client_cert_cb);
 
   gnutls_set_default_priority(session);
-  gnutls_protocol_set_priority (session, proto_prio);
-  gnutls_cipher_set_priority (session, cipher_prio);
-  gnutls_kx_set_priority (session, kx_prio);
-  gnutls_mac_set_priority (session, mac_prio);
+  gnutls_priority_set_direct(session, "NORMAL", NULL);
+
   gnutls_record_disable_padding(session);
   gnutls_dh_set_prime_bits(session, 512);
 
@@ -541,9 +605,15 @@ static void  ssl_data_close(struct mailstream_ssl_data * ssl_data)
 {
   gnutls_certificate_free_credentials(ssl_data->xcred);
   gnutls_deinit(ssl_data->session);
+
+  MUTEX_LOCK(&ssl_lock);
+  if(!gnutls_init_not_required)
+    gnutls_global_deinit();
+  MUTEX_UNLOCK(&ssl_lock);
+
   ssl_data->session = NULL;
 #ifdef WIN32
-  closesocket(socket_data->fd);
+  closesocket(ssl_data->fd);
 #else
   close(ssl_data->fd);
 #endif
@@ -639,6 +709,11 @@ static int wait_read(mailstream_low * s)
   ssl_data = (struct mailstream_ssl_data *) s->data;
   timeout = mailstream_network_delay;
   
+#ifdef USE_GNUTLS
+  if (gnutls_record_check_pending(ssl_data->session) != 0)
+    return 0;
+#endif
+
   FD_ZERO(&fds_read);
   fd = mailstream_cancel_get_fd(ssl_data->cancel);
   FD_SET(fd, &fds_read);
@@ -647,18 +722,23 @@ static int wait_read(mailstream_low * s)
   WSAEventSelect(ssl_data->fd, event, FD_READ | FD_CLOSE);
   FD_SET(event, &fds_read);
   r = WaitForMultipleObjects(fds_read.fd_count, fds_read.fd_array, FALSE, timeout.tv_sec * 1000 + timeout.tv_usec / 1000);
-  if (WAIT_TIMEOUT == r)
+  if (WAIT_TIMEOUT == r) {
+		WSAEventSelect(ssl_data->fd, event, 0);
+		CloseHandle(event);
     return -1;
+	}
   
   cancelled = (fds_read.fd_array[r - WAIT_OBJECT_0] == fd);
   got_data = (fds_read.fd_array[r - WAIT_OBJECT_0] == event);
+	WSAEventSelect(ssl_data->fd, event, 0);
+	CloseHandle(event);
 #else
   FD_SET(ssl_data->fd, &fds_read);
   max_fd = ssl_data->fd;
   if (fd > max_fd)
     max_fd = fd;
   r = select(max_fd + 1, &fds_read, NULL, NULL, &timeout);
-  if (r == 0)
+  if (r <= 0)
     return -1;
   
   cancelled = (FD_ISSET(fd, &fds_read));
@@ -768,7 +848,7 @@ static int wait_write(mailstream_low * s)
   ssl_data = (struct mailstream_ssl_data *) s->data;
   if (mailstream_cancel_cancelled(ssl_data->cancel))
     return -1;
-  
+ 
   timeout = mailstream_network_delay;
   
   FD_ZERO(&fds_read);
@@ -780,11 +860,16 @@ static int wait_write(mailstream_low * s)
   WSAEventSelect(ssl_data->fd, event, FD_WRITE | FD_CLOSE);
   FD_SET(event, &fds_read);
   r = WaitForMultipleObjects(fds_read.fd_count, fds_read.fd_array, FALSE, timeout.tv_sec * 1000 + timeout.tv_usec / 1000);
-  if (r < 0)
+  if (r < 0) {
+		WSAEventSelect(ssl_data->fd, event, 0);
+		CloseHandle(event);
     return -1;
+	}
   
   cancelled = (fds_read.fd_array[r - WAIT_OBJECT_0] == fd) /* SEB 20070709 */;
   write_enabled = (fds_read.fd_array[r - WAIT_OBJECT_0] == event);
+	WSAEventSelect(ssl_data->fd, event, 0);
+	CloseHandle(event);
 #else
   FD_SET(ssl_data->fd, &fds_write);
   
@@ -793,7 +878,7 @@ static int wait_write(mailstream_low * s)
     max_fd = fd;
   
   r = select(max_fd + 1, &fds_read, &fds_write, NULL, &timeout);
-  if (r == 0)
+  if (r <= 0)
     return -1;
   
   cancelled = FD_ISSET(fd, &fds_read);
@@ -944,6 +1029,8 @@ ssize_t mailstream_ssl_get_certificate(mailstream *stream, unsigned char **cert_
   *cert_DER = NULL;
   len = (ssize_t) i2d_X509(cert, cert_DER);
   
+	X509_free(cert);
+
   return len;
 #else
   session = data->session;
@@ -1069,7 +1156,7 @@ int mailstream_ssl_set_client_private_key_data(struct mailstream_ssl_context * s
   tmp.data = pkey_der;
   tmp.size = len;
   if ((r = gnutls_x509_privkey_import(ssl_context->client_pkey, &tmp, GNUTLS_X509_FMT_DER)) < 0) {
-    gnutls_x509_crt_deinit(ssl_context->client_pkey);
+    gnutls_x509_privkey_deinit(ssl_context->client_pkey);
     ssl_context->client_pkey = NULL;
     return -1;
   }
@@ -1167,4 +1254,14 @@ int mailstream_ssl_get_fd(struct mailstream_ssl_context * ssl_context)
   return ssl_context->fd;
 }
 
-#pragma clang diagnostic pop
+static struct mailstream_cancel * mailstream_low_ssl_get_cancel(mailstream_low * s)
+{
+#ifdef USE_SSL
+  struct mailstream_ssl_data * data;
+  
+  data = s->data;
+  return data->cancel;
+#else
+  return NULL;
+#endif
+}

@@ -30,7 +30,7 @@
  */
 
 /*
- * $Id: mailimap_keywords.c,v 1.13 2008/02/20 22:15:51 hoa Exp $
+ * $Id: mailimap_keywords.c,v 1.14 2011/05/28 23:21:45 hoa Exp $
  */
 
 #ifdef HAVE_CONFIG_H
@@ -277,7 +277,10 @@ int mailimap_encoding_get_token_value(mailstream * fd, MMAPString * buffer,
 static struct mailimap_token_value mbx_list_sflag_tab[] = {
   {MAILIMAP_MBX_LIST_SFLAG_MARKED,      "\\Marked"},
   {MAILIMAP_MBX_LIST_SFLAG_NOSELECT,    "\\Noselect"},
-  {MAILIMAP_MBX_LIST_SFLAG_UNMARKED,    "\\Unmarked"}
+  {MAILIMAP_MBX_LIST_SFLAG_UNMARKED,    "\\Unmarked"},
+  {MAILIMAP_MBX_LIST_SFLAG_MARKED,      "/Marked"},
+  {MAILIMAP_MBX_LIST_SFLAG_NOSELECT,    "/Noselect"},
+	{MAILIMAP_MBX_LIST_SFLAG_UNMARKED,    "/Unmarked"}
 };
 
 int mailimap_mbx_list_sflag_get_token_value(mailstream * fd,

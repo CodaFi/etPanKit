@@ -42,6 +42,7 @@
 #import <EtPanKit/LEPIMAPNamespaceRequest.h>
 #import <EtPanKit/LEPIMAPNamespace.h>
 #import <EtPanKit/LEPIMAPCheckRequest.h>
+#import <EtPanKit/LEPIMAPSearchRequest.h>
 
 #import <EtPanKit/NSString+LEPUUID.h>
 #import <EtPanKit/NSData+LEPUTF8.h>

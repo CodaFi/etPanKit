@@ -30,7 +30,7 @@
  */
 
 /*
- * $Id: mailmime_types_helper.c,v 1.29 2011/01/06 00:09:52 hoa Exp $
+ * $Id: mailmime_types_helper.c,v 1.30 2011/04/30 17:24:21 hoa Exp $
  */
 
 #ifdef HAVE_CONFIG_H
@@ -1054,7 +1054,7 @@ struct mailmime * mailmime_multiple_new(const char * type)
   struct mailmime_content * content;
   struct mailmime * mp;
 
-  mime_fields = mailmime_fields_new_encoding(MAILMIME_MECHANISM_8BIT);
+  mime_fields = mailmime_fields_new_empty();
   if (mime_fields == NULL)
     goto err;
   

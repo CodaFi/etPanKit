@@ -66,6 +66,12 @@ typedef enum {
 } LEPIMAPStoreFlagsRequestKind;
 
 typedef enum {
+	LEPIMAPStoreLabelsRequestKindAdd,
+	LEPIMAPStoreLabelsRequestKindRemove,
+	LEPIMAPStoreLabelsRequestKindSet,
+} LEPIMAPStoreLabelsRequestKind;
+
+typedef enum {
     LEPIMAPWorkaroundGmail = 1 << 0,
     LEPIMAPWorkaroundYahoo = 1 << 1,
 } LEPIMAPWorkaround;

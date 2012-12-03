@@ -30,6 +30,7 @@
 #import "LEPIMAPIdleRequest.h"
 #import "LEPIMAPCapabilityRequest.h"
 #import "LEPIMAPSearchRequest.h"
+#import "LEPIMAPStoreLabelsRequest.h"
 #import <libetpan/libetpan.h>
 
 @implementation LEPIMAPFolder
@@ -449,6 +450,72 @@
 	}
 	[request setUids:uids];
 	[uids release];
+	
+    [self _setupRequest:request];
+    
+	return [request autorelease];
+}
+
+- (LEPIMAPRequest *) addLabelsToMessagesRequest:(NSArray * /* LEPIMAPMessage */)messages labels:(NSArray*)labels {
+	LEPIMAPStoreLabelsRequest *request;
+	
+	request = [[LEPIMAPStoreLabelsRequest alloc] init];
+	[request setKind:LEPIMAPStoreLabelsRequestKindAdd];
+	[request setPath:[self path]];
+	[request setLabels:labels];
+	NSMutableArray *uids = [[NSMutableArray alloc]init];
+	for (LEPIMAPMessage *message in messages) {
+		[uids addObject:[NSNumber numberWithUnsignedLong:message.uid]];
+	}
+	[request setUids:uids];
+	[uids release];
+	
+    [self _setupRequest:request];
+    
+	return [request autorelease];
+}
+
+- (LEPIMAPRequest *) addLabelsToMessagesUIDsRequest:(NSArray * /* LEPIMAPMessage */)uids labels:(NSArray*)labels {
+	LEPIMAPStoreLabelsRequest *request;
+	
+	request = [[LEPIMAPStoreLabelsRequest alloc] init];
+	[request setKind:LEPIMAPStoreLabelsRequestKindAdd];
+	[request setPath:[self path]];
+	[request setLabels:labels];
+	[request setUids:uids];
+
+    [self _setupRequest:request];
+    
+	return [request autorelease];
+}
+
+- (LEPIMAPRequest *) removeLabelsToMessagesRequest:(NSArray * /* LEPIMAPMessage */)messages labels:(NSArray*)labels {
+	LEPIMAPStoreLabelsRequest *request;
+	
+	request = [[LEPIMAPStoreLabelsRequest alloc] init];
+	[request setKind:LEPIMAPStoreLabelsRequestKindRemove];
+	[request setPath:[self path]];
+	[request setLabels:labels];
+	NSMutableArray *uids = [[NSMutableArray alloc]init];
+	for (LEPIMAPMessage *message in messages) {
+		[uids addObject:[NSNumber numberWithUnsignedLong:message.uid]];
+	}
+	[request setUids:uids];
+	[uids release];
+	
+    [self _setupRequest:request];
+    
+	return [request autorelease];
+}
+
+- (LEPIMAPRequest *) removeLabelsToMessagesUIDsRequest:(NSArray * /* LEPIMAPMessage */)uids labels:(NSArray*)labels {
+	LEPIMAPStoreLabelsRequest *request;
+	
+	request = [[LEPIMAPStoreLabelsRequest alloc] init];
+	[request setKind:LEPIMAPStoreLabelsRequestKindRemove];
+	[request setPath:[self path]];
+	[request setLabels:labels];
+	[request setUids:uids];
 	
     [self _setupRequest:request];
     

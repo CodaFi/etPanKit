@@ -2,10 +2,10 @@
 # Process this file with autoconf to produce a configure script.
 
 m4_define([maj_version], [1])
-m4_define([min_version], [0])
-m4_define([api_current], [15])
+m4_define([min_version], [1])
+m4_define([api_current], [16])
 m4_define([api_revision], [0])
-m4_define([api_compatibility], [15])
+m4_define([api_compatibility], [16])
 dnl API version
 dnl 1. If you have changed any of the sources for this library, the revision
 dnl    number must be incremented. This is a new revision of the current
@@ -140,6 +140,7 @@ AC_C_INLINE
 
 # Checks for programs.
 AC_LIBTOOL_WIN32_DLL
+LT_AC_PROG_RC
 AC_LIBTOOL_RC
 AC_PROG_LIBTOOL
 AC_PROG_MKDIR_P
@@ -385,7 +386,7 @@ dnl Look for db3 or superior with db_create call
   case "$DBVERS" in
     3)
     AC_MSG_RESULT([version 3.x or above])
-    for lib in db-4.8 db-4.7 db-4.6 db-4.5 db-4.4 db-4.3 db-4.2 db-4.1 db-4.0 db-4 db4 db-3.2 db-3 db3 db; do
+    for lib in db-5.1 db-5.0 db-4.8 db-4.7 db-4.6 db-4.5 db-4.4 db-4.3 db-4.2 db-4.1 db-4.0 db-4 db4 db-3.2 db-3 db3 db; do
       if test "x$DBLINKED" = "x0"; then
 dnl        AC_CHECK_LIB($lib, db_create, [DBLIB="-l$lib"; DBLINKED=1], [])
 dnl installations of libdb4 function names are defined in db.h
@@ -515,7 +516,7 @@ if test "x$with_sasl" != "xno"; then
     LDFLAGS="$LDFLAGS -L$with_sasl/lib"
   fi
   with_sasl=no
-  SASLLIBS=""
+  SASLLIBS="$SSLLIBS"
   AC_CHECK_HEADER(sasl/sasl.h, [
    AC_CHECK_LIB(sasl2, sasl_client_init, with_sasl=yes, [], [$SASLLIBS])])
   if test "x$with_sasl" != "xyes"; then
@@ -570,33 +571,57 @@ if test "x$enable_ipv6" != "xno"; then
 fi
 
 dnl libcurl
+
 libcurl=no
-AC_PATH_PROG(libcurlconfig, [curl-config])
-if test "x$libcurlconfig" != "x"; then
-  CPPFLAGS="$CPPFLAGS `$libcurlconfig --cflags 2>/dev/null`"
+AC_ARG_WITH(curl,   [  --with-curl[=DIR]    curl install directory (default=auto)],
+            [], [with_curl=auto])
+if test "x$with_curl" != "xno"; then
+  :
+elif test "x$with_curl" != "xauto"; then
+  OCPPFLAGS="$CPPFLAGS"
+  OLDFLAGS="$LDFLAGS"
+  if test "x$with_curl" != "xyes" ; then
+    CPPFLAGS="$CPPFLAGS -I$with_curl/include"
+    LDFLAGS="$LDFLAGS -L$with_curl/lib -lcurl -lz"
+  fi
   AC_CHECK_HEADER(curl/curl.h, [libcurl=yes])
   if test "x$libcurl" = "xyes"; then
-    AC_MSG_CHECKING([whether curl-config hints compiles and links fine])
-    OLDFLAGS="$LDFLAGS"
-    LDFLAGS="$LDFLAGS `$libcurlconfig --libs 2>/dev/null`"
-    AC_TRY_LINK([], [curl_easy_init();], [libcurl=yes], [libcurl=no])
-    AC_MSG_RESULT([$libcurl])
-    if test "x$libcurl" = "xno"; then
+      AC_MSG_CHECKING([whether with-curl compiles and links fine])
+      AC_TRY_LINK([], [curl_easy_init();], [libcurl=yes], [libcurl=no])
+      AC_MSG_RESULT([$libcurl])
+  fi
+   if test "x$libcurl" = "xno"; then
+      CPPFLAGS="$OCPPFLAGS"
       LDFLAGS="$OLDFLAGS"
-    fi
-  fi
-
-  libcurl_major_version=`$libcurlconfig --version | \
-    sed 's/^.* \([[0-9]]*\)\.\([[0-9]]*\).*$/\1/'`
-  libcurl_minor_version=`$libcurlconfig --version | \
-    sed 's/^.* \([[0-9]]*\)\.\([[0-9]]*\).*$/\2/'`
-  if test "$libcurl_major_version" -lt "$libcurl_major_required" ; then
-    libcurl=no
-  fi
-  if test "$libcurl_major_version" -eq "$libcurl_major_required" ; then
-    if test "$libcurl_minor_version" -lt "$libcurl_minor_required" ; then
-      libcurl=no
-    fi
+   fi
+else
+  AC_PATH_PROG(libcurlconfig, [curl-config])
+  if test "x$libcurlconfig" != "x"; then
+      CPPFLAGS="$CPPFLAGS `$libcurlconfig --cflags 2>/dev/null`"
+      AC_CHECK_HEADER(curl/curl.h, [libcurl=yes])
+      if test "x$libcurl" = "xyes"; then
+          AC_MSG_CHECKING([whether curl-config hints compiles and links fine])
+          OLDFLAGS="$LDFLAGS"
+          LDFLAGS="$LDFLAGS `$libcurlconfig --libs 2>/dev/null`"
+          AC_TRY_LINK([], [curl_easy_init();], [libcurl=yes], [libcurl=no])
+          AC_MSG_RESULT([$libcurl])
+          if test "x$libcurl" = "xno"; then
+              LDFLAGS="$OLDFLAGS"
+          fi
+      fi
+      
+      libcurl_major_version=`$libcurlconfig --version | \
+          sed 's/^.* \([[0-9]]*\)\.\([[0-9]]*\).*$/\1/'`
+      libcurl_minor_version=`$libcurlconfig --version | \
+          sed 's/^.* \([[0-9]]*\)\.\([[0-9]]*\).*$/\2/'`
+      if test "$libcurl_major_version" -lt "$libcurl_major_required" ; then
+          libcurl=no
+      fi
+      if test "$libcurl_major_version" -eq "$libcurl_major_required" ; then
+          if test "$libcurl_minor_version" -lt "$libcurl_minor_required" ; then
+              libcurl=no
+          fi
+      fi
   fi
 fi
 
@@ -606,15 +631,38 @@ fi
 
 dnl expat
 libexpat=no
-AC_CHECK_HEADER(expat.h, [libexpat=yes])
-if test "x$libexpat" = "xyes"; then
-  AC_MSG_CHECKING([whether libexpat compiles and links fine])
+AC_ARG_WITH(expat,   [  --with-expat[=DIR]    expat install directory (default=auto)],
+            [], [with_expat=auto])
+if test "x$with_expat" != "xno"; then
+	:
+elif test "x$with_expat" != "xauto"; then
+  OCPPFLAGS="$CPPFLAGS"
   OLDFLAGS="$LDFLAGS"
-  LDFLAGS="$LDFLAGS -lexpat"
-  AC_TRY_LINK([], [XML_SetElementHandler();], [libexpat=yes], [libexpat=no])
-  AC_MSG_RESULT([$libexpat])
-  if test "x$libexpat" = "xno"; then
-    LDFLAGS="$OLDFLAGS"
+  if test "x$with_expat" != "xyes" ; then
+    CPPFLAGS="$CPPFLAGS -I$with_expat/include"
+    LDFLAGS="$LDFLAGS -L$with_expat/lib -lexpat"
+  fi
+  AC_CHECK_HEADER(expat.h, [libexpat=yes])
+  if test "x$libexpat" = "xyes"; then
+      AC_MSG_CHECKING([whether with-expat compiles and links fine])
+      AC_TRY_LINK([], [XML_SetElementHandler();], [libexpat=yes], [libexpat=no])
+      AC_MSG_RESULT([$libexpat])
+  fi
+   if test "x$libexpat" = "xno"; then
+      CPPFLAGS="$OCPPFLAGS"
+      LDFLAGS="$OLDFLAGS"
+   fi
+else
+  AC_CHECK_HEADER(expat.h, [libexpat=yes])
+  if test "x$libexpat" = "xyes"; then
+    AC_MSG_CHECKING([whether libexpat compiles and links fine])
+    OLDFLAGS="$LDFLAGS"
+    LDFLAGS="$LDFLAGS -lexpat"
+    AC_TRY_LINK([], [XML_SetElementHandler();], [libexpat=yes], [libexpat=no])
+    AC_MSG_RESULT([$libexpat])
+    if test "x$libexpat" = "xno"; then
+      LDFLAGS="$OLDFLAGS"
+    fi
   fi
 fi
 
@@ -624,7 +672,7 @@ fi
 
 dnl Version
 VERSION="$VERSION_MAJOR.$VERSION_MINOR"
-test -d CVS && VERSION="$VERSION-dev-"`date +'%Y%m%d'`
+test -d .git && VERSION="$VERSION-dev-"`date +'%Y%m%d'`
 AC_DEFINE_UNQUOTED(LIBETPAN_VERSION, "$VERSION",
   [Define this to the version of libEtPan])
 AC_SUBST(VERSION)

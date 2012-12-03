@@ -111,9 +111,10 @@ int nntpdriver_nntp_error_to_mail_error(int error)
     return MAIL_ERROR_LOGIN;
 
   case NEWSNNTP_ERROR_BAD_STATE:
+  case NEWSNNTP_ERROR_AUTHENTICATION_OUT_OF_SEQUENCE:
     return MAIL_ERROR_BAD_STATE;
 
-  case NEWSNNTP_WARNING_REQUEST_AUTHORIZATION_USERNAME:
+  case NEWSNNTP_ERROR_REQUEST_AUTHORIZATION_USERNAME:
   case NEWSNNTP_WARNING_REQUEST_AUTHORIZATION_PASSWORD:
   default:
     return MAIL_ERROR_INVAL;
@@ -181,7 +182,7 @@ int nntpdriver_mode_reader(mailsession * session)
     r = newsnntp_mode_reader(session_get_nntp_session(session));
     
     switch (r) {
-    case NEWSNNTP_WARNING_REQUEST_AUTHORIZATION_USERNAME:
+    case NEWSNNTP_ERROR_REQUEST_AUTHORIZATION_USERNAME:
       r = nntpdriver_authenticate_user(session);
       if (r != MAIL_NO_ERROR)
         return r;
@@ -244,7 +245,7 @@ int nntpdriver_article(mailsession * session, uint32_t indx,
         indx, &msg_content, &msg_length);
     
     switch (r) {
-    case NEWSNNTP_WARNING_REQUEST_AUTHORIZATION_USERNAME:
+    case NEWSNNTP_ERROR_REQUEST_AUTHORIZATION_USERNAME:
       r = nntpdriver_authenticate_user(session);
       if (r != MAIL_NO_ERROR)
 	return r;
@@ -287,7 +288,7 @@ int nntpdriver_head(mailsession * session, uint32_t indx,
         indx, &headers, &headers_length);
     
     switch (r) {
-    case NEWSNNTP_WARNING_REQUEST_AUTHORIZATION_USERNAME:
+    case NEWSNNTP_ERROR_REQUEST_AUTHORIZATION_USERNAME:
       r = nntpdriver_authenticate_user(session);
       if (r != MAIL_NO_ERROR)
 	return r;
@@ -329,7 +330,7 @@ int nntpdriver_size(mailsession * session, uint32_t indx,
   do {
     r = newsnntp_xover_single(nntp, indx, &item);
     switch (r) {
-    case NEWSNNTP_WARNING_REQUEST_AUTHORIZATION_USERNAME:
+    case NEWSNNTP_ERROR_REQUEST_AUTHORIZATION_USERNAME:
       r = nntpdriver_authenticate_user(session);
       if (r != MAIL_NO_ERROR)
 	return r;
@@ -440,7 +441,7 @@ int nntpdriver_select_folder(mailsession * session, const char * mb)
     r = newsnntp_group(nntp_session, mb, &info);
 
     switch (r) {
-    case NEWSNNTP_WARNING_REQUEST_AUTHORIZATION_USERNAME:
+    case NEWSNNTP_ERROR_REQUEST_AUTHORIZATION_USERNAME:
       r = nntpdriver_authenticate_user(session);
       if (r != MAIL_NO_ERROR)
 	return r;

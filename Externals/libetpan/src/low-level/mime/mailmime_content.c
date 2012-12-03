@@ -30,7 +30,7 @@
  */
 
 /*
- * $Id: mailmime_content.c,v 1.45 2008/02/20 22:15:52 hoa Exp $
+ * $Id: mailmime_content.c,v 1.47 2011/06/28 22:13:36 hoa Exp $
  */
 
 #ifdef HAVE_CONFIG_H
@@ -1254,6 +1254,7 @@ static int mailmime_parse_with_default(const char * message, size_t length,
   int res;
   struct mailmime_data * preamble;
   struct mailmime_data * epilogue;
+  int is_encoded;
 
   /*
     note that when this function is called, content type is always detached,
@@ -1356,6 +1357,15 @@ static int mailmime_parse_with_default(const char * message, size_t length,
     encoding = mailmime_transfer_encoding_get(mime_fields);
   else
     encoding = MAILMIME_MECHANISM_8BIT;
+  
+  if (body_type == MAILMIME_MESSAGE) {
+    switch (encoding) {
+      case MAILMIME_MECHANISM_QUOTED_PRINTABLE:
+      case MAILMIME_MECHANISM_BASE64:
+        body_type = MAILMIME_SINGLE;
+        break;
+    }
+  }
   
   cur_token = * indx;
   body = mailmime_data_new(MAILMIME_DATA_TEXT, encoding, 1,
@@ -1606,6 +1616,11 @@ int mailmime_base64_body_parse(const char * message, size_t length,
   int res;
   int r;
   size_t written;
+
+  chunk[0] = 0;
+  chunk[1] = 0;
+  chunk[2] = 0;
+  chunk[3] = 0;
 
   cur_token = * indx;
   chunk_index = 0;

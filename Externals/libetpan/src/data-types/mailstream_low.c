@@ -30,7 +30,7 @@
  */
 
 /*
- * $Id: mailstream_low.c,v 1.25 2011/03/11 22:13:37 hoa Exp $
+ * $Id: mailstream_low.c,v 1.27 2011/05/04 16:09:54 hoa Exp $
  */
 
 #ifdef HAVE_CONFIG_H
@@ -165,6 +165,7 @@ mailstream_low * mailstream_low_new(void * data,
   s->data = data;
   s->driver = driver;
   s->privacy = 1;
+	s->identifier = NULL;
   
   return s;
 }
@@ -185,8 +186,17 @@ int mailstream_low_get_fd(mailstream_low * s)
   return s->driver->mailstream_get_fd(s);
 }
 
+struct mailstream_cancel * mailstream_low_get_cancel(mailstream_low * s)
+{
+  if (s == NULL)
+    return NULL;
+  return s->driver->mailstream_get_cancel(s);
+}
+
 void mailstream_low_free(mailstream_low * s)
 {
+	free(s->identifier);
+	s->identifier = NULL;
   s->driver->mailstream_free(s);
 }
 
@@ -207,12 +217,18 @@ ssize_t mailstream_low_read(mailstream_low * s, void * buf, size_t count)
   }
 #endif
   
+  if (r < 0) {
+    STREAM_LOG_ERROR(s, 4, buf, 0);
+  }
+  
   return r;
 }
 
 ssize_t mailstream_low_write(mailstream_low * s,
     const void * buf, size_t count)
 {
+  ssize_t r;
+  
   if (s == NULL)
     return -1;
 
@@ -228,7 +244,13 @@ ssize_t mailstream_low_write(mailstream_low * s,
   STREAM_LOG(s, 1, ">>>>>>> end send >>>>>>\n");
 #endif
 
-  return s->driver->mailstream_write(s, buf, count);
+  r = s->driver->mailstream_write(s, buf, count);
+  
+  if (r < 0) {
+    STREAM_LOG_ERROR(s, 4 | 1, buf, 0);
+  }
+  
+  return r;
 }
 
 void mailstream_low_cancel(mailstream_low * s)
@@ -251,4 +273,22 @@ void mailstream_low_log_error(mailstream_low * s,
 void mailstream_low_set_privacy(mailstream_low * s, int can_be_public)
 {
   s->privacy = can_be_public;
+}
+
+int mailstream_low_set_identifier(mailstream_low * s,
+    char * identifier)
+{
+	free(s->identifier);
+	s->identifier = NULL;
+	
+	if (identifier != NULL) {
+		s->identifier = identifier;
+  }
+
+	return 0;
+}
+
+const char * mailstream_low_get_identifier(mailstream_low * s)
+{
+	return s->identifier;
 }

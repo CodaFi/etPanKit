@@ -30,7 +30,7 @@
  */
 
 /*
- * $Id: mailimap_helper.c,v 1.12 2006/06/26 11:50:27 hoa Exp $
+ * $Id: mailimap_helper.c,v 1.13 2011/05/21 23:28:21 hoa Exp $
  */
 
 #ifdef HAVE_CONFIG_H
@@ -53,6 +53,7 @@ int mailimap_fetch_rfc822(mailimap * session,
   struct mailimap_msg_att * msg_att;
   struct mailimap_msg_att_item * item;
   int res;
+  clistiter * cur;
   
   fetch_att = mailimap_fetch_att_new_rfc822();
   fetch_type = mailimap_fetch_type_new_fetch_att(fetch_att);
@@ -64,43 +65,40 @@ int mailimap_fetch_rfc822(mailimap * session,
   mailimap_fetch_type_free(fetch_type);
 
   if (r != MAILIMAP_NO_ERROR) {
-	res = r;
-	goto err;
+    res = r;
+    goto err;
   }
-
+  
   if (clist_isempty(fetch_list)) {
     res = MAILIMAP_ERROR_FETCH;
-	goto free;
+    goto free;
   }
   
   msg_att = (struct mailimap_msg_att *) clist_begin(fetch_list)->data;
-
-  if (clist_isempty(msg_att->att_list)) {
-    res = MAILIMAP_ERROR_FETCH;
-	goto free;
+  
+  for(cur = clist_begin(msg_att->att_list) ; cur != NULL ; cur = clist_next(cur)) {
+    item = (struct mailimap_msg_att_item *) clist_content(cur);
+    
+    if (item->att_type != MAILIMAP_MSG_ATT_ITEM_STATIC) {
+      continue;
+    }
+    if (item->att_data.att_static->att_type != MAILIMAP_MSG_ATT_RFC822) {
+      continue;
+    }
+    
+    * result = item->att_data.att_static->att_data.att_rfc822.att_content;
+    item->att_data.att_static->att_data.att_rfc822.att_content = NULL;
+    mailimap_fetch_list_free(fetch_list);
+    
+    return MAILIMAP_NO_ERROR;
   }
   
-  item = (struct mailimap_msg_att_item *) clist_begin(msg_att->att_list)->data;
-
-  if (item->att_type != MAILIMAP_MSG_ATT_ITEM_STATIC) {
-	res = MAILIMAP_ERROR_FETCH;
-    goto free;
-  }
-  if (item->att_data.att_static->att_type != MAILIMAP_MSG_ATT_RFC822) {
-	res = MAILIMAP_ERROR_FETCH;
-    goto free;
-  }
-  
-  * result = item->att_data.att_static->att_data.att_rfc822.att_content;
-  item->att_data.att_static->att_data.att_rfc822.att_content = NULL;
-  mailimap_fetch_list_free(fetch_list);
-
-  return MAILIMAP_NO_ERROR;
-
+  res = MAILIMAP_ERROR_FETCH;
+	
 free:
-  mailimap_fetch_list_free(fetch_list);
+	mailimap_fetch_list_free(fetch_list);
 err:
-  return res;
+	return res;
 }
 
 int mailimap_fetch_rfc822_header(mailimap * session,
@@ -114,6 +112,7 @@ int mailimap_fetch_rfc822_header(mailimap * session,
   struct mailimap_set * set;
   struct mailimap_msg_att * msg_att;
   struct mailimap_msg_att_item * item;
+  clistiter * cur;
 
   fetch_att = mailimap_fetch_att_new_rfc822_header();
   fetch_type = mailimap_fetch_type_new_fetch_att(fetch_att);
@@ -125,44 +124,40 @@ int mailimap_fetch_rfc822_header(mailimap * session,
   mailimap_fetch_type_free(fetch_type);
 
   if (r != MAILIMAP_NO_ERROR) {
-	res = r;
-	goto err;
+    res = r;
+    goto err;
   }
-
+  
   if (clist_isempty(fetch_list)) {
     res = MAILIMAP_ERROR_FETCH;
-	goto free;
+    goto free;
   }
   
   msg_att = (struct mailimap_msg_att *) clist_begin(fetch_list)->data;
-
-  if (clist_isempty(msg_att->att_list)) {
-    res = MAILIMAP_ERROR_FETCH;
-	goto free;
+  
+  for(cur = clist_begin(msg_att->att_list) ; cur != NULL ; cur = clist_next(cur)) {
+    item = (struct mailimap_msg_att_item *) clist_content(cur);
+    
+    if (item->att_type != MAILIMAP_MSG_ATT_ITEM_STATIC) {
+      continue;
+    }
+    if (item->att_data.att_static->att_type != MAILIMAP_MSG_ATT_RFC822_HEADER) {
+      continue;
+    }
+    
+    * result = item->att_data.att_static->att_data.att_rfc822_header.att_content;
+    item->att_data.att_static->att_data.att_rfc822_header.att_content = NULL;
+    mailimap_fetch_list_free(fetch_list);
+    
+    return MAILIMAP_NO_ERROR;
   }
   
-  item = (struct mailimap_msg_att_item *) clist_begin(msg_att->att_list)->data;
-
-  if (item->att_type != MAILIMAP_MSG_ATT_ITEM_STATIC) {
-	res = MAILIMAP_ERROR_FETCH;
-    goto err;
-  }
-  
-  if (item->att_data.att_static->att_type != MAILIMAP_MSG_ATT_RFC822_HEADER) {
-	res = MAILIMAP_ERROR_FETCH;
-    goto err;
-  }
-
-  * result = item->att_data.att_static->att_data.att_rfc822_header.att_content;
-  item->att_data.att_static->att_data.att_rfc822_header.att_content = NULL;
-  mailimap_fetch_list_free(fetch_list);
-
-  return MAILIMAP_NO_ERROR;
-
+  res = MAILIMAP_ERROR_FETCH;
+	
 free:
-  mailimap_fetch_list_free(fetch_list);
+	mailimap_fetch_list_free(fetch_list);
 err:
-  return res;
+	return res;
 }
 
 int mailimap_fetch_envelope(mailimap * session,

@@ -223,6 +223,12 @@
 - (LEPIMAPRequest *) removeFlagsToMessagesRequest:(NSArray * /* LEPIMAPMessage */)messages flags:(LEPIMAPMessageFlag)flags;
 - (LEPIMAPRequest *) setFlagsToMessagesRequest:(NSArray * /* LEPIMAPMessage */)messages flags:(LEPIMAPMessageFlag)flags;
 
+- (LEPIMAPRequest *) addLabelsToMessagesRequest:(NSArray * /* LEPIMAPMessage */)messages labels:(NSArray*)labels;
+- (LEPIMAPRequest *) addLabelsToMessagesUIDsRequest:(NSArray * /* LEPIMAPMessage */)messages labels:(NSArray*)labels;
+
+- (LEPIMAPRequest *) removeLabelsToMessagesRequest:(NSArray * /* LEPIMAPMessage */)messages labels:(NSArray*)labels;
+- (LEPIMAPRequest *) removeLabelsToMessagesUIDsRequest:(NSArray * /* LEPIMAPMessage */)messages labels:(NSArray*)labels;
+
 - (LEPIMAPIdleRequest *) idleRequest;
 - (LEPIMAPCapabilityRequest *) capabilityRequest;
 
