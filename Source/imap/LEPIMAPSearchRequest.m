@@ -110,7 +110,7 @@ typedef enum {
    return mailimap_search_key_new_or(or1, or2);
 }
 
--(void)dealloc {
+- (void)dealloc {
 	[self.text release];
 	[self.subject release];
 	[self.to release];

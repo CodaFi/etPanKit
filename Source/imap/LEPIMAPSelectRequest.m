@@ -46,8 +46,9 @@
         return;
     }
     
-    [_folder _setUidValidity:[_session uidValidity]];
-    [_folder _setUidNext:[_session uidNext]];
+    [self.folder _setUidValidity:[_session uidValidity]];
+    [self.folder _setUidNext:[_session uidNext]];
+	[self.folder setMessageCount:[self.session messageCount]];
 }
 
 @end
