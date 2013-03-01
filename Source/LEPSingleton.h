@@ -4,13 +4,12 @@
 
 #define LEPSINGLETON(className) \
 { \
-static className * singleton = nil; \
-@synchronized (self) { \
-if (singleton == nil) { \
-singleton = [[className alloc] init]; \
-} \
-} \
-return singleton; \
+static className *sharedInstance = nil; \
+static dispatch_once_t onceToken; \
+dispatch_once(&onceToken, ^{ \
+	sharedInstance = [[className alloc] init]; \
+}); \
+return sharedInstance; \
 }
 
 #endif
