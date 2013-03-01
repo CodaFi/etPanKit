@@ -96,14 +96,14 @@
 }
 
 - (NSString *) mimeTypeForFile:(NSString *)filename {
-	return [self.mimeTypesMap objectForKey:[filename.pathExtension lowercaseString]];
+	return self.mimeTypesMap[filename.pathExtension.lowercaseString];
 }
 
 - (NSString *) pathExtensionForMimeType:(NSString *)mimeType {
-	return [self.extensionsAsMimesMap objectForKey:[mimeType lowercaseString]];
+	return self.extensionsAsMimesMap[mimeType.lowercaseString];
 }
 
-- (void)dealloc {
+- (void) dealloc {
 	[_extensionsAsMimesMap release];
 	[_mimeTypesMap release];
 	[_possibleImageExtensions release];
