@@ -31,7 +31,7 @@
 @property (nonatomic, readonly) uint32_t uidValidity;
 @property (nonatomic, readonly) uint32_t uidNext;
 @property (nonatomic, assign, readonly) int flags;
-@property (nonatomic, assign, readonly) NSUInteger messageCount;
+@property (nonatomic, assign) NSUInteger messageCount;
 
 #pragma mark -
 

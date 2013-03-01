@@ -54,6 +54,7 @@
 @property (nonatomic, readonly, retain) NSArray * resultUidSet;
 @property (nonatomic, readonly, assign) uint32_t uidValidity;
 @property (nonatomic, readonly, assign) uint32_t uidNext;
+@property (nonatomic, readonly, assign) uint32_t messageCount;
 @property (nonatomic, readonly, retain) NSString * welcomeString;
 
 - (void) queueOperation:(LEPIMAPRequest *)request;

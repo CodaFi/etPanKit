@@ -536,6 +536,7 @@ static struct mailimap_set * setFromArray(NSArray * array)
 @synthesize resultUidSet = _resultUidSet;
 @synthesize uidValidity = _uidValidity;
 @synthesize uidNext = _uidNext;
+@synthesize messageCount = _messageCount;
 @synthesize welcomeString = _welcomeString;
 
 - (id) init
@@ -667,7 +668,9 @@ static void items_progress(size_t current, size_t maximum, void * context)
 	if (_state == STATE_LOGGEDIN) {
 		[self _select:mailbox];
 	}
-	if (_state == STATE_SELECTED) {
+	if (_state != STATE_SELECTED) {
+		return;
+	} else {
 		if (![_currentMailbox isEqualToString:mailbox]) {
 			[self _select:mailbox];
 		}
@@ -675,6 +678,11 @@ static void items_progress(size_t current, size_t maximum, void * context)
             if (_imap->imap_selection_info != NULL) {
                 _uidValidity = _imap->imap_selection_info->sel_uidvalidity;
                 _uidNext = _imap->imap_selection_info->sel_uidnext;
+				if (((_imap->imap_selection_info->sel_has_exists) & 0x1) != 0x0) {
+					_messageCount = _imap->imap_selection_info->sel_exists;
+				} else {
+					_messageCount = UINT32_MAX;
+				}
             }
         }
 	}

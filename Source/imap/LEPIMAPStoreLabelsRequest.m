@@ -10,17 +10,17 @@
 
 @implementation LEPIMAPStoreLabelsRequest
 
--(id)init {
+- (id)init {
 	self = [super init];
 	
 	return self;
 }
 
--(void)mainRequest {
+- (void)mainRequest {
 	[self.session _storeLabels:self.labels kind:self.kind messagesUIDs:self.uids path:self.path];
 }
 
--(void)dealloc {
+- (void)dealloc {
 	[self.uids release];
 	[self.path release];
 	
