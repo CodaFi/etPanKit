@@ -16,12 +16,12 @@
 	self = [super init];
 	
 	return self;
-} 
+}
 
 - (void) dealloc
 {
-    [_contentLocation release];
-    [_contentID release];
+	[_contentLocation release];
+	[_contentID release];
 	[_charset release];
 	[_filename release];
 	[_mimeType release];
@@ -33,17 +33,17 @@
 	return [NSString stringWithFormat:@"<%@: 0x%p %@ %@>", [self class], self, [self mimeType], [self filename]];
 }
 
-- (id)initWithCoder:(NSCoder *)decoder
+- (id) initWithCoder:(NSCoder *)decoder
 {
 	self = [super init];
 	
-    _filename = [[decoder decodeObjectForKey:@"filename"] retain];
-    _mimeType = [[decoder decodeObjectForKey:@"mimeType"] retain];
+	_filename = [[decoder decodeObjectForKey:@"filename"] retain];
+	_mimeType = [[decoder decodeObjectForKey:@"mimeType"] retain];
 	_charset = [[decoder decodeObjectForKey:@"charset"] retain];
 	_inlineAttachment = [decoder decodeBoolForKey:@"inlineAttachment"];
 	_contentID = [[decoder decodeObjectForKey:@"contentID"] retain];
 	_contentLocation = [[decoder decodeObjectForKey:@"contentLocation"] retain];
-    
+	
 	return self;
 }
 
@@ -53,16 +53,16 @@
 	[encoder encodeObject:_mimeType forKey:@"mimeType"];
 	[encoder encodeObject:_charset forKey:@"charset"];
 	[encoder encodeBool:_inlineAttachment forKey:@"inlineAttachment"];
-    [encoder encodeObject:_contentID forKey:@"contentID"];
-    [encoder encodeObject:_contentLocation forKey:@"contentLocation"];
+	[encoder encodeObject:_contentID forKey:@"contentID"];
+	[encoder encodeObject:_contentLocation forKey:@"contentLocation"];
 }
 
 - (id) copyWithZone:(NSZone *)zone
 {
-    LEPAbstractAttachment * attachment;
-    
-    attachment = [[[self class] alloc] init];
-    
+	LEPAbstractAttachment *attachment;
+	
+	attachment = [[[self class] alloc] init];
+	
 	[attachment setFilename:[self filename]];
 	[attachment setMimeType:[self mimeType]];
 	[attachment setCharset:[self charset]];
@@ -71,20 +71,20 @@
 	[attachment setInlineAttachment:[self isInlineAttachment]];
 	[attachment setMessage:_message];
 	
-    return attachment;
+	return attachment;
 }
 
--(BOOL)isPlainTextAttachment {
+- (BOOL) isPlainTextAttachment {
 	BOOL result = NO;
 	if (self.isInlineAttachment) {
-		if (![[self.mimeType lowercaseString]isEqualToString:@"text/html"]) {
-			result = [[self.mimeType lowercaseString]isEqualToString:@"text/plain"];
+		if (![[self.mimeType lowercaseString] isEqualToString:@"text/html"]) {
+			result = [[self.mimeType lowercaseString] isEqualToString:@"text/plain"];
 		}
 	}
 	return result;
 }
 
--(NSArray*)plainTextAttachments {
+- (NSArray *) plainTextAttachments {
 	if ([self isPlainTextAttachment]) {
 		return [NSArray arrayWithObject:self];
 	}
@@ -92,6 +92,5 @@
 		return [NSArray array];
 	}
 }
-
 
 @end
