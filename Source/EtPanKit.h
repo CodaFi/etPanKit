@@ -51,3 +51,6 @@
 #import <EtPanKit/LEPMailProvidersManager.h>
 #import <EtPanKit/LEPMailProvider.h>
 #import <EtPanKit/LEPNetService.h>
+#import <EtPanKit/LEPMimeManager.h>
+
+#import <EtPanKit/LEPUtils.h>
