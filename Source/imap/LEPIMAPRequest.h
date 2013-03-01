@@ -27,6 +27,7 @@
 @property (nonatomic, assign, readonly) size_t maximumProgress;
 
 - (void) startRequest;
+- (void) startRequestWithCompletion:(void(^)(LEPIMAPRequest*))completionBlock error:(void(^)(NSError*))errorBlock;
 - (void) cancel;
 
 // can be overridden

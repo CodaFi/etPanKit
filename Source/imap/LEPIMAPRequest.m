@@ -15,6 +15,9 @@
 @property (nonatomic, retain) NSArray * resultUidSet;
 @property (nonatomic, retain) NSString * welcomeString;
 
+@property (nonatomic, copy) void(^completionBlock)();
+@property (nonatomic, copy) void(^errorBlock)(NSError*error);
+
 - (void) _finished;
 
 @end
@@ -42,6 +45,8 @@
     [_resultUidSet release];
 	[_error release];
 	[_session release];
+	[_completionBlock release];
+	[_errorBlock release];
 	[super dealloc];
 }
 
@@ -50,6 +55,15 @@
 	[self retain];
 	_started = YES;
 	[_session queueOperation:self];
+}
+
+- (void) startRequestWithCompletion:(void(^)(LEPIMAPRequest*))completionBlock error:(void(^)(NSError*))errorBlock {
+	[self retain];
+	_started = YES;
+	[_session queueOperation:self];
+	
+	self.completionBlock = completionBlock;
+	self.errorBlock = errorBlock;
 }
 
 - (void) cancel
@@ -102,7 +116,14 @@
 	
 	[self mainFinished];
 	[[self delegate] LEPIMAPRequest_finished:self];
-    
+	
+    if (self.completionBlock != nil && self.error == nil) {
+		self.completionBlock(self);
+	}
+	else if (self.errorBlock != nil && self.error != nil) {
+		self.errorBlock(self.error);
+	}
+	
 	if (_started) {
 		_started = NO;
 		[self release];
