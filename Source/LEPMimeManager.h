@@ -58,21 +58,21 @@
  @param filename An NSString containing the full name of the file.
  @return BOOL.
  */
-- (BOOL)isFilePDF:(NSString*)filename;
+- (BOOL)isFileTypePDF:(NSString*)filename;
 
 /** Returns whether or not a given file is an image based on it's path extension.
  
  @param filename An NSString containing the full name of the file.
  @return BOOL.
  */
-- (BOOL)isFileImage:(NSString*)filename;
+- (BOOL)isFileTypeImage:(NSString*)filename;
 
 /** Returns whether or not a given file is an archive (see above) based on it's path extension.
  
  @param filename An NSString containing the full name of the file.
  @return BOOL.
  */
-- (BOOL)isFileArchive:(NSString*)filename;
+- (BOOL)isFileTypeZip:(NSString*)filename;
 
 
 /** Returns whether or not a given file is a PDF based on it's MIME type.
@@ -101,6 +101,6 @@
  @param mimeType An NSString containing the MIME type of the file.
  @return An NSString containing the extension for a given MIME type.
  */
-- (NSString*)fileExtensionForMimeType:(NSString*)mimeType;
+- (NSString*)pathExtensionForMimeType:(NSString*)mimeType;
 
 @end

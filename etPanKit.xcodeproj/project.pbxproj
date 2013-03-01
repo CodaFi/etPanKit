@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		84789415165D97C6001A5EE0 /* LEPMimeManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 84789413165D97C6001A5EE0 /* LEPMimeManager.h */; };
+		84789415165D97C6001A5EE0 /* LEPMimeManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 84789413165D97C6001A5EE0 /* LEPMimeManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84789416165D97C6001A5EE0 /* LEPMimeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84789414165D97C6001A5EE0 /* LEPMimeManager.m */; };
 		849C49D016617BF0006C7EBE /* LEPIMAPSearchRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 849C49CE16617BF0006C7EBE /* LEPIMAPSearchRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		849C49D116617BF0006C7EBE /* LEPIMAPSearchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 849C49CF16617BF0006C7EBE /* LEPIMAPSearchRequest.m */; };
@@ -24,7 +24,7 @@
 		C617A22B111F4847000FCE35 /* LEPIMAPSelectRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C617A229111F4847000FCE35 /* LEPIMAPSelectRequest.m */; };
 		C62200C910F1559A00A207C0 /* LEPAbstractAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = C62200C810F1559A00A207C0 /* LEPAbstractAttachment.m */; };
 		C62200CB10F155A300A207C0 /* LEPAbstractMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = C62200CA10F155A300A207C0 /* LEPAbstractMessage.m */; };
-		C622010810F15B8F00A207C0 /* LEPUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = C622010710F15B8F00A207C0 /* LEPUtils.h */; };
+		C622010810F15B8F00A207C0 /* LEPUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = C622010710F15B8F00A207C0 /* LEPUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C622010A10F1600500A207C0 /* LEPUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C622010910F1600500A207C0 /* LEPUtils.m */; };
 		C622012D10F1650600A207C0 /* LEPConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = C622012C10F1650600A207C0 /* LEPConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C6304FDA110E62FE00FDD7CA /* LEPIMAPExpungeRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = C6304FD8110E62FE00FDD7CA /* LEPIMAPExpungeRequest.h */; };
@@ -625,9 +625,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C622010810F15B8F00A207C0 /* LEPUtils.h in Headers */,
+				84789415165D97C6001A5EE0 /* LEPMimeManager.h in Headers */,
 				C655A78210F11344009E6B45 /* LEPAbstractAttachment.h in Headers */,
 				C655A78310F11344009E6B45 /* LEPAbstractMessage.h in Headers */,
-				C622010810F15B8F00A207C0 /* LEPUtils.h in Headers */,
 				C622012D10F1650600A207C0 /* LEPConstants.h in Headers */,
 				C681643F10F3EB6100B07764 /* NSData+LEPUTF8.h in Headers */,
 				C681664110F5142D00B07764 /* LEPIMAPAccount.h in Headers */,
@@ -699,7 +700,6 @@
 				C6C65274131170790061B309 /* LEPIMAPNamespaceRequest.h in Headers */,
 				C65BF08713291E3E00372160 /* LEPIMAPCheckRequest.h in Headers */,
 				C6E9BDC91347DF33005F4C2C /* NSData+LEPCharsetDetection.h in Headers */,
-				84789415165D97C6001A5EE0 /* LEPMimeManager.h in Headers */,
 				849C4A041662A790006C7EBE /* LEPIMAPStoreLabelsRequest.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -912,7 +912,7 @@
 				);
 				ICU_LDFLAGS = "$(SRCROOT)/Externals/icu/lib/libicui18n.a $(SRCROOT)/Externals/icu/lib/libicuuc.a $(SRCROOT)/Externals/icu/lib/libicudata.a";
 				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "@loader_path/../Frameworks";
+				INSTALL_PATH = "@executable_path/../Frameworks";
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-lsasl2",
@@ -948,7 +948,7 @@
 				);
 				ICU_LDFLAGS = "$(SRCROOT)/Externals/icu/lib/libicui18n.a $(SRCROOT)/Externals/icu/lib/libicuuc.a $(SRCROOT)/Externals/icu/lib/libicudata.a";
 				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "@loader_path/../Frameworks";
+				INSTALL_PATH = "@executable_path/../Frameworks";
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-lsasl2",
