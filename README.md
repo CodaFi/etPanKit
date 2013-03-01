@@ -68,11 +68,11 @@ The main goal of EtPanKit is to provide a high-quality mail framework with an ea
 
 # News
 
-Version 0.1.1 (Searchin' for something)
+Version 0.2 (Blocky Road)
 
-- Documentation updates for LEPIMAPFolder.
-- Search requests for IMAP servers through LEPIMAPFolder's `-searchRequest` method.
-- EtPanKit now build with two errors, both of them hardcoded in.
+- Documentation updates for LEPMIMEManager
+- Did I mention LEPMIMEManager?
+- Completion and error handling blocks for all request types!
 
 # Contributing
 
