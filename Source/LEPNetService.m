@@ -79,6 +79,17 @@
     return result;
 }
 
+- (NSString*)hostnameWithEmail:(NSString*)email {
+	NSString *result = nil;
+	NSArray *components = [email componentsSeparatedByString:@"@"];
+	if (components.count == 0) {
+		return self.hostname;
+	} else {
+		result = [self.hostname stringByReplacingOccurrencesOfString:@"{domain}" withString:[components lastObject]];
+	}
+	return result;
+}
+
 + (LEPNetService *) netServiceWithInfo:(NSDictionary *)info
 {
     return [[[LEPNetService alloc] initWithInfo:info] autorelease];
