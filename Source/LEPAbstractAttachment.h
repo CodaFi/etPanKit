@@ -1,8 +1,9 @@
 #import <Foundation/Foundation.h>
+#import "LEPRecursiveAttachments.h"
 
 @class LEPAbstractMessage;
 
-@interface LEPAbstractAttachment : NSObject <NSCoding, NSCopying> {
+@interface LEPAbstractAttachment : NSObject <NSCoding, NSCopying, LEPRecursiveAttachments> {
     NSString * _filename;
     NSString * _mimeType;
 	NSString * _charset;
@@ -21,7 +22,5 @@
 @property (nonatomic, assign) LEPAbstractMessage * message;
 
 - (BOOL)isPlainTextAttachment;
-
--(NSArray*)plainTextAttachments;
 
 @end

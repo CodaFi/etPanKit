@@ -84,13 +84,39 @@
 	return result;
 }
 
-- (NSArray *) plainTextAttachments {
+#pragma mark - LEPRecursiveAttachments
+
+- (NSArray *) allAttachments {
+	return [NSArray arrayWithObject:self];
+}
+
+- (NSArray *) plaintextTypeAttachments {
 	if ([self isPlainTextAttachment]) {
 		return [NSArray arrayWithObject:self];
 	}
 	else {
 		return [NSArray array];
 	}
+	return nil;
+}
+
+- (NSArray *) calendarTypeAttachments {
+	if ([self.mimeType.lowercaseString isEqualToString:@"text/calendar"]) {
+		return [NSArray arrayWithObject:self];
+	}
+	return [NSArray array];
+}
+
+- (NSArray *) attachmentsWithContentIDs {
+	if (![self isPlainTextAttachment]) {
+		if (self.contentID != nil) {
+			return [NSArray array];
+		}
+		else {
+			return [NSArray arrayWithObject:self];
+		}
+	}
+	return [NSArray array];
 }
 
 @end

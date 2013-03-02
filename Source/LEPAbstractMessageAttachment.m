@@ -34,20 +34,12 @@
 - (void) setMessage:(LEPAbstractMessage *)message
 {
 	_message = message;
-	for(LEPAbstractAttachment * attachment in _attachments) {
+	for (LEPAbstractAttachment *attachment in _attachments) {
 		[attachment setMessage:message];
 	}
 }
 
--(NSArray*)plainTextAttachments {
-	NSMutableArray *result = [NSMutableArray array];
-	for (LEPAbstractAttachment *attachment in self.attachments) {
-		[result addObjectsFromArray:[attachment plainTextAttachments]];
-	}
-	return result;
-}
-
-- (id)initWithCoder:(NSCoder *)decoder
+- (id) initWithCoder:(NSCoder *)decoder
 {
 	self = [super initWithCoder:decoder];
 	
@@ -66,15 +58,15 @@
 
 - (id) copyWithZone:(NSZone *)zone
 {
-    LEPAbstractMessageAttachment * attachment;
-    
-    attachment = [super copyWithZone:zone];
-    [attachment->_header release];
-    attachment->_header = [self->_header retain];
-    
-	NSMutableArray * attachments;
+	LEPAbstractMessageAttachment *attachment;
+	
+	attachment = [super copyWithZone:zone];
+	[attachment->_header release];
+	attachment->_header = [self->_header retain];
+	
+	NSMutableArray *attachments;
 	attachments = [[NSMutableArray alloc] init];
-	for(LEPAbstractAttachment * subAttachment in [self attachments]) {
+	for (LEPAbstractAttachment *subAttachment in[self attachments]) {
 		[attachments addObject:[[subAttachment copy] autorelease]];
 	}
 	[attachment setAttachments:attachments];
@@ -82,5 +74,43 @@
 	
 	return attachment;
 }
-    
+
+#pragma mark - LEPRecursiveAttachments
+
+- (NSArray *) allAttachments {
+	NSMutableArray *result = [NSMutableArray array];
+	
+	for (LEPAbstractAttachment *attachment in self.attachments) {
+		[result addObjectsFromArray:[attachment allAttachments]];
+	}
+	return result;
+}
+
+- (NSArray *) plaintextTypeAttachments {
+	NSMutableArray *result = [NSMutableArray array];
+	
+	for (LEPAbstractAttachment *attachment in self.attachments) {
+		[result addObjectsFromArray:[attachment plaintextTypeAttachments]];
+	}
+	return result;
+}
+
+- (NSArray *) attachmentsWithContentIDs {
+	NSMutableArray *result = [NSMutableArray array];
+	
+	for (LEPAbstractAttachment *attachment in self.attachments) {
+		[result addObjectsFromArray:[attachment attachmentsWithContentIDs]];
+	}
+	return result;
+}
+
+- (NSArray *) calendarTypeAttachments {
+	NSMutableArray *result = [NSMutableArray array];
+	
+	for (LEPAbstractAttachment *attachment in self.attachments) {
+		[result addObjectsFromArray:[attachment calendarTypeAttachments]];
+	}
+	return result;
+}
+
 @end

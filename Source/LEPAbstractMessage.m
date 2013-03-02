@@ -31,7 +31,7 @@
 	_header = [[LEPMessageHeader alloc] init];
 	
 	return self;
-} 
+}
 
 - (id) _initWithDate:(BOOL)generateDate messageID:(BOOL)generateMessageID
 {
@@ -53,7 +53,7 @@
 	return [NSString stringWithFormat:@"<%@: 0x%p %@ %@>", [self class], self, [[self header] from], [[self header] subject]];
 }
 
-- (id)initWithCoder:(NSCoder *)decoder
+- (id) initWithCoder:(NSCoder *)decoder
 {
 	self = [super init];
 	
@@ -69,7 +69,7 @@
 
 - (id) copyWithZone:(NSZone *)zone
 {
-    LEPAbstractMessage * message;
+	LEPAbstractMessage *message;
 	
 	if ([self class] == [LEPIMAPMessage class]) {
 		BOOL generateDate;
@@ -82,11 +82,48 @@
 	else {
 		message = [[[self class] alloc] init];
 	}
-    
-    [message->_header release];
-    message->_header = [[self header] retain];
-    
-    return message;
+	[message->_header release];
+	message->_header = [[self header] retain];
+	
+	return message;
+}
+
+#pragma mark - LEPRecursiveAttachments
+
+- (NSArray *) allAttachments {
+	NSMutableArray *result = [NSMutableArray array];
+	
+	for (LEPAbstractAttachment *attachment in[(LEPIMAPMessage *)self attachments]) {
+		[result addObjectsFromArray:[attachment allAttachments]];
+	}
+	return result;
+}
+
+- (NSArray *) plaintextTypeAttachments {
+	NSMutableArray *result = [NSMutableArray array];
+	
+	for (LEPAbstractAttachment *attachment in[(LEPIMAPMessage *)self attachments]) {
+		[result addObjectsFromArray:[attachment plaintextTypeAttachments]];
+	}
+	return result;
+}
+
+- (NSArray *) calendarTypeAttachments {
+	NSMutableArray *result = [NSMutableArray array];
+	
+	for (LEPAbstractAttachment *attachment in[(LEPIMAPMessage *)self attachments]) {
+		[result addObjectsFromArray:[attachment calendarTypeAttachments]];
+	}
+	return result;
+}
+
+- (NSArray *) attachmentsWithContentIDs {
+	NSMutableArray *result = [NSMutableArray array];
+	
+	for (LEPAbstractAttachment *attachment in[(LEPIMAPMessage *)self attachments]) {
+		[result addObjectsFromArray:[attachment attachmentsWithContentIDs]];
+	}
+	return result;
 }
 
 @end

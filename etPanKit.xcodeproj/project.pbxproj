@@ -15,6 +15,7 @@
 		849C4A051662A790006C7EBE /* LEPIMAPStoreLabelsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 849C4A031662A790006C7EBE /* LEPIMAPStoreLabelsRequest.m */; };
 		849C4A331662B8CC006C7EBE /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 849C4A321662B8CC006C7EBE /* CFNetwork.framework */; };
 		84A9E13E162A4EE4006737FA /* libetpan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A9E135162A4E8F006737FA /* libetpan.a */; };
+		84AF0CD016E065E4007CC662 /* LEPRecursiveAttachments.h in Headers */ = {isa = PBXBuildFile; fileRef = 84AF0CCF16E065E4007CC662 /* LEPRecursiveAttachments.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 		C6056E2B11397D6400DEB02F /* LEPIMAPAccount+Gmail.h in Headers */ = {isa = PBXBuildFile; fileRef = C6056E2911397D6400DEB02F /* LEPIMAPAccount+Gmail.h */; settings = {ATTRIBUTES = (); }; };
 		C6056E2C11397D6400DEB02F /* LEPIMAPAccount+Gmail.m in Sources */ = {isa = PBXBuildFile; fileRef = C6056E2A11397D6400DEB02F /* LEPIMAPAccount+Gmail.m */; };
@@ -199,6 +200,7 @@
 		849C4A031662A790006C7EBE /* LEPIMAPStoreLabelsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEPIMAPStoreLabelsRequest.m; sourceTree = "<group>"; };
 		849C4A321662B8CC006C7EBE /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		84A9E129162A4E8E006737FA /* libetpan.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libetpan.xcodeproj; path = "Externals/LibEtPan/build-mac/libetpan.xcodeproj"; sourceTree = "<group>"; };
+		84AF0CCF16E065E4007CC662 /* LEPRecursiveAttachments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LEPRecursiveAttachments.h; path = Source/LEPRecursiveAttachments.h; sourceTree = SOURCE_ROOT; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DC2EF5B0486A6940098B216 /* EtPanKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EtPanKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6056E2911397D6400DEB02F /* LEPIMAPAccount+Gmail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LEPIMAPAccount+Gmail.h"; sourceTree = "<group>"; };
@@ -449,6 +451,7 @@
 				C681662B10F5142D00B07764 /* imap */,
 				C69112A211164F1B00623B9F /* rfc2822 */,
 				C681663A10F5142D00B07764 /* smtp */,
+				84AF0CCF16E065E4007CC662 /* LEPRecursiveAttachments.h */,
 				C691100E1116102500623B9F /* LEPAbstractAlternativeAttachment.h */,
 				C691100F1116102500623B9F /* LEPAbstractAlternativeAttachment.m */,
 				C655A77010F11344009E6B45 /* LEPAbstractAttachment.h */,
@@ -625,6 +628,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84AF0CD016E065E4007CC662 /* LEPRecursiveAttachments.h in Headers */,
 				C622010810F15B8F00A207C0 /* LEPUtils.h in Headers */,
 				84789415165D97C6001A5EE0 /* LEPMimeManager.h in Headers */,
 				C655A78210F11344009E6B45 /* LEPAbstractAttachment.h in Headers */,
