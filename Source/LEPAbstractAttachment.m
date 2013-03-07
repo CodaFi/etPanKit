@@ -77,6 +77,7 @@
 - (BOOL) isPlainTextAttachment {
 	BOOL result = NO;
 	if (self.isInlineAttachment) {
+		result = YES;
 		if (![[self.mimeType lowercaseString] isEqualToString:@"text/html"]) {
 			result = [[self.mimeType lowercaseString] isEqualToString:@"text/plain"];
 		}

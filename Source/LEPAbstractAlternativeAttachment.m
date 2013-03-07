@@ -151,6 +151,28 @@
 	return result;
 }
 
+- (NSArray*) attachmentsWithContentIDs {
+	NSMutableArray *result = [NSMutableArray array];
+	NSArray *prefferedAlternative = [self _bodyTypeAttachments];
+	for (LEPAbstractAttachment *attachment in prefferedAlternative) {
+		[result addObjectsFromArray:[attachment attachmentsWithContentIDs]];
+	}
+	if (self.attachments.count != 0) {
+		int counter = 0;
+		do
+		{
+			if (prefferedAlternative != [self.attachments objectAtIndex:counter]) {
+				for (LEPAbstractAttachment *attachment in[self.attachments objectAtIndex : counter]) {
+					[result addObjectsFromArray:[attachment attachmentsWithContentIDs]];
+				}
+			}
+			counter++;
+		}
+		while (counter < self.attachments.count);
+	}
+	return result;
+}
+
 //Try reeeeally really hard to get an HTML attachment out of this.
 - (NSArray *) _bodyTypeAttachments {
 	if (self.attachments.count != 0) {

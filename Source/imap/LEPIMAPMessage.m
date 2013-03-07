@@ -41,12 +41,12 @@
 	self = [super init];
 	
 	return self;
-} 
+}
 
 - (void) dealloc
 {
 	[_attachments release];
-    [_folder release];
+	[_folder release];
 	[super dealloc];
 }
 
@@ -59,7 +59,7 @@
 {
 	[_attachments release];
 	_attachments = [attachments retain];
-	for(LEPAbstractAttachment * attachment in _attachments) {
+	for (LEPAbstractAttachment *attachment in _attachments) {
 		[attachment setMessage:self];
 	}
 }
@@ -67,64 +67,55 @@
 - (void) _setupRequest:(LEPIMAPRequest *)request
 {
 	LEPLog(@"setuprequest : %@ %@", _folder, [_folder account]);
-	[_folder _setupRequest: request];
+	[_folder _setupRequest:request];
 }
 
 - (LEPIMAPFetchMessageStructureRequest *) fetchMessageStructureRequest;
 {
-	LEPIMAPFetchMessageStructureRequest * request;
+	LEPIMAPFetchMessageStructureRequest *request;
 	
 	request = [[LEPIMAPFetchMessageStructureRequest alloc] init];
 	[request setPath:[_folder path]];
 	[request setUid:[self uid]];
 	[request setMessage:self];
 	
-    [self _setupRequest:request];
-    
-    return [request autorelease];
+	[self _setupRequest:request];
+	
+	return [request autorelease];
 }
 
 - (LEPIMAPFetchMessageRequest *) fetchMessageRequest;
 {
-	LEPIMAPFetchMessageRequest * request;
+	LEPIMAPFetchMessageRequest *request;
 	
 	request = [[LEPIMAPFetchMessageRequest alloc] init];
 	[request setPath:[_folder path]];
 	[request setUid:[self uid]];
 	
-    [self _setupRequest:request];
-    
-    return [request autorelease];
+	[self _setupRequest:request];
+	
+	return [request autorelease];
 }
 
 - (LEPIMAPFetchAttachmentRequest *) fetchAttachmentRequestWithPartID:(NSString *)partID
 {
-	LEPIMAPFetchAttachmentRequest * request;
+	LEPIMAPFetchAttachmentRequest *request;
 	
 	request = [[LEPIMAPFetchAttachmentRequest alloc] init];
 	[request setPath:[_folder path]];
 	[request setUid:[self uid]];
 	[request setPartID:partID];
 	[request setEncoding:MAILMIME_MECHANISM_8BIT];
-    [request setSize:0];
+	[request setSize:0];
 	
-    [self _setupRequest:request];
-    
-    return [request autorelease];
-}
-
-
--(NSArray*)textAttachments {
-	NSMutableArray *result = [NSMutableArray array];
-	for (LEPAbstractMessageAttachment *abstractAttachment in self.attachments) {
-		[result addObjectsFromArray:[abstractAttachment plainTextAttachments]];
-	}
-	return result;
+	[self _setupRequest:request];
+	
+	return [request autorelease];
 }
 
 - (NSString *) description
 {
-	return [NSString stringWithFormat:@"<%@: 0x%p %lu %@ %@>", [self class], self, (unsigned long) [self uid], [[self header] from], [[self header] subject]];
+	return [NSString stringWithFormat:@"<%@: 0x%p %lu %@ %@>", [self class], self, (unsigned long)[self uid], [[self header] from], [[self header] subject]];
 }
 
 - (id) initWithCoder:(NSCoder *)coder
@@ -133,7 +124,7 @@
 	
 	_flags = [coder decodeInt32ForKey:@"flags"];
 	_originalFlags = [coder decodeInt32ForKey:@"originalFlags"];
-	_uid = (uint32_t) [coder decodeInt32ForKey:@"uid"];
+	_uid = (uint32_t)[coder decodeInt32ForKey : @"uid"];
 	[self _setAttachments:[coder decodeObjectForKey:@"attachments"]];
 	//LEPLog(@"%@", [self attachments]);
 	
@@ -151,27 +142,26 @@
 
 - (id) copyWithZone:(NSZone *)zone
 {
-    LEPIMAPMessage * message;
-    
-    message = [super copyWithZone:zone];
-    
-    [message setOriginalFlags:[self originalFlags]];
-    [message setFlags:[self flags]];
-    [message _setUid:[self uid]];
-    [message setFolder:[self folder]];
+	LEPIMAPMessage *message;
+	
+	message = [super copyWithZone:zone];
+	
+	[message setOriginalFlags:[self originalFlags]];
+	[message setFlags:[self flags]];
+	[message _setUid:[self uid]];
+	[message setFolder:[self folder]];
 	
 	if ([self attachments] != nil) {
-		NSMutableArray * attachments;
+		NSMutableArray *attachments;
 		
 		attachments = [[NSMutableArray alloc] init];
-		for(LEPAbstractAttachment * attachment in [self attachments]) {
+		for (LEPAbstractAttachment *attachment in[self attachments]) {
 			[attachments addObject:[[attachment copy] autorelease]];
 		}
 		[message _setAttachments:attachments];
 		[attachments release];
 	}
-    
-    return message;
+	return message;
 }
 
 @end

@@ -58,12 +58,12 @@
 }
 
 - (void) startRequestWithCompletion:(void(^)(LEPIMAPRequest*))completionBlock error:(void(^)(NSError*))errorBlock {
+	self.completionBlock = completionBlock;
+	self.errorBlock = errorBlock;
+	
 	[self retain];
 	_started = YES;
 	[_session queueOperation:self];
-	
-	self.completionBlock = completionBlock;
-	self.errorBlock = errorBlock;
 }
 
 - (void) cancel
