@@ -911,12 +911,13 @@
 				GCC_PREFIX_HEADER = etPanKit_Prefix.pch;
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/Externals/libxml2/include/libxml2",
-					/usr/include/libxml2,
-					"$(SRCROOT)/include",
+					"$(SRCROOT)/Externals/libetpan/src/**",
+					"$(SRCROOT)/include/**",
 				);
 				ICU_LDFLAGS = "$(SRCROOT)/Externals/icu/lib/libicui18n.a $(SRCROOT)/Externals/icu/lib/libicuuc.a $(SRCROOT)/Externals/icu/lib/libicudata.a";
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "@executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-lsasl2",
@@ -947,12 +948,13 @@
 				GCC_PREFIX_HEADER = etPanKit_Prefix.pch;
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/Externals/libxml2/include/libxml2",
-					/usr/include/libxml2,
-					"$(SRCROOT)/include",
+					"$(SRCROOT)/Externals/libetpan/src/**",
+					"$(SRCROOT)/include/**",
 				);
 				ICU_LDFLAGS = "$(SRCROOT)/Externals/icu/lib/libicui18n.a $(SRCROOT)/Externals/icu/lib/libicuuc.a $(SRCROOT)/Externals/icu/lib/libicudata.a";
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "@executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-lsasl2",

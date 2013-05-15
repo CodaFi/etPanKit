@@ -2766,6 +2766,10 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/include",
+					"$(SRCROOT)/../../../include/**",
+				);
 				INSTALL_PATH = "";
 				PRODUCT_NAME = etpan;
 				SDKROOT = macosx;
@@ -2780,6 +2784,10 @@
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_MODEL_TUNING = G5;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/include",
+					"$(SRCROOT)/../../../include/**",
+				);
 				INSTALL_PATH = "";
 				PRODUCT_NAME = etpan;
 				SDKROOT = macosx;
