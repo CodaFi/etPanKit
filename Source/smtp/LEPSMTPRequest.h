@@ -22,6 +22,13 @@
 - (void) startRequest;
 - (void) cancel;
 
+/**
+ * Enqueues the operation on an internal session queue and starts it.
+ @param completionBlock A block called when the operation completes without error.
+ @param errorBlock A block called when the operation completes with an error.
+ */
+- (void) startRequestWithCompletion:(void(^)(LEPSMTPRequest*))completionBlock error:(void(^)(NSError*))errorBlock;
+
 // can be overridden
 - (void) mainRequest;
 - (void) mainFinished;

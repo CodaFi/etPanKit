@@ -14,6 +14,8 @@
 @interface LEPSMTPRequest ()
 
 @property (nonatomic, copy) NSError * error;
+@property (nonatomic, copy) void(^completionBlock)();
+@property (nonatomic, copy) void(^errorBlock)(NSError*error);
 
 @end
 
@@ -34,6 +36,8 @@
 {
 	[_error release];
 	[_session release];
+	[_completionBlock release];
+	[_errorBlock release];
 	[super dealloc];
 }
 
@@ -44,6 +48,15 @@
 	LEPLog(@"start request %@", _session);
 	[_session queueOperation:self];
 	LEPLog(@"start request ok");
+}
+
+- (void) startRequestWithCompletion:(void(^)(LEPSMTPRequest*))completionBlock error:(void(^)(NSError*))errorBlock {
+	self.completionBlock = completionBlock;
+	self.errorBlock = errorBlock;
+	
+	[self retain];
+	_started = YES;
+	[_session queueOperation:self];
 }
 
 - (void) cancel
@@ -96,6 +109,13 @@
 		[self release];
 	}
 	[[self delegate] LEPSMTPRequest_finished:self];
+	
+	if (self.completionBlock != nil && self.error == nil) {
+		self.completionBlock(self);
+	}
+	else if (self.errorBlock != nil && self.error != nil) {
+		self.errorBlock(self.error);
+	}
 }
 
 - (size_t) currentProgress
